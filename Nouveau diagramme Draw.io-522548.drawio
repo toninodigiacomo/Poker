@@ -1,0 +1,1277 @@
+<mxfile host="embed.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:139.0) Gecko/20100101 Firefox/139.0" version="27.1.5">
+  <diagram id="Ojs5Lj7-Fgc0MRJYK4QU" name="Page-1">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-1" value="Début" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="144" y="80" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-2" value="Premier tour : Dealer est le joueur" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="242" y="75" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-3" value="&lt;div&gt;Payement de la Blind.&amp;nbsp;&lt;/div&gt;&lt;div&gt;Mise à jour des Chips et du pot&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="237" y="179" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-4" value="Distribution des cartes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="242" y="299" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-5" value="Deux cartes pour le joueur" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="436" y="249" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-6" value="Deux cartes pour l&#39;ordinateur" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="436" y="349" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-7" value="Figures visibles à l&#39;écran (pour le joueur)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="622" y="249" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-8" value="Dos de cartes visibles à l&#39;écran (cartes connues par l&#39;ordinateur)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="622" y="349" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-1" target="IEmIcrt1CM4GeL80ptGL-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="500" as="sourcePoint" />
+            <mxPoint x="200" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-2" target="IEmIcrt1CM4GeL80ptGL-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="262" y="280" as="sourcePoint" />
+            <mxPoint x="312" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-11" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-3" target="IEmIcrt1CM4GeL80ptGL-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="422" y="539" as="sourcePoint" />
+            <mxPoint x="422" y="604" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-12" value="" style="endArrow=classic;html=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-4" target="IEmIcrt1CM4GeL80ptGL-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="362" y="459" as="sourcePoint" />
+            <mxPoint x="362" y="524" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="402" y="329" />
+              <mxPoint x="402" y="279" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-13" value="" style="endArrow=classic;html=1;rounded=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" target="IEmIcrt1CM4GeL80ptGL-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="362" y="329" as="sourcePoint" />
+            <mxPoint x="436" y="509" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="402" y="329" />
+              <mxPoint x="402" y="379" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-14" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-5" target="IEmIcrt1CM4GeL80ptGL-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="502" y="559" as="sourcePoint" />
+            <mxPoint x="552" y="509" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-15" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-6" target="IEmIcrt1CM4GeL80ptGL-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="482" y="549" as="sourcePoint" />
+            <mxPoint x="532" y="499" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-16" value="Message pour validation à quitter le jeu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-52" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-17" target="IEmIcrt1CM4GeL80ptGL-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-53" value="&lt;b&gt;Bet&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-52">
+          <mxGeometry x="-0.5649" relative="1" as="geometry">
+            <mxPoint y="17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-17" value="Dealer : Bet, Pass ou Quit" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="470" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-18" value="" style="endArrow=classic;html=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-8" target="IEmIcrt1CM4GeL80ptGL-17">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="572" y="310" as="sourcePoint" />
+            <mxPoint x="638" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="770" y="379" />
+              <mxPoint x="770" y="430" />
+              <mxPoint x="560" y="430" />
+              <mxPoint x="340" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-19" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-23" target="IEmIcrt1CM4GeL80ptGL-17">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1220" y="412" as="sourcePoint" />
+            <mxPoint x="340" y="472" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="650" y="450" />
+              <mxPoint x="650" y="430" />
+              <mxPoint x="510" y="430" />
+              <mxPoint x="340" y="430" />
+              <mxPoint x="340" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-26" value="&lt;b&gt;No&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-19">
+          <mxGeometry x="-0.9399" relative="1" as="geometry">
+            <mxPoint y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-20" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-17" target="IEmIcrt1CM4GeL80ptGL-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="630" y="406" as="sourcePoint" />
+            <mxPoint x="696" y="406" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-27" value="&lt;b&gt;Quit&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-20">
+          <mxGeometry x="-0.2476" y="1" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-21" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="760" y="485" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-22" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-16" target="IEmIcrt1CM4GeL80ptGL-23">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="526" as="sourcePoint" />
+            <mxPoint x="480" y="526" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-23" value="Yes ou No" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="470" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-24" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-23" target="IEmIcrt1CM4GeL80ptGL-21">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="690" y="515.76" as="sourcePoint" />
+            <mxPoint x="730" y="515.76" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-25" value="&lt;b&gt;Yes&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-24">
+          <mxGeometry x="0.6738" y="-1" relative="1" as="geometry">
+            <mxPoint x="-29" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-33" value="&lt;div&gt;Le Pot va à l&#39;adversaire (mise à jour des Chips).&lt;/div&gt;&lt;div&gt;Suppression des cartes qui sont sur le tapis.&lt;/div&gt;&lt;div&gt;Mélanges du Deck de cartes.&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="9" y="290" width="150" height="91" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-44" value="" style="endArrow=none;html=1;rounded=1;entryX=0.998;entryY=0.436;entryDx=0;entryDy=0;entryPerimeter=0;curved=0;" edge="1" parent="1" target="IEmIcrt1CM4GeL80ptGL-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="770" y="420" as="sourcePoint" />
+            <mxPoint x="780" y="299" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="770" y="275" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-46" value="Changement de Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="24" y="179" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-33" target="IEmIcrt1CM4GeL80ptGL-46">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="399" as="sourcePoint" />
+            <mxPoint x="190" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-50" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-46" target="IEmIcrt1CM4GeL80ptGL-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="180" y="250" as="sourcePoint" />
+            <mxPoint x="200" y="270" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-55" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-51" target="IEmIcrt1CM4GeL80ptGL-54">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="680" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-51" value="Mise à jour du pot et de Chips du Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-54" target="IEmIcrt1CM4GeL80ptGL-110">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-114" value="&lt;b&gt;Call&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-113">
+          <mxGeometry x="0.0838" y="2" relative="1" as="geometry">
+            <mxPoint x="-2" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-54" value="Non-Dealer : Raise, Call, Pass ou Quit" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="710" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-56" value="" style="endArrow=classic;html=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-54" target="IEmIcrt1CM4GeL80ptGL-83">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="450" y="550" as="sourcePoint" />
+            <mxPoint x="520" y="550" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-57" value="&lt;b&gt;Quit&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-56">
+          <mxGeometry x="-0.2476" y="1" relative="1" as="geometry">
+            <mxPoint x="8" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-78" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-72" target="IEmIcrt1CM4GeL80ptGL-92">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-10" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-79" value="&lt;b&gt;Quit&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-78">
+          <mxGeometry x="-0.2341" y="-2" relative="1" as="geometry">
+            <mxPoint x="1" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-72" target="IEmIcrt1CM4GeL80ptGL-111">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-115" value="&lt;b&gt;Call&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-112">
+          <mxGeometry x="0.297" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-72" value="Dealer : Call, Pass ou Quit" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-10" y="600" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-73" target="IEmIcrt1CM4GeL80ptGL-72">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-73" value="Mise à jour du pot et de Chips du Non-Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="109" y="610" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-74" value="" style="endArrow=classic;html=1;rounded=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-54" target="IEmIcrt1CM4GeL80ptGL-73">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="535" y="808" as="sourcePoint" />
+            <mxPoint x="390" y="848" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="170" y="750" />
+              <mxPoint x="170" y="720" />
+              <mxPoint x="170" y="700" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-75" value="&lt;b&gt;Raise&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-74">
+          <mxGeometry x="-0.2476" y="1" relative="1" as="geometry">
+            <mxPoint x="19" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-83" value="Message pour validation à quitter le jeu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="720" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-84" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-87" target="IEmIcrt1CM4GeL80ptGL-54">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1220" y="632" as="sourcePoint" />
+            <mxPoint x="340" y="696" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="650" y="680" />
+              <mxPoint x="500" y="680" />
+              <mxPoint x="340" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-85" value="&lt;b&gt;No&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-84">
+          <mxGeometry x="-0.9399" relative="1" as="geometry">
+            <mxPoint y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-86" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-83" target="IEmIcrt1CM4GeL80ptGL-87">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="760" as="sourcePoint" />
+            <mxPoint x="610" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-87" value="Yes ou No" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="710" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-88" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-87" target="IEmIcrt1CM4GeL80ptGL-90">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="710" y="770" as="sourcePoint" />
+            <mxPoint x="760" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-89" value="&lt;b&gt;Yes&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-88">
+          <mxGeometry x="0.6738" y="-1" relative="1" as="geometry">
+            <mxPoint x="-29" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-90" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="760" y="725" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-99" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-93" target="IEmIcrt1CM4GeL80ptGL-94">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-100" value="&lt;b&gt;Yes&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-99">
+          <mxGeometry x="-0.325" y="3" relative="1" as="geometry">
+            <mxPoint x="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-93" value="Yes ou No" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-170" y="710" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-94" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-155" y="830" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-101" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-92" target="IEmIcrt1CM4GeL80ptGL-93">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-92" value="Message pour validation à quitter le jeu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-190" y="610" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-97" value="" style="endArrow=classic;html=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-93" target="IEmIcrt1CM4GeL80ptGL-72">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="960" y="770" as="sourcePoint" />
+            <mxPoint x="650" y="770" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="10" y="750" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-98" value="&lt;b&gt;No&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-97">
+          <mxGeometry x="-0.9399" relative="1" as="geometry">
+            <mxPoint x="14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-104" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.36;exitY=0.131;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-54" target="IEmIcrt1CM4GeL80ptGL-33">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="455" y="655" as="sourcePoint" />
+            <mxPoint x="90" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="260" y="720" />
+              <mxPoint x="260" y="610" />
+              <mxPoint x="260" y="510" />
+              <mxPoint x="84" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-105" value="&lt;b&gt;Pass&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-104">
+          <mxGeometry x="-0.2476" y="1" relative="1" as="geometry">
+            <mxPoint x="31" y="151" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-106" value="" style="endArrow=classic;html=1;rounded=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-17" target="IEmIcrt1CM4GeL80ptGL-33">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="375" y="809" as="sourcePoint" />
+            <mxPoint x="130" y="470" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="260" y="510" />
+              <mxPoint x="84" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-109" value="&lt;b&gt;Pass&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-106">
+          <mxGeometry x="-0.8857" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-121" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-110" target="IEmIcrt1CM4GeL80ptGL-119">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-110" value="Mise à jour du pot et de Chips du Non-Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="840" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-120" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-111" target="IEmIcrt1CM4GeL80ptGL-119">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-111" value="Mise à jour du pot et de Chips du Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-30" y="840" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-117" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;curved=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-72" target="IEmIcrt1CM4GeL80ptGL-33">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="516" y="659" as="sourcePoint" />
+            <mxPoint x="80" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="30" y="510" />
+              <mxPoint x="84" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-118" value="&lt;b&gt;Pass&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-117">
+          <mxGeometry x="-0.8857" relative="1" as="geometry">
+            <mxPoint y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-177" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-119" target="IEmIcrt1CM4GeL80ptGL-125">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-119" value="Distribution des cartes du Flop" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="122" y="920" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-122" value="Message pour validation à quitter le jeu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="1050" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-123" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-125" target="IEmIcrt1CM4GeL80ptGL-136">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="1160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-124" value="&lt;b&gt;Bet&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-123">
+          <mxGeometry x="-0.5649" relative="1" as="geometry">
+            <mxPoint y="17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-125" value="Dealer : Bet, Pass ou Quit" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="142" y="1040" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-126" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-132" target="IEmIcrt1CM4GeL80ptGL-125">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1060" y="981" as="sourcePoint" />
+            <mxPoint x="180" y="1041" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="490" y="1000" />
+              <mxPoint x="182" y="1000" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-127" value="&lt;b&gt;No&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-126">
+          <mxGeometry x="-0.9399" relative="1" as="geometry">
+            <mxPoint y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-128" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-125" target="IEmIcrt1CM4GeL80ptGL-122">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="470" y="975" as="sourcePoint" />
+            <mxPoint x="536" y="975" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-129" value="&lt;b&gt;Quit&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-128">
+          <mxGeometry x="-0.2476" y="1" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-130" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="600" y="1054" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-131" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-122" target="IEmIcrt1CM4GeL80ptGL-132">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="250" y="1095" as="sourcePoint" />
+            <mxPoint x="320" y="1095" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-132" value="Yes ou No" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="1039" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-133" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-132" target="IEmIcrt1CM4GeL80ptGL-130">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="1084.76" as="sourcePoint" />
+            <mxPoint x="570" y="1084.76" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-134" value="&lt;b&gt;Yes&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-133">
+          <mxGeometry x="0.6738" y="-1" relative="1" as="geometry">
+            <mxPoint x="-29" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-135" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-136" target="IEmIcrt1CM4GeL80ptGL-139">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="1247" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-136" value="Mise à jour du pot et de Chips du Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="122" y="1169" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-137" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-139" target="IEmIcrt1CM4GeL80ptGL-169">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-138" value="&lt;b&gt;Call&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-137">
+          <mxGeometry x="0.0838" y="2" relative="1" as="geometry">
+            <mxPoint x="-2" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-139" value="Non-Dealer : Raise, Call, Pass ou Quit" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="142" y="1277" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-140" value="" style="endArrow=classic;html=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-139" target="IEmIcrt1CM4GeL80ptGL-151">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="1117" as="sourcePoint" />
+            <mxPoint x="360" y="1117" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-141" value="&lt;b&gt;Quit&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-140">
+          <mxGeometry x="-0.2476" y="1" relative="1" as="geometry">
+            <mxPoint x="8" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-142" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-146" target="IEmIcrt1CM4GeL80ptGL-164">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-170" y="1207" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-143" value="&lt;b&gt;Quit&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-142">
+          <mxGeometry x="-0.2341" y="-2" relative="1" as="geometry">
+            <mxPoint x="1" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-144" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-146" target="IEmIcrt1CM4GeL80ptGL-170">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-145" value="&lt;b&gt;Call&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-144">
+          <mxGeometry x="0.297" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-146" value="Dealer : Call, Pass ou Quit" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-170" y="1167" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-147" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-148" target="IEmIcrt1CM4GeL80ptGL-146">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-148" value="Mise à jour du pot et de Chips du Non-Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="1177" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-149" value="" style="endArrow=classic;html=1;rounded=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-139" target="IEmIcrt1CM4GeL80ptGL-148">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="375" y="1375" as="sourcePoint" />
+            <mxPoint x="230" y="1415" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="10" y="1317" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-150" value="&lt;b&gt;Raise&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-149">
+          <mxGeometry x="-0.2476" y="1" relative="1" as="geometry">
+            <mxPoint x="19" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-151" value="Message pour validation à quitter le jeu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="1287" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-152" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-155" target="IEmIcrt1CM4GeL80ptGL-139">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1060" y="1199" as="sourcePoint" />
+            <mxPoint x="180" y="1263" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="490" y="1240" />
+              <mxPoint x="182" y="1240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-153" value="&lt;b&gt;No&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-152">
+          <mxGeometry x="-0.9399" relative="1" as="geometry">
+            <mxPoint y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-154" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-151" target="IEmIcrt1CM4GeL80ptGL-155">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="250" y="1327" as="sourcePoint" />
+            <mxPoint x="450" y="1317" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-155" value="Yes ou No" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="1277" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-156" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-155" target="IEmIcrt1CM4GeL80ptGL-158">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="1337" as="sourcePoint" />
+            <mxPoint x="600" y="1317" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-157" value="&lt;b&gt;Yes&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-156">
+          <mxGeometry x="0.6738" y="-1" relative="1" as="geometry">
+            <mxPoint x="-29" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-158" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="600" y="1292" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-159" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-161" target="IEmIcrt1CM4GeL80ptGL-162">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-160" value="&lt;b&gt;Yes&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-159">
+          <mxGeometry x="-0.325" y="3" relative="1" as="geometry">
+            <mxPoint x="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-161" value="Yes ou No" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-330" y="1277" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-162" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-315" y="1397" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-163" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-164" target="IEmIcrt1CM4GeL80ptGL-161">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-164" value="Message pour validation à quitter le jeu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-350" y="1177" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-165" value="" style="endArrow=classic;html=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-161" target="IEmIcrt1CM4GeL80ptGL-146">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="1337" as="sourcePoint" />
+            <mxPoint x="490" y="1337" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-150" y="1317" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-166" value="&lt;b&gt;No&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-165">
+          <mxGeometry x="-0.9399" relative="1" as="geometry">
+            <mxPoint x="14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-169" value="Mise à jour du pot et de Chips du Non-Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="122" y="1407" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-170" value="Mise à jour du pot et de Chips du Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-190" y="1407" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-172" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-139">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-190.2" y="1146" as="sourcePoint" />
+            <mxPoint x="10" y="330" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="162" y="1260" />
+              <mxPoint x="90" y="1260" />
+              <mxPoint x="90" y="1080" />
+              <mxPoint x="-240" y="1080" />
+              <mxPoint x="-240" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-174" value="&lt;b&gt;Pass&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-172">
+          <mxGeometry x="-0.9172" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-175" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-125">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140" y="1079" as="sourcePoint" />
+            <mxPoint x="10" y="330" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-240" y="1080" />
+              <mxPoint x="-240" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-176" value="&lt;b&gt;Pass&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-175">
+          <mxGeometry x="-0.9246" relative="1" as="geometry">
+            <mxPoint x="29" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-179" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.009;entryY=0.446;entryDx=0;entryDy=0;entryPerimeter=0;curved=0;" edge="1" parent="1" target="IEmIcrt1CM4GeL80ptGL-33">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-130" y="1170" as="sourcePoint" />
+            <mxPoint x="298" y="1130" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-130" y="1080" />
+              <mxPoint x="-240" y="1080" />
+              <mxPoint x="-240" y="331" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-180" value="&lt;b&gt;Pass&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-179">
+          <mxGeometry x="-0.9246" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-235" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;" edge="1" parent="1" target="IEmIcrt1CM4GeL80ptGL-240">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="121" y="1437" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-237" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" target="IEmIcrt1CM4GeL80ptGL-240">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-69" y="1437" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-239" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-240" target="IEmIcrt1CM4GeL80ptGL-244">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-240" value="Distribution des cartes du&amp;nbsp;Turn" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="-37" y="1487" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-241" value="Message pour validation à quitter le jeu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="121" y="1617" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-242" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-244" target="IEmIcrt1CM4GeL80ptGL-255">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="21" y="1727" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-243" value="&lt;b&gt;Bet&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-242">
+          <mxGeometry x="-0.5649" relative="1" as="geometry">
+            <mxPoint y="17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-244" value="Dealer : Bet, Pass ou Quit" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-17" y="1607" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-245" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-251" target="IEmIcrt1CM4GeL80ptGL-244">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="901" y="1548" as="sourcePoint" />
+            <mxPoint x="21" y="1608" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="331" y="1567" />
+              <mxPoint x="23" y="1567" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-246" value="&lt;b&gt;No&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-245">
+          <mxGeometry x="-0.9399" relative="1" as="geometry">
+            <mxPoint y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-247" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-244" target="IEmIcrt1CM4GeL80ptGL-241">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="311" y="1542" as="sourcePoint" />
+            <mxPoint x="377" y="1542" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-248" value="&lt;b&gt;Quit&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-247">
+          <mxGeometry x="-0.2476" y="1" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-249" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="441" y="1621" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-250" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-241" target="IEmIcrt1CM4GeL80ptGL-251">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="91" y="1662" as="sourcePoint" />
+            <mxPoint x="161" y="1662" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-251" value="Yes ou No" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="291" y="1606" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-252" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-251" target="IEmIcrt1CM4GeL80ptGL-249">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="371" y="1651.76" as="sourcePoint" />
+            <mxPoint x="411" y="1651.76" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-253" value="&lt;b&gt;Yes&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-252">
+          <mxGeometry x="0.6738" y="-1" relative="1" as="geometry">
+            <mxPoint x="-29" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-254" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-255" target="IEmIcrt1CM4GeL80ptGL-258">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="21" y="1814" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-255" value="Mise à jour du pot et de Chips du Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-37" y="1736" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-256" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-258" target="IEmIcrt1CM4GeL80ptGL-286">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-257" value="&lt;b&gt;Call&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-256">
+          <mxGeometry x="0.0838" y="2" relative="1" as="geometry">
+            <mxPoint x="-2" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-258" value="Non-Dealer : Raise, Call, Pass ou Quit" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-17" y="1844" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-259" value="" style="endArrow=classic;html=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-258" target="IEmIcrt1CM4GeL80ptGL-270">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="131" y="1684" as="sourcePoint" />
+            <mxPoint x="201" y="1684" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-260" value="&lt;b&gt;Quit&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-259">
+          <mxGeometry x="-0.2476" y="1" relative="1" as="geometry">
+            <mxPoint x="8" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-261" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-265" target="IEmIcrt1CM4GeL80ptGL-283">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-329" y="1774" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-262" value="&lt;b&gt;Quit&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-261">
+          <mxGeometry x="-0.2341" y="-2" relative="1" as="geometry">
+            <mxPoint x="1" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-263" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-265" target="IEmIcrt1CM4GeL80ptGL-287">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-264" value="&lt;b&gt;Call&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-263">
+          <mxGeometry x="0.297" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-265" value="Dealer : Call, Pass ou Quit" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-329" y="1734" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-266" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-267" target="IEmIcrt1CM4GeL80ptGL-265">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-267" value="Mise à jour du pot et de Chips du Non-Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-209" y="1744" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-268" value="" style="endArrow=classic;html=1;rounded=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-258" target="IEmIcrt1CM4GeL80ptGL-267">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="216" y="1942" as="sourcePoint" />
+            <mxPoint x="71" y="1982" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-149" y="1884" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-269" value="&lt;b&gt;Raise&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-268">
+          <mxGeometry x="-0.2476" y="1" relative="1" as="geometry">
+            <mxPoint x="19" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-270" value="Message pour validation à quitter le jeu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="131" y="1854" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-271" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-274" target="IEmIcrt1CM4GeL80ptGL-258">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="901" y="1766" as="sourcePoint" />
+            <mxPoint x="21" y="1830" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="331" y="1807" />
+              <mxPoint x="23" y="1807" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-272" value="&lt;b&gt;No&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-271">
+          <mxGeometry x="-0.9399" relative="1" as="geometry">
+            <mxPoint y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-273" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-270" target="IEmIcrt1CM4GeL80ptGL-274">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="91" y="1894" as="sourcePoint" />
+            <mxPoint x="291" y="1884" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-274" value="Yes ou No" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="291" y="1844" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-275" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-274" target="IEmIcrt1CM4GeL80ptGL-277">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="391" y="1904" as="sourcePoint" />
+            <mxPoint x="441" y="1884" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-276" value="&lt;b&gt;Yes&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-275">
+          <mxGeometry x="0.6738" y="-1" relative="1" as="geometry">
+            <mxPoint x="-29" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-277" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="441" y="1859" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-278" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-280" target="IEmIcrt1CM4GeL80ptGL-281">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-279" value="&lt;b&gt;Yes&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-278">
+          <mxGeometry x="-0.325" y="3" relative="1" as="geometry">
+            <mxPoint x="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-280" value="Yes ou No" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-489" y="1844" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-281" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-474" y="1964" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-282" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-283" target="IEmIcrt1CM4GeL80ptGL-280">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-283" value="Message pour validation à quitter le jeu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-509" y="1744" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-284" value="" style="endArrow=classic;html=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-280" target="IEmIcrt1CM4GeL80ptGL-265">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="641" y="1904" as="sourcePoint" />
+            <mxPoint x="331" y="1904" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-309" y="1884" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-285" value="&lt;b&gt;No&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-284">
+          <mxGeometry x="-0.9399" relative="1" as="geometry">
+            <mxPoint x="14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-286" value="Mise à jour du pot et de Chips du Non-Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-37" y="1974" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-287" value="Mise à jour du pot et de Chips du Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-349" y="1974" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-288" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;curved=0;entryX=0.004;entryY=0.444;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-258" target="IEmIcrt1CM4GeL80ptGL-33">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-349.20000000000005" y="1713" as="sourcePoint" />
+            <mxPoint y="340" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="3" y="1827" />
+              <mxPoint x="-69" y="1827" />
+              <mxPoint x="-69" y="1647" />
+              <mxPoint x="-399" y="1647" />
+              <mxPoint x="-399" y="330" />
+              <mxPoint x="10" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-289" value="&lt;b&gt;Pass&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-288">
+          <mxGeometry x="-0.9172" relative="1" as="geometry">
+            <mxPoint x="17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-290" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-244">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-19" y="1646" as="sourcePoint" />
+            <mxPoint x="10" y="330" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-399" y="1647" />
+              <mxPoint x="-399" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-291" value="&lt;b&gt;Pass&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-290">
+          <mxGeometry x="-0.9246" relative="1" as="geometry">
+            <mxPoint x="46" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-292" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-289" y="1737" as="sourcePoint" />
+            <mxPoint x="10" y="330" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-289" y="1647" />
+              <mxPoint x="-399" y="1647" />
+              <mxPoint x="-399" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-293" value="&lt;b&gt;Pass&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-292">
+          <mxGeometry x="-0.9246" relative="1" as="geometry">
+            <mxPoint y="36" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-294" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;" edge="1" parent="1" target="IEmIcrt1CM4GeL80ptGL-297">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-37" y="2005" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-295" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" target="IEmIcrt1CM4GeL80ptGL-297">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-227" y="2005" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-296" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-297" target="IEmIcrt1CM4GeL80ptGL-301">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-297" value="Distribution des cartes del River" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="-195" y="2055" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-298" value="Message pour validation à quitter le jeu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-37" y="2185" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-299" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-301" target="IEmIcrt1CM4GeL80ptGL-312">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-137" y="2295" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-300" value="&lt;b&gt;Bet&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-299">
+          <mxGeometry x="-0.5649" relative="1" as="geometry">
+            <mxPoint y="17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-301" value="Dealer : Bet, Pass ou Quit" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-175" y="2175" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-302" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-308" target="IEmIcrt1CM4GeL80ptGL-301">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="743" y="2116" as="sourcePoint" />
+            <mxPoint x="-137" y="2176" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="173" y="2135" />
+              <mxPoint x="-135" y="2135" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-303" value="&lt;b&gt;No&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-302">
+          <mxGeometry x="-0.9399" relative="1" as="geometry">
+            <mxPoint y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-304" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-301" target="IEmIcrt1CM4GeL80ptGL-298">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="153" y="2110" as="sourcePoint" />
+            <mxPoint x="219" y="2110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-305" value="&lt;b&gt;Quit&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-304">
+          <mxGeometry x="-0.2476" y="1" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-306" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="283" y="2189" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-307" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-298" target="IEmIcrt1CM4GeL80ptGL-308">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-67" y="2230" as="sourcePoint" />
+            <mxPoint x="3" y="2230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-308" value="Yes ou No" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="133" y="2174" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-309" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-308" target="IEmIcrt1CM4GeL80ptGL-306">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="213" y="2219.76" as="sourcePoint" />
+            <mxPoint x="253" y="2219.76" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-310" value="&lt;b&gt;Yes&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-309">
+          <mxGeometry x="0.6738" y="-1" relative="1" as="geometry">
+            <mxPoint x="-29" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-311" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-312" target="IEmIcrt1CM4GeL80ptGL-315">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-137" y="2382" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-312" value="Mise à jour du pot et de Chips du Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-195" y="2304" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-313" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-315" target="IEmIcrt1CM4GeL80ptGL-343">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-314" value="&lt;b&gt;Call&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-313">
+          <mxGeometry x="0.0838" y="2" relative="1" as="geometry">
+            <mxPoint x="-2" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-315" value="Non-Dealer : Raise, Call, Pass ou Quit" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-175" y="2412" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-316" value="" style="endArrow=classic;html=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-315" target="IEmIcrt1CM4GeL80ptGL-327">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-27" y="2252" as="sourcePoint" />
+            <mxPoint x="43" y="2252" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-317" value="&lt;b&gt;Quit&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-316">
+          <mxGeometry x="-0.2476" y="1" relative="1" as="geometry">
+            <mxPoint x="8" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-318" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-322" target="IEmIcrt1CM4GeL80ptGL-340">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-487" y="2342" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-319" value="&lt;b&gt;Quit&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-318">
+          <mxGeometry x="-0.2341" y="-2" relative="1" as="geometry">
+            <mxPoint x="1" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-320" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-322" target="IEmIcrt1CM4GeL80ptGL-344">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-321" value="&lt;b&gt;Call&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-320">
+          <mxGeometry x="0.297" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-322" value="Dealer : Call, Pass ou Quit" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-487" y="2302" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-323" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-324" target="IEmIcrt1CM4GeL80ptGL-322">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-324" value="Mise à jour du pot et de Chips du Non-Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-367" y="2312" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-325" value="" style="endArrow=classic;html=1;rounded=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-315" target="IEmIcrt1CM4GeL80ptGL-324">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="58" y="2510" as="sourcePoint" />
+            <mxPoint x="-87" y="2550" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-307" y="2452" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-326" value="&lt;b&gt;Raise&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-325">
+          <mxGeometry x="-0.2476" y="1" relative="1" as="geometry">
+            <mxPoint x="19" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-327" value="Message pour validation à quitter le jeu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-27" y="2422" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-328" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-331" target="IEmIcrt1CM4GeL80ptGL-315">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="743" y="2334" as="sourcePoint" />
+            <mxPoint x="-137" y="2398" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="173" y="2375" />
+              <mxPoint x="-135" y="2375" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-329" value="&lt;b&gt;No&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-328">
+          <mxGeometry x="-0.9399" relative="1" as="geometry">
+            <mxPoint y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-330" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-327" target="IEmIcrt1CM4GeL80ptGL-331">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-67" y="2462" as="sourcePoint" />
+            <mxPoint x="133" y="2452" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-331" value="Yes ou No" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="133" y="2412" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-332" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-331" target="IEmIcrt1CM4GeL80ptGL-334">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="233" y="2472" as="sourcePoint" />
+            <mxPoint x="283" y="2452" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-333" value="&lt;b&gt;Yes&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-332">
+          <mxGeometry x="0.6738" y="-1" relative="1" as="geometry">
+            <mxPoint x="-29" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-334" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="283" y="2427" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-335" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-337" target="IEmIcrt1CM4GeL80ptGL-338">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-336" value="&lt;b&gt;Yes&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-335">
+          <mxGeometry x="-0.325" y="3" relative="1" as="geometry">
+            <mxPoint x="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-337" value="Yes ou No" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-647" y="2412" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-338" value="Fin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-632" y="2532" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-339" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-340" target="IEmIcrt1CM4GeL80ptGL-337">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-340" value="Message pour validation à quitter le jeu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-667" y="2312" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-341" value="" style="endArrow=classic;html=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-337" target="IEmIcrt1CM4GeL80ptGL-322">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="483" y="2472" as="sourcePoint" />
+            <mxPoint x="173" y="2472" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-467" y="2452" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-342" value="&lt;b&gt;No&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-341">
+          <mxGeometry x="-0.9399" relative="1" as="geometry">
+            <mxPoint x="14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-355" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-343" target="IEmIcrt1CM4GeL80ptGL-351">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-343" value="Mise à jour du pot et de Chips du Non-Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-195" y="2542" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-356" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-344" target="IEmIcrt1CM4GeL80ptGL-351">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-344" value="Mise à jour du pot et de Chips du Dealer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-507" y="2542" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-345" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;curved=0;entryX=-0.004;entryY=0.438;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-315" target="IEmIcrt1CM4GeL80ptGL-33">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-507.20000000000005" y="2281" as="sourcePoint" />
+            <mxPoint x="-148" y="898" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-155" y="2390" />
+              <mxPoint x="-227" y="2390" />
+              <mxPoint x="-227" y="2215" />
+              <mxPoint x="-557" y="2215" />
+              <mxPoint x="-557" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-346" value="&lt;b&gt;Pass&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-345">
+          <mxGeometry x="-0.9172" relative="1" as="geometry">
+            <mxPoint x="32" y="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-347" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-301">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-177" y="2214" as="sourcePoint" />
+            <mxPoint x="10" y="330" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-557" y="2215" />
+              <mxPoint x="-557" y="330" />
+              <mxPoint x="-190" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-348" value="&lt;b&gt;Pass&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-347">
+          <mxGeometry x="-0.9246" relative="1" as="geometry">
+            <mxPoint x="87" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-349" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-447" y="2305" as="sourcePoint" />
+            <mxPoint x="10" y="330" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-447" y="2215" />
+              <mxPoint x="-557" y="2215" />
+              <mxPoint x="-557" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-350" value="&lt;b&gt;Pass&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="IEmIcrt1CM4GeL80ptGL-349">
+          <mxGeometry x="-0.9246" relative="1" as="geometry">
+            <mxPoint x="8" y="45" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-357" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-351" target="IEmIcrt1CM4GeL80ptGL-352">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-351" value="On retourne les cartes de tous les joueurs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="-361" y="2630" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-359" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-352" target="IEmIcrt1CM4GeL80ptGL-358">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-720" y="2763" />
+              <mxPoint x="-720" y="209" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-352" value="Détermine qui est le vainqueur" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="-361" y="2733" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-360" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IEmIcrt1CM4GeL80ptGL-358" target="IEmIcrt1CM4GeL80ptGL-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IEmIcrt1CM4GeL80ptGL-358" value="&lt;div&gt;Le Pot va au vainqueur (mise à jour des Chips).&lt;/div&gt;&lt;div&gt;Suppression des cartes qui sont sur le tapis.&lt;/div&gt;&lt;div&gt;Mélanges du Deck de cartes.&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="-220" y="163.5" width="150" height="91" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
