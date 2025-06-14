@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/z_Class_Poker.rpy", line 133: keyword argument 'xalign' is incompatible with 'align'.
-    xalign 1.0
-          ^
-
-File "game/z_Class_Poker.rpy", line 134: keyword argument 'yalign' is incompatible with 'align'.
-    yalign 0.9
-          ^
+File "game/z_Class_Poker.rpy", line 59: invalid syntax
+        renpy.say "None, dealer_position"
+                   ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Fri Jun 13 08:05:01 2025
+Sun Jun 15 00:48:03 2025

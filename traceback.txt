@@ -1,70 +1,47 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While processing text tag {} in '{b}Your Chips: 100{\x08}'.:
-  File "game/script.rpy", line 20, in script
-    $ result = ui.interact()
-  File "game/script.rpy", line 20, in <module>
-    $ result = ui.interact()
-Exception: Unknown text tag '\x08'
+While running game code:
+  File "game/script.rpy", line 7, in script call
+    call LB_TEXAS_HOLDEM()
+  File "game/z_Class_Poker.rpy", line 240, in script
+    "The Turn is: [cards_open[3]['rank']] of [cards_open[3]['suit']]."
+IndexError: list index out of range
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 20, in script
-    $ result = ui.interact()
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/ast.py", line 827, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/python.py", line 1178, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 20, in <module>
-    $ result = ui.interact()
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/ui.py", line 301, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/core.py", line 2215, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/core.py", line 2879, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/core.py", line 1381, in draw_screen
-    surftree = renpy.display.render.render_screen(
-  File "render.pyx", line 486, in renpy.display.render.render_screen
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/screen.py", line 752, in render
-    child = renpy.display.render.render(self.child, w, h, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/layout.py", line 1457, in render
-    surf = render(child,
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/layout.py", line 1171, in render
-    surf = render(d, width - x, rh, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/text/text.py", line 2600, in render
-    virtual_layout = Layout(self, width, height, renders, drawable_res=False, size_only=True)
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/text/text.py", line 730, in __init__
-    self.paragraphs = self.segment(text.tokens, style, renders, text)
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/text/text.py", line 1526, in segment
-    raise Exception("Unknown text tag %r" % text)
-Exception: Unknown text tag '\x08'
+  File "game/script.rpy", line 7, in script call
+    call LB_TEXAS_HOLDEM()
+  File "game/z_Class_Poker.rpy", line 240, in script
+    "The Turn is: [cards_open[3]['rank']] of [cards_open[3]['suit']]."
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/ast.py", line 2579, in execute
+    Say.execute(self)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/ast.py", line 621, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/exports/sayexports.py", line 132, in say
+    who(what, *args, **kwargs)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/character.py", line 1440, in __call__
+    what = self.prefix_suffix("what", self.what_prefix, what, self.what_suffix)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/character.py", line 1354, in prefix_suffix
+    return (sub(prefix) + sub(body) + sub(suffix))
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/character.py", line 1334, in sub
+    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/substitutions.py", line 373, in substitute
+    s = interpolate(s, variables) # type: ignore
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/substitutions.py", line 86, in interpolate
+    raise e
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/substitutions.py", line 78, in interpolate
+    value = renpy.python.py_eval(code, {}, scope)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/python.py", line 1209, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "<none>", line 1, in <module>
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/revertable.py", line 214, in __getitem__
+    rv = list.__getitem__(self, index)
+IndexError: list index out of range
 
 macOS-15.5-arm64-arm-64bit arm64
 Ren'Py 8.3.4.24120703
 Poker 1.0
-Fri Jun 13 00:32:24 2025
+Sun Jun 15 00:57:14 2025

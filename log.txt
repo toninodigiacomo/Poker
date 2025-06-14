@@ -1,10 +1,10 @@
-2025-06-13 06:27:53 UTC
+2025-06-14 23:00:45 UTC
 macOS-15.5-arm64-arm-64bit
 Ren'Py 8.3.4.24120703
 
 Early init took 0.03s
 Loading error handling took 0.02s
-Loading script took 0.15s
+Loading script took 0.11s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 Running init code took 0.03s
@@ -29,7 +29,7 @@ Prepare screens took 0.03s
 Save pyanalysis. took 0.01s
 Save bytecode. took 0.02s
 Running _start took 0.00s
-Interface start took 0.55s
+Interface start took 2.11s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 3840, 2160)
