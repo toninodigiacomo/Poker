@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/z_Class_Poker.rpy", line 59: invalid syntax
-        renpy.say "None, dealer_position"
-                   ^
+File "game/z_Class_Poker.rpy", line 242: invalid non-printable character U+00A0
+        elif len(pairs_ranks) >= 2:                                                                                         
+                                            ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Sun Jun 15 00:48:03 2025
+Sun Jun 15 20:54:15 2025

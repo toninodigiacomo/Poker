@@ -1,11 +1,80 @@
-2025-06-14 23:00:45 UTC
+2025-06-15 19:04:54 UTC
 macOS-15.5-arm64-arm-64bit
 Ren'Py 8.3.4.24120703
 
 Early init took 0.03s
 Loading error handling took 0.02s
-Loading script took 0.11s
+Loading script took 0.13s
 Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.01s
+Index archives took 0.00s
+Dump and make backups took 0.02s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.02s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 2.26s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 3840, 2160)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 89.4'
+Display Info: None
+Screen sizes: virtual=(2560, 1440) physical=(2555, 1437) drawable=(2555, 1437)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 7, in script call
+    call LB_TEXAS_HOLDEM()
+  File "game/z_Class_Poker.rpy", line 337, in script
+    $ winner = HANDS_COMPARE(player.hand, computer.hand, cards_open)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/ast.py", line 827, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/z_Class_Poker.rpy", line 337, in <module>
+    $ winner = HANDS_COMPARE(player.hand, computer.hand, cards_open)
+  File "game/z_Class_Poker.rpy", line 137, in HANDS_COMPARE
+    player_evaluated = HAND_EVALUATE(player_hand, list(cards_open))
+  File "game/z_Class_Poker.rpy", line 179, in HAND_EVALUATE
+    unique_ranks_values = sorted(list(set(_rank_to_value(card['rank']) for card in combined)), reverse=True)            # ═══► Check for Straight
+NameError: name '_rank_to_value' is not defined
+
+While running game code:
+  File "game/script.rpy", line 7, in script call
+    call LB_TEXAS_HOLDEM()
+  File "game/z_Class_Poker.rpy", line 337, in script
+    $ winner = HANDS_COMPARE(player.hand, computer.hand, cards_open)
+  File "game/z_Class_Poker.rpy", line 337, in <module>
+    $ winner = HANDS_COMPARE(player.hand, computer.hand, cards_open)
+  File "game/z_Class_Poker.rpy", line 137, in HANDS_COMPARE
+    player_evaluated = HAND_EVALUATE(player_hand, list(cards_open))
+  File "game/z_Class_Poker.rpy", line 179, in HAND_EVALUATE
+    unique_ranks_values = sorted(list(set(_rank_to_value(card['rank']) for card in combined)), reverse=True)            # ═══► Check for Straight
+NameError: name '_rank_to_value' is not defined
+Resetting cache.
+Early init took 95.74s
+Loading error handling took 0.11s
+Loading script took 0.38s
+Loading save slot metadata took 0.10s
 Loading persistent took 0.00s
 Running init code took 0.03s
 Loading analysis data took 0.01s
@@ -16,7 +85,7 @@ Backing up script files to '/Users/toninodigiacomo/Library/RenPy/backups/Poker':
 Dump and make backups took 0.03s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.02s
+Initial gc took 0.03s
 DPI scale factor: 1.000000
 Creating interface object took 0.00s
 Cleaning stores took 0.00s
@@ -26,10 +95,10 @@ Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.01s
 Prepare screens took 0.03s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.02s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
 Running _start took 0.00s
-Interface start took 2.11s
+Interface start took 0.19s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 3840, 2160)
@@ -39,5 +108,438 @@ Vendor: "b'Apple'"
 Renderer: b'Apple M1'
 Version: b'2.1 Metal - 89.4'
 Display Info: None
-Screen sizes: virtual=(2560, 1440) physical=(2560, 1440) drawable=(2560, 1440)
+Screen sizes: virtual=(2560, 1440) physical=(2555, 1437) drawable=(2555, 1437)
 Maximum texture size: 4096x4096
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Player hand assessment [player_evaluated]
+Computer hand assessment [computer_evaluated]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Player hand assessment [player_evaluated]
+Computer hand assessment [computer_evaluated]
+Dealer before switch [dealer_position]
+Dealer after switch [dealer_position]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Player hand assessment [player_evaluated]
+Computer hand assessment [computer_evaluated]
+Dealer before switch [dealer_position]
+Dealer after switch [dealer_position]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Player hand assessment [player_evaluated]
+Computer hand assessment [computer_evaluated]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Player hand assessment [player_evaluated]
+Computer hand assessment [computer_evaluated]
+Dealer before switch [dealer_position]
+Dealer after switch [dealer_position]
+Resetting cache.
+Early init took 282.00s
+Loading error handling took 0.11s
+Loading script took 0.36s
+Loading save slot metadata took 0.09s
+Loading persistent took 0.00s
+Running init code took 0.04s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.01s
+Index archives took 0.00s
+Backing up script files to '/Users/toninodigiacomo/Library/RenPy/backups/Poker':
+Dump and make backups took 0.03s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.000000
+Creating interface object took 0.01s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.03s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.05s
+Interface start took 0.21s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 3840, 2160)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Apple'"
+Renderer: b'Apple M1'
+Version: b'2.1 Metal - 89.4'
+Display Info: None
+Screen sizes: virtual=(2560, 1440) physical=(2555, 1437) drawable=(2555, 1437)
+Maximum texture size: 4096x4096
+Dealer before switch [dealer_position]
+Dealer after switch [dealer_position]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Player hand assessment [player_evaluated]
+Computer hand assessment [computer_evaluated]
+Dealer before switch [dealer_position]
+Dealer after switch [dealer_position]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Player hand assessment [player_evaluated]
+Computer hand assessment [computer_evaluated]
+Dealer before switch [dealer_position]
+Dealer after switch [dealer_position]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Player hand assessment [player_evaluated]
+Computer hand assessment [computer_evaluated]
+Dealer before switch [dealer_position]
+Dealer after switch [dealer_position]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Player hand assessment [player_evaluated]
+Computer hand assessment [computer_evaluated]
+Dealer before switch [dealer_position]
+Dealer after switch [dealer_position]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Player hand assessment [player_evaluated]
+Computer hand assessment [computer_evaluated]
+Dealer before switch [dealer_position]
+Dealer after switch [dealer_position]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Player hand assessment [player_evaluated]
+Computer hand assessment [computer_evaluated]
+Dealer before switch [dealer_position]
+Dealer after switch [dealer_position]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Rank: [rank]
+Player hand assessment [player_evaluated]
+Computer hand assessment [computer_evaluated]
