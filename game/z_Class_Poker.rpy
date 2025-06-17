@@ -3,8 +3,49 @@
 # ║║  Global variables
 # ║╚════════════════════════════════════════════════════════════════════════════
 # ╚═════════════════════════════════════════════════════════════════════════════
-define DEALER       = ""
-define POKER_CHEAT  = False
+define DEALER                   = ""
+define POKER_CHEAT              = False
+define PLAY                     = True
+define WINNER_MESSAGE           = ""
+define WINNER                   = ["", ""]
+define SMALL_BLIND              = 5
+define BIG_BLIND                = 10
+define POKER_AI_AGGRESSION      = 3 # De 1 (passif) à 5 (très agressif)
+define PREFLOP                  = True
+define FLOP                     = True
+define TURN                     = True
+define RIVER                    = True
+
+# ╔═════════════════════════════════════════════════════════════════════════════
+# ║╔════════════════════════════════════════════════════════════════════════════
+# ║║  Global Text Style
+# ║╚════════════════════════════════════════════════════════════════════════════
+# ╚═════════════════════════════════════════════════════════════════════════════
+style STYLE_CHOICE_BUTTON_LIME:
+    font "Futura.ttc"
+    size 32
+    idle_color "#FFFFFF"
+    hover_color "#00FF00"
+    insensitive_color "#808080"
+    outlines [ (absolute(2), "#000", absolute(1), absolute(1)) ]
+# End style
+style STYLE_CHOICE_BUTTON_ORANGE:
+    font "Futura.ttc"
+    size 32
+    idle_color "#FFFFFF"
+    hover_color "#FF6600"
+    insensitive_color "#808080"
+    outlines [ (absolute(2), "#000", absolute(1), absolute(1)) ]
+# End style
+style STYLE_CHOICE_BUTTON_RED:
+    font "Futura.ttc"
+    size 32
+    idle_color "#FFFFFF"
+    hover_color "#FF0000"
+    insensitive_color "#808080"
+    outlines [ (absolute(2), "#000", absolute(1), absolute(1)) ]
+# End style
+
 # ╔═════════════════════════════════════════════════════════════════════════════
 # ║╔════════════════════════════════════════════════════════════════════════════
 # ║║  Python code block for Texas Hold'Em Classes
@@ -33,10 +74,19 @@ init python:
     class CL_PLAYER:
         # ► This class represents a player in the game.
         def __init__(self, name, chips):
-            self.name = name                                                                            # ═══► Player's name
-            self.chips = chips                                                                          # ═══► Player's available chips
-            self.hand = []                                                                              # ═══► Player's hand (two cards)
-            self.currentBet = 0                                                                         # ═══► Player's current bet in the round
+            self.name       = name                                                                                          # ═══► Player's name
+            self.chips      = chips                                                                                         # ═══► Player's available chips
+            self.hand       = []                                                                                            # ═══► Player's hand (two cards)
+            self.currentBet = 0                                                                                             # ═══► Player's current bet in the round
+            self.isFolded   = False                                                                                         # ═══► Find out if the player fold
+        # End def
+        def fold(self):
+            self.isFolded   = True
+        # End def
+        def resetForNewHand(self):
+            self.hand       = []
+            self.currentBet = 0
+            self.isFolded   = False
         # End def
         def resetBet(self):
             self.currentBet = 0
@@ -69,32 +119,32 @@ init python:
         computer = CL_PLAYER(str_Computer, int_Chips)
         deck = CL_DECK()                                                                                                    # ═══► Initialize a shuffled deck
     # End def
-    def BETTING_ROUND():                                                                                                    # ═══► Function for a betting round
+    def BETTING_ROUND(dealer, bet):                                                                                           # ═══► Function for a betting round
         global pot
-        player.resetBet()                                                                               # ═══► Reset players' current bets
-        computer.resetBet()
-        # Example: Player decides to bet 10 chips
-        player.current_bet = 10
-        player.chips -= 10
-        pot += 10
-
-        # AI decides to call the bet
-        computer.current_bet = 10
-        computer.chips -= 10
-        pot += 10
+        if turn == "player":
+            player.resetBet()
+            player.current_bet = bet
+            player.chips -= 10
+            pot += 10
+        else:
+            computer.resetBet()
+            computer.current_bet = 10
+            computer.chips -= 10
+            pot += 10
+        # End if
     # End def
     def BLINDS(dealer_position):
-        global pot                                                                                      # ═══► Define a function to handle the blinds
-        small_blind = 10
-        #big_blind = 20
+        global pot                                                                                                          # ═══► Define a function to handle the blinds
+        small_blind = 5
+        big_blind = 10
         if dealer_position == "player":
-            player.chips -= small_blind
-            #ai.chips -= big_blind
-            pot += small_blind #+ big_blind
+            player.chips    -= small_blind
+            computer.chips  -= big_blind
+            pot += small_blind + big_blind
         else:
-            computer.chips -= small_blind
-            #player.chips -= big_blind
-            pot += small_blind #+ big_blind
+            computer.chips  -= small_blind
+            player.chips    -= big_blind
+            pot += small_blind + big_blind
         # End if
     # End def
     def CARDS_DEAL():                                                                                                       # ═══► Function to distribute cards to players
@@ -108,7 +158,13 @@ init python:
         global cards_open
         cards_open = []
     # End def
-    def CARDS_OPEN_REVEAL(count):                                                                                           # ═══► Function to reveal open cards
+    def CARDS_OPEN_REVEAL(state):                                                                                           # ═══► Function to reveal open cards
+        count = 0
+        if state == "FLOP":
+            count = 3
+        elif state == "TURN" or state == "RIVER":
+            count = 1
+        # End if
         cards_open.extend(deck.draw(count))
     # End def
     def CARDS_PLAYERS_RESET():                                                                                              # ═══► Function to reset players cards
@@ -116,7 +172,7 @@ init python:
         computer.hand = []
     # End def
     def DEALER_RANDOM():                                                                                                    # ═══► Function to switch the dealer position
-        dealer_position = renpy.random.choice(["player", "computer"])                                   # ═══► Randomly choose who starts as the dealer
+        dealer_position = renpy.random.choice(["player", "computer"])                                                       # ═══► Randomly choose who starts as the dealer
         return dealer_position
     # End def
     def DEALER_SWITCH(dealer_position):                                                                                     # ═══► Function to switch the dealer position
@@ -176,7 +232,7 @@ init python:
             # End if
         # End for
         is_flush = (flush_suit is not None)
-        unique_ranks_values = sorted(list(set(RANK_TO_VALUE(card['rank']) for card in combined)), reverse=True)            # ═══► Check for Straight
+        unique_ranks_values = sorted(list(set(RANK_TO_VALUE(card['rank']) for card in combined)), reverse=True)             # ═══► Check for Straight
         if 14 in unique_ranks_values:                                                                                       # ═══► Add Ace as 1 for the bass fifth (A-2-3-4-5)
             unique_ranks_values.append(1)
         # End if
@@ -218,7 +274,7 @@ init python:
                 remaining_pairs.append(min([r for r in three_of_a_kind_ranks if r != full_house_3_rank]))
             # End if
             if not remaining_pairs:                                                                                         # ═══► Case where there is no pair after the three of a kind (unlikely but for robustness)
-                all_ranks = [RANK_TO_VALUE(card['rank']) for card in combined]                                             # ═══► Look for the best pair among all the cards to form a full house
+                all_ranks = [RANK_TO_VALUE(card['rank']) for card in combined]                                              # ═══► Look for the best pair among all the cards to form a full house
                 temp_counts = Counter(all_ranks)
                 potential_pairs = sorted([r for r, c in temp_counts.items() if c >= 2 and r != full_house_3_rank], reverse=True)
                 if potential_pairs:
@@ -254,17 +310,152 @@ init python:
             return (HAND_RANKING.index("High Card"), *high_cards)
         #End if
     # End def
-    def DECIDE_ACTION(hand, cards_open, pot, opponent_bet):
-        strength_tuple = HAND_EVALUATE(hand, cards_open)                                                                    # ═══► Evaluating the hand returns a tuple, so all we need is the hand type
-        strength = HAND_RANKING[strength_tuple[0]]                                                                          # ═══► Retrieves the name of the hand
-        strong_hands = ["Straight", "Flush", "Full House", "Four of a Kind", "Straight Flush"]
-        if strength in strong_hands:
-            return "Raise"
-        elif strength == "One Pair" or strength == "Two Pair":
-            return "Call" if opponent_bet <= pot * 0.5 else "Fold"
-        else:
-            return "Fold"
+    # ╭─────────────────────────────────────────────────────────────────────────
+    # │  AI Decision Logic
+    # ╰─────────────────────────────────────────────────────────────────────────
+    def DECIDE_ACTION_AI(ai_hand, community_cards, current_bet_to_match, ai_chips, opponent_chips, aggression_level_param, num_community_cards_revealed):
+        # ► Determines the action (Fold, Call, Raise, Check) of the AI according to its hand, community cards, current bet, chips and level of aggressiveness.
+        # ►   Returns (action, bet_amount)
+        # ►     action     ═══► "Fold", "Call", "Raise", "Check", "Bet"
+        # ►     bet_amount ═══►The total amount to bet/raise (not just the difference).
+        ai_hand_eval     = HAND_EVALUATE(ai_hand, community_cards)                                                           # ═══► Evaluate the current strength of the AI's hand
+        hand_rank_index  = ai_hand_eval[0]                                                                                   # ═══► 0 for High Card, up to 8 for Straight Flush
+        agg_factor       = aggression_level_param / 5.0                                                                      # ═══► Standardised aggressiveness factor (0.2 for passive, 1.0 for very aggressive)
+        cost_to_call     = current_bet_to_match                                                                              # ═══► Cost of tracking current stake, if applicable
+        # ► Determine the “tier” of hand strength for AI
+        is_strong_hand   = False
+        is_medium_hand   = False
+        is_decent_hand   = False
+        # ► Hand strength adjustments based on stage of play (pre-flop, flop, turn, river)
+        # ► The strength of a hand is more "potential" pre-flop.
+        if num_community_cards_revealed == 0: # Pré-Flop
+            rank1        = _rank_to_value(ai_hand[0]['rank'])
+            rank2        = _rank_to_value(ai_hand[1]['rank'])
+            is_suited    = ai_hand[0]['suit'] == ai_hand[1]['suit']
+            is_connected = abs(rank1 - rank2) == 1 and max(rank1, rank2) <= RANK_VALUES['Q']                                # ═══► Connected cards (not A-K, A-Q etc)
+            if rank1 == rank2:                                                                                              # ═══► Pair served
+                if rank1 >= RANK_VALUES['T']: is_strong_hand = True                                                         # ═══► TT+
+                elif rank1 >= RANK_VALUES['7']: is_medium_hand = True                                                       # ═══► 77-99
+                else: is_decent_hand = True                                                                                 # ═══► 22-66
+            elif max(rank1, rank2) >= RANK_VALUES['A'] and min(rank1, rank2) >= RANK_VALUES['T']:                           # ═══► AK, AQ, AJ
+                if is_suited: is_strong_hand = True
+                else: is_medium_hand = True
+            elif is_suited and max(rank1, rank2) >= RANK_VALUES['T']:                                                       # ═══► Suited high cards (KQ, KJ, QJ, etc.)
+                is_medium_hand = True
+            elif is_suited and is_connected and max(rank1, rank2) >= RANK_VALUES['7']:                                      # ═══► Suited connectors 78s+
+                is_decent_hand = True
+            elif (max(rank1, rank2) >= RANK_VALUES['Q'] and min(rank1, rank2) >= RANK_VALUES['9']):                         # ═══► Unsuited broadways QJ, KT etc
+                is_decent_hand = True
+            else:
+                pass                                                                                                        # ═══► Remains weak
+            #End if
+        else:                                                                                                               # ═══► Post-flop: evaluate the hand and the draw potential
+            if hand_rank_index >= HAND_RANKING.index("Straight"):
+                is_strong_hand = True
+            elif hand_rank_index >= HAND_RANKING.index("Two Pair"):
+                is_medium_hand = True
+            elif hand_rank_index >= HAND_RANKING.index("One Pair"):
+                pair_rank = ai_hand_eval[1]                                                                                 # ═══► For a pair, consider the strength of the pair and the kickers
+                if pair_rank >= RANK_VALUES['J']:                                                                           # ═══► High Pair (JJ+)
+                    is_medium_hand = True
+                else:                                                                                                       # ═══► Weak Pair
+                    is_decent_hand = True
+                # End if
+            # End if
         # End if
+        # ► Drawings (Flush draw, Straight draw)
+        # ► This is a simplification. A more complex AI would calculate the outs.
+        # ► For the moment, it's based on the curetn hand calculation
+        action = "Fold"                                                                                                     # ═══► Action decision
+        bet_amount = 0                                                                                                      # ═══► Total amount the AI will bet in the pot for its next action
+        if current_bet_to_match == 0:                                                                                       # ═══► If the AI is the first to speak (current_bet_to_match is 0)
+            if is_strong_hand:
+                action = "Bet"
+                bet_amount = BIG_BLIND * 2 if agg_factor >= 0.7 and ai_chips >= BIG_BLIND * 2 else BIG_BLIND
+            elif is_medium_hand:
+                action = "Bet"
+                bet_amount = BIG_BLIND if agg_factor >= 0.5 and ai_chips >= BIG_BLIND else 0                                # ═══► If not aggressive enough or no chips, check
+                if bet_amount == 0:
+                    action = "Check"
+                # End if
+            elif is_decent_hand:
+                if agg_factor > 0.7 and ai_chips >= BIG_BLIND:                                                              # ═══► Aggressive enough to make a small bet/bluff
+                    action = "Bet"
+                    bet_amount = BIG_BLIND
+                else:
+                    action = "Check"                                                                                        # ═══► Passive, check
+                # End if
+            else:                                                                                                           # ═══► Weak hand
+                if agg_factor > 0.9 and ai_chips >= SMALL_BLIND:                                                            # ═══► Bluff very aggressive
+                    action = "Bet"
+                    bet_amount = SMALL_BLIND                                                                                # ═══► Very small bluff, to probe
+                else:
+                    action = "Check"
+                # End if
+            # End if
+        else:
+            # ► Ratio of call cost to AI tokens
+            # ► Checks whether the AI can at least track the bet
+            if ai_chips < cost_to_call:                                                                                     # ═══► Not enough chips to call, must have to fold or go all-in
+                if ai_chips > 0 and ai_chips >= (cost_to_call * (0.5 - agg_factor * 0.1)):
+                    action = "Call"                                                                                         # ═══► All-in for Call
+                    bet_amount = ai_chips
+                else:
+                    action = "Fold"
+                    bet_amount = 0
+                # End if
+                return action, int(bet_amount)                                                                              # ═══► Early exit if fold or partial all-in
+            # End if
+            if is_strong_hand:                                                                                              # ═══► If AI can keep up with the
+                if agg_factor > 0.4:                                                                                        # ═══► Agressive
+                    action = "Raise"
+                    raise_increment = BIG_BLIND * 2 if agg_factor >= 0.7 and ai_chips >= current_bet_to_match + (BIG_BLIND * 2) else BIG_BLIND
+                    bet_amount = current_bet_to_match + raise_increment
+                else:                                                                                                       # ═══► Less aggressive, just Call
+                    action = "Call"
+                    bet_amount = current_bet_to_match
+                # End if
+            elif is_medium_hand:
+                if agg_factor > 0.6:                                                                                        # ═══► Aggressive mid-range AI could Raise
+                    action = "Raise"
+                    raise_increment = BIG_BLIND if ai_chips >= current_bet_to_match + BIG_BLIND else 0
+                    if raise_increment > 0:
+                        bet_amount = current_bet_to_match + raise_increment
+                    else:                                                                                                   # ═══► Cannot raise, must Call or Fold
+                        action = "Call"
+                        bet_amount = current_bet_to_match
+                    # End if
+                else:
+                    action = "Call"
+                    bet_amount = current_bet_to_match
+                # End if
+            elif is_decent_hand:
+                if agg_factor > 0.4 and ai_chips >= current_bet_to_match:                                                   # ═══► IA not agressive
+                    action = "Call"
+                    bet_amount = current_bet_to_match
+                else:
+                    action = "Fold"
+                    bet_amount = 0
+                # End if
+            else:                                                                                                           # ═══► Weak hand
+                if agg_factor > 0.95 and ai_chips >= current_bet_to_match and random.random() < 0.2:                        # ═══► Occasional very aggressive Bluff
+                    action = "Call"                                                                                         # ═══► Just Call to Bluff
+                    bet_amount = current_bet_to_match
+                else:
+                    action = "Fold"
+                    bet_amount = 0
+                # End if
+            # End if
+        # End if
+        # ► Final adjustments for chips (All-in if the desired stake exceeds the chips)
+        if action != "Fold" and bet_amount > ai_chips:
+            bet_amount = ai_chips
+            if bet_amount < current_bet_to_match and current_bet_to_match > 0:                                              # ═══► If all-in amount is less than current bet, it's a fold
+                action = "Fold"
+                bet_amount = 0
+            # End if
+        # End if
+        return action, int(bet_amount)                                                                                      # ═══► Ensure bet_amount is an integer
     # End def
 # End python
 
@@ -273,7 +464,7 @@ init python:
 # ║║  Texas Hold'Em
 # ║╚════════════════════════════════════════════════════════════════════════════
 # ╚═════════════════════════════════════════════════════════════════════════════
-label LB_TEXAS_HOLDEM(str_Player="Player", str_Computer="Computer"):
+label LB_TEXAS_HOLDEM(str_Player="Player", str_Computer="Computer", int_Bet=10):
     $ INITIALIZE_GAME(str_Player, str_Computer)                                                                             # ═══► Initialize the game
     $ DEALER = DEALER_RANDOM()
     show screen SC_HAND_PLAYER()
@@ -281,87 +472,154 @@ label LB_TEXAS_HOLDEM(str_Player="Player", str_Computer="Computer"):
 
     # Main game loop
     while True:
+        $ PREFLOP = True
+        $ FLOP    = True
+        $ TURN    = True
+        $ RIVER   = True
         $ DECK_RESET()
         $ POT_RESET(0)
         $ CARDS_OPEN_RESET()
         $ CARDS_PLAYERS_RESET()
-        # Display the current dealer
-        if DEALER == "player":
-            "You are the dealer."
-        else:
-            "[str_Computer] is the dealer."
-        $ winner = ["",""]
-
-        # Post blinds and update pot
-        $ BLINDS(DEALER)
-        "Blinds have been posted. The pot is now [pot] chips."
-
-        # Deal hole cards
-        $ CARDS_DEAL()
-        "You have been dealt: [player.hand[0]['rank']] of [player.hand[0]['suit']] and [player.hand[1]['rank']] of [player.hand[1]['suit']]."
-        show screen SC_HAND_PLAYER()
+        $ DEALER = DEALER_SWITCH(DEALER)
+        show screen SC_DEALER_CHIP(DEALER)
+        $ BLINDS(DEALER)                                                                                                    # ═══► Post blinds and update pot
+        $ CARDS_DEAL()                                                                                                      # ═══► Deal players cards
+#        "You have been dealt: [player.hand[0]['rank']] of [player.hand[0]['suit']] and [player.hand[1]['rank']] of [player.hand[1]['suit']]."
         show screen SC_HAND_COMPUTER()
-
-        # First betting round
-        $ BETTING_ROUND()
-        "The pot is now [pot] chips."
-
-        # Reveal the Flop
-        $ CARDS_OPEN_REVEAL(3)
-        "The Flop is: [cards_open[0]['rank']] of [cards_open[0]['suit']], [cards_open[1]['rank']] of [cards_open[1]['suit']], and [cards_open[2]['rank']] of [cards_open[2]['suit']]."
+        show screen SC_HAND_PLAYER()
+        if DEALER == "player":
+            while PREFLOP == True:
+                call screen SC_ACTION_PLAYER("PREFLOP", "")
+                $ value = _return
+                if value == "Call":
+                    $ BETTING_ROUND("player", int_Bet)
+                    $ PREFLOP = False
+                elif value == "Raise":
+                    $ BETTING_ROUND("player", int_Bet)
+                    $ BETTING_ROUND("player", int_Bet)
+                    $ PREFLOP = True
+                elif value == "Fold":
+                    $ game_status = _result
+                    $ PREFLOP = False
+                # End if
+            # End while
+        # End if
+        $ CARDS_OPEN_REVEAL("FLOP")
         show screen SC_OPEN_CARDS()
-
-        # Second betting round
-        $ BETTING_ROUND()
-        "The pot is now [pot] chips."
-
-        # Reveal the Turn
-        $ CARDS_OPEN_REVEAL(1)
-        "The Turn is: [cards_open[3]['rank']] of [cards_open[3]['suit']]."
+        if DEALER == "player":
+            while FLOP == True:
+                call screen SC_ACTION_PLAYER("FLOP", "")
+                $ value = _return
+                if value == "Call":
+                    $ BETTING_ROUND("player", int_Bet)
+                    $ FLOP = False
+                elif value == "Raise":
+                    $ BETTING_ROUND("player", int_Bet)
+                    $ BETTING_ROUND("player", int_Bet)
+                    $ FLOP = True
+                elif value == "Fold":
+                    $ game_status = _result
+                    $ FLOP = False
+                # End if
+            # End while
+        # End if
+        $ CARDS_OPEN_REVEAL("TURN")
 
         # Third betting round
-        $ BETTING_ROUND()
-        "The pot is now [pot] chips."
+#        $ BETTING_ROUND()
+#        "The pot is now [pot] chips."
 
         # Reveal the River
-        $ CARDS_OPEN_REVEAL(1)
+        $ CARDS_OPEN_REVEAL("RIVER")
         "The River is: [cards_open[4]['rank']] of [cards_open[4]['suit']]."
 
         # Final betting round
-        $ BETTING_ROUND()
-        "The pot is now [pot] chips."
 
-        # Evaluating hands to determine the winner
-#        $ player_best_hand = HAND_EVALUATE(player.hand, cards_open)
-#        $ computer_best_hand = HAND_EVALUATE(computer.hand, cards_open)
-        $ winner = HANDS_COMPARE(player.hand, computer.hand, cards_open)
-        if winner[0] == "player":
-            "You have [winner[1]]. You win this round!"
+#        $ BETTING_ROUND()
+#        "The pot is now [pot] chips."
+
+        $ WINNER = HANDS_COMPARE(player.hand, computer.hand, cards_open)                                                    # ═══► Evaluating hands to determine the winner
+        if WINNER[0] == "player":
+            $ WINNER_MESSAGE = "You win: " + str(WINNER[1])
             $ player.chips += pot
-        elif winner[0] == "computer":
-            "[str_Computer] has [winner[1]]. [str_Computer] wins this round!"
+        elif WINNER[0] == "computer":
+            $ WINNER_MESSAGE = str(str_Computer) + " wins: " + str(WINNER[1])
             $ computer.chips += pot
         else:
-            "It's a tie! You both have [winner[1]]."
+            "It's a tie (WINNER[1]])"
             $ player.chips += pot // 2
             $ computer.chips += pot // 2
         # End if
-
-        # Reset the pot for the next round
-        $ pot = 0
-
-        # Ask if the player wants to play another round
-        menu:
-            "Do you want to play another round?"
-            "Yes":
-                hide screen SC_DEALER_CHIP
-                $ DEALER = DEALER_SWITCH(DEALER)
-                show screen SC_DEALER_CHIP(DEALER)
-            "No":
-                return
+        $ pot = 0                                                                                                           # ═══► Reset the pot for the next round
+        $ WINNER = ["",""]
+        call screen SC_ACTION_PLAYER("CONTINUE", WINNER_MESSAGE)                                                            # ═══► Ask if the player wants to play another round
+        if _return == False:
+            return
+        # End if
     # End While
 # End label
 
+screen SC_ACTION_PLAYER(action_player, message):
+    if action_player == "PREFLOP" or action_player == "FLOP":
+        frame:
+            xalign 0.842
+            yalign 0.96
+            xsize 0.06
+            ysize 0.05
+            textbutton ("CALL") action Return (value="Call"):
+                xanchor 0.5
+                xpos 66
+                ypos -5
+                text_style "STYLE_CHOICE_BUTTON_ORANGE"
+        frame:
+            xalign 0.914
+            yalign 0.96
+            xsize 0.06
+            ysize 0.05
+            textbutton ("RAISE") action Return (value="Raise"):
+                xanchor 0.5
+                xpos 66
+                ypos -5
+                text_style "STYLE_CHOICE_BUTTON_ORANGE"
+        frame:
+            xalign 0.986
+            yalign 0.96
+            xsize 0.06
+            ysize 0.05
+            textbutton ("FOLD") action Return (value="Fold"):
+                xanchor 0.5
+                xpos 66
+                ypos -5
+                text_style "STYLE_CHOICE_BUTTON_ORANGE"
+    if action_player == "CONTINUE":
+        frame:
+            background "#404040"
+            xalign 1.0
+            yalign 1.0
+            xsize 0.21
+            ysize 0.13
+            text "{b}[message]{/b}" size 26 color "#FFFFFF"
+        frame:
+            xalign 0.875
+            yalign 0.96
+            xsize 0.09
+            ysize 0.05
+            textbutton ("NEW GAME") action Return (value=True):
+                xanchor 0.5
+                xpos 108
+                ypos -5
+                text_style "STYLE_CHOICE_BUTTON_LIME"
+        frame:
+            xalign 0.98
+            yalign 0.96
+            xsize 0.09
+            ysize 0.05
+            textbutton ("QUIT") action Return (value=False):
+                xanchor 0.5
+                xpos 108
+                ypos -5
+                text_style "STYLE_CHOICE_BUTTON_RED"
+# End screen
 screen SC_HAND_PLAYER():
     frame:                                                                                                                  # ═══► Background frame for the screen
         background "#404040"
@@ -384,6 +642,7 @@ screen SC_HAND_PLAYER():
                     for card in player.hand:
                         add CARDS_IMAGE(card) xsize 188 ysize 251
                     # End for
+                # End hbox
             # End Grid
         # End vbox
     # End frame
@@ -411,9 +670,9 @@ screen SC_HAND_COMPUTER():
                 hbox spacing -220:
                     xsize 350
                     for card in computer.hand:
-                        if winner[0] == "" and POKER_CHEAT == False:
+                        if WINNER[0] == "" and POKER_CHEAT == False:
                             add "cards/back_of_card_1.png" size (188, 251)
-                        elif winner[0] != "":
+                        elif WINNER[0] != "":
                             add CARDS_IMAGE(card) xsize 188 ysize 251
                         elif POKER_CHEAT == True:
                             add CARDS_IMAGE(card) size (188, 251)
@@ -423,6 +682,16 @@ screen SC_HAND_COMPUTER():
                 # End hbox
             # End Grid
         # End vbox
+    # End frame
+    frame:                                                                                                                  # ═══► Pot display
+        background "#404040"
+        xalign 1.0
+        yalign 0.45
+        xsize 0.21
+        ysize 0.2
+        hbox:
+            text "{b}Pot: [pot]{/b}" size 26 color "#FFFFFF"
+        # End hbox
     # End frame
 # End screen
 screen SC_OPEN_CARDS():
