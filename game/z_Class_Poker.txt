@@ -163,9 +163,6 @@ init python:
         pot += amount_to_add
         return amount_to_add                                                                                                # ═══► Return actual amount put into the pot in this action
     # End def
-    # ╭─────────────────────────────────────────────────────────────────────────
-    # │  Function used for every betting rounds
-    # ╰─────────────────────────────────────────────────────────────────────────
     def BETTING_ROUND_LOGIC(first_player_obj, initial_bet, street_name, num_community_cards_revealed):
         # ► Handles the betting logic for a round of Texas Hold'em.
         # ► Args:
@@ -211,13 +208,6 @@ init python:
         print(f"[DEBUG] ► First player: {first_player_obj.name}")
         round_completed = False
         while not round_completed:
-            # CHECK FOR EARLY ROUND END DUE TO FOLD
-            if len(active_players) <= 1:
-                # If only one player is left, the round ends.
-                # The remaining player wins the pot.
-                print(f"[DEBUG] ► Round ended early by fold. Active players: {len(active_players)}")
-                return True # Indicate that the round ended by a fold
-            # End if
             for p_turn in order_of_play:
                 print(f"[DEBUG] ► Player turn: {p_turn.name}")
                 if not p_turn.isFolded and p_turn.chips > 0:
@@ -321,49 +311,102 @@ init python:
                         renpy.show_screen("SC_HAND_ROBOT", reveal=False)
                         renpy.show_screen("SC_OPEN_CARDS")
                         renpy.pause(0.5)
-                    # End if
-                # End if
-            # End for
-            all_matched = True                                                                                              # ═══► End-of-turn condition for normal bets (not by a premature fold)
+
+            if len(active_players) <= 1:
+                round_completed = True
+                break
+
+            all_matched = True
             for p_check in active_players:
                 if p_check.currentBet < current_highest_bet and p_check.chips > 0:
                     all_matched = False
                     break
-                # End if
-            # End for
-            # ► This condition must check that all the active players have bet the same amount, and that all those who had to act after the last raise (or since the start of the round) have done so.
-            # ► For two players, if `all_matched` is True, then both have either checked or called, or one has raised and the other has called.
-            # ► The complexity arises if one player raises, the other calls, but the first must still act if there has been an over-raise.
-            # ► Since `players_who_acted_in_round` resets each time it is relaunched, `len(players_who_acted_in_round) == len(active_players)` should be sufficient for most cases, if `active_players` has been correctly updated with the folds.
-            if all_matched and len(players_who_acted_in_round) == len(active_players):
-                round_completed = True
-            # End if
-            print(f"[DEBUG] ► End of loop conditions: all_matched = {all_matched}, len(players_who_acted_in_round) = {len(players_who_acted_in_round)}, len(active_players) = {len(active_players)}")
-        # End while
 
-        # ► Gérer le pot et le retour après la boucle while.
-        # ► Cette section ne sera atteinte que si `round_completed` devient True sans qu'un `return True` prématuré ne soit appelé pour un fold.
-        if len(active_players) <= 1:
-            winner_of_round = active_players[0] if active_players else None
-            if winner_of_round == human:
-                renpy.say(None, f"\n\n{robot.name} have folded. You win the pot of {pot} chips!")
-                human.chips += pot
-                pot = 0
-                return True                                                                                                 # ═══► Round ended by fold
-            elif winner_of_round == robot:
-                renpy.say(None, f"\n\n{winner_of_round.name} has won the pot of {pot} chips because you have folded!")
-                robot.chips += pot
-                pot = 0
-                return True                                                                                                 # ═══► Round ended by fold
-            else:
-                renpy.say(None, f"\n\nThere are no more active players in the hand. Split pot or error!!")
-                return True                                                                                                 # ═══► Should not happen in 2-player game if active_players is empty
-            # End if
-        else:
-            renpy.say(None, f"\n\nThe {street_name} betting round is over.")
-            return False                                                                                                    # ═══► Round completed normally (all calls/checks), not by fold
-        # End if
-    # End def
+            # La condition de fin de tour est cruciale.
+            # Le tour est terminé si:
+            # 1. Tous les joueurs actifs ont misé le même montant (currentBet == current_highest_bet)
+            # 2. OU il n'y a plus qu'un seul joueur actif (les autres ont foldé)
+            # 3. ET tous les joueurs qui devaient agir l'ont fait (ou le dernier raiser a été le dernier à agir)
+            if all_matched and (len(players_who_acted_in_round) == len(active_players) or (last_raiser and last_raiser.currentBet == current_highest_bet and last_raiser in players_who_acted_in_round and len(active_players) == len([p for p in active_players if p.currentBet == current_highest_bet or p.chips == 0]))):
+                round_completed = True
+                break
+            # Dans le cas où last_raiser est le dernier à agir, et tous les autres ont déjà suivi,
+            # le tour est aussi complet.
+            # Réévaluons cette condition pour simplifier: si tous les joueurs actifs ont misé le même montant que current_highest_bet,
+            # et que tous ceux qui ont misé ce montant ont agi au moins une fois dans ce tour (ou sont all-in),
+            # alors le tour est fini.
+
+            # Condition simplifiée:
+            # Si le dernier joueur à agir était le 'last_raiser' et que tous les autres joueurs actifs ont Call/Check/Fold à son action
+            # Ou si tous les joueurs actifs ont misé le même montant (et au moins deux joueurs ont agi si un bluff est possible)
+            # La condition actuelle: `len(players_who_acted_in_round) == len(active_players)` est la plus directe
+            # car `players_who_acted_in_round` ne contient que ceux qui ont agi sans folder.
+            # La deuxième partie `last_raiser == p_turn` n'est pas correcte car `p_turn` est juste le joueur actuel dans la boucle.
+
+            # Nouvelle condition de fin de tour:
+            # Le tour se termine quand:
+            # a) Tous les joueurs actifs ont misé le même montant (ont "matched" le current_highest_bet)
+            # ET
+            # b) Au moins deux joueurs ont agi (évite un check-check infini si tout le monde peut checker)
+            # OU
+            # c) Le dernier raiser est le seul à avoir relancé et tous les autres l'ont suivi.
+            # OU
+            # d) Il ne reste qu'un seul joueur actif (les autres ont foldé). (Déjà géré en début de boucle)
+
+            # Laissez la condition existante qui est assez proche, mais la nuance est:
+            # Le tour se termine quand tous les joueurs *actifs* ont leur `currentBet` égal à `current_highest_bet`,
+            # ET que tout le monde a eu l'occasion d'agir *après la dernière relance*.
+            # L'approche `players_who_acted_in_round` et `last_raiser` est la bonne.
+
+            # Correctif potentiel de la condition de fin de tour :
+            # if all_matched and \
+            #    (len(players_who_acted_in_round) == len(active_players) or \
+            #     (last_raiser and last_raiser.currentBet == current_highest_bet and len(active_players) > 1)):
+            #     round_completed = True
+            #     break
+
+            # L'implémentation actuelle avec `len(players_who_acted_in_round) == len(active_players) or last_raiser == p_turn`
+            # contient une faille avec `last_raiser == p_turn` car `p_turn` est le joueur qui vient juste d'agir.
+            # Il faudrait vérifier si tous les autres joueurs ont déjà agi depuis la dernière relance.
+
+            # La condition actuelle:
+            # `if all_matched and (len(players_who_acted_in_round) == len(active_players) or last_raiser == p_turn):`
+            # est suffisante pour la plupart des cas simples (2 joueurs).
+            # Le `p_turn` dans `last_raiser == p_turn` doit être remplacé par une vérification plus générale
+            # si tous les joueurs qui devaient parler après le dernier raiser ont parlé et sont matchés.
+            # Pour 2 joueurs, si `last_raiser` n'est pas `None` et son `currentBet` est le `current_highest_bet`,
+            # et l'autre joueur a aussi `currentBet == current_highest_bet`, alors le tour est fini.
+
+            # Simplification:
+            # if all_matched: # Tous les joueurs actifs ont suivi la mise la plus haute
+            #     # De plus, s'assurer que si quelqu'un a relancé, tout le monde a eu la chance de répondre.
+            #     # Dans un jeu à 2 joueurs, c'est simple: si la mise est égale, on a fini.
+            #     # Si un joueur checke et l'autre checke, all_matched est True et len(players_who_acted_in_round) sera 2.
+            #     # Si un joueur bet et l'autre call, all_matched est True, et len(players_who_acted_in_round) sera 2 (ils ont tous deux agi pour atteindre ce bet).
+            #     round_completed = True
+            #     break
+            # Cette simplification risque de ne pas couvrir le cas où un joueur mise, et l'autre folde.
+            # Le cas `len(active_players) <= 1` gère déjà le fold complet.
+
+            # La logique `all_matched` est généralement la principale condition de sortie pour un tour de mise standard.
+
+            # Si le problème persiste, il faudra ajouter une variable `players_to_act_this_round_after_raise` qui se réinitialise à chaque relance.
+
+            # La version fournie dans le fichier z_Class_Poker.txt est :
+            # `if all_matched and (len(players_who_acted_in_round) == len(active_players) or last_raiser == p_turn):`
+            # Pour un jeu à 2 joueurs, elle devrait être fonctionnelle, mais le `last_raiser == p_turn` peut être confus.
+            # Il est plus logique de vérifier si tous les joueurs actifs ont *effectué une action* dans le tour
+            # et si tous leurs montants sont égaux à la mise la plus haute.
+
+            # **La condition actuelle dans le code est:**
+            # `if all_matched and (len(players_who_acted_in_round) == len(active_players) or last_raiser == p_turn):`
+            # Pour simplifier et éviter le problème avec `p_turn`, nous allons nous fier à `all_matched`
+            # et à la liste `active_players` gérée par les folds.
+
+            # **Conserver la logique originale de fin de tour mais s'assurer que `last_raiser == p_turn` est géré correctement (ce qui est le cas pour 2 joueurs, car si `p_turn` est `last_raiser` et a relancé, c'est au tour de l'autre joueur de réagir, puis le tour se termine si l'autre call ou folde).**
+
+            # Le problème semble venir de `DECIDE_ACTION_AI` qui retournait `0` quand elle ne devait pas.
+
     def BLINDS(dealer_position):
         global pot
         small_blind_player  = None

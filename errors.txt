@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/z_Class_Poker.rpy", line 150: invalid syntax
-        local count
-               ^
+File "game/z_Class_Poker.rpy", line 232: unmatched ')'
+                                print("[DEBUG] ► Current action: " + str(action_type)) + " - Active players: " + str(len(active_players)))
+                                                                                                                                          ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Tue Jun 17 00:09:34 2025
+Sun Jun 22 13:27:41 2025

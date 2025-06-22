@@ -1,22 +1,22 @@
-2025-06-17 20:36:01 UTC
+2025-06-22 17:41:09 UTC
 macOS-15.5-arm64-arm-64bit
 Ren'Py 8.3.4.24120703
 
 Early init took 0.03s
 Loading error handling took 0.02s
-Loading script took 0.18s
+Loading script took 0.14s
 Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
-Running init code took 0.04s
+Running init code took 0.03s
 Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.02s
+Reloading save slot metadata took 0.01s
 Index archives took 0.00s
 Backing up script files to '/Users/toninodigiacomo/Library/RenPy/backups/Poker':
 Dump and make backups took 0.03s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.02s
+Initial gc took 0.03s
 DPI scale factor: 1.000000
 Creating interface object took 0.00s
 Cleaning stores took 0.00s
@@ -29,7 +29,7 @@ Prepare screens took 0.04s
 Save pyanalysis. took 0.01s
 Save bytecode. took 0.02s
 Running _start took 0.00s
-Interface start took 2.40s
+Interface start took 2.36s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 3840, 2160)
@@ -41,5 +41,303 @@ Version: b'2.1 Metal - 89.4'
 Display Info: None
 Screen sizes: virtual=(2560, 1440) physical=(2388, 1343) drawable=(2388, 1343)
 Maximum texture size: 4096x4096
-Dealer before switch [dealer_position]
-Dealer after switch [dealer_position]
+[DEBUG] ► Dealer defined for this round: human
+[DEBUG] ► Reset open cards
+[DEBUG] ► Reset active players' cards
+[DEBUG] ► Computer puts in the small blind of 5 chips 
+[DEBUG] ► Player puts the big blind of 10 chips 
+[DEBUG] ► The blinds have been bet. The pot is now 15 chips
+[DEBUG] ► Your cards AH and 8C
+[DEBUG] ► Street name: Pre-Flop
+[DEBUG] ► First player: Computer
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 5
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Computer --► Active players: 2
+[DEBUG] ► Robot action: fold --► Robot total bet ammount: 0
+[DEBUG] ► Current action: fold --► Active players: 1
+[DEBUG] ► Player turn: Player
+[DEBUG] ► Amount to match: 0
+[DEBUG] ► Needs to act: False
+[DEBUG] ► End of loop conditions: all_matched=True, len(players_who_acted_in_round)=2, len(active_players)=1
+[DEBUG] ► Round ended early by fold. Active players: 1
+[DEBUG] ► Current dealer before change: human
+[DEBUG] ► Current dealer after change: robot
+[DEBUG] ► Reset open cards
+[DEBUG] ► Reset active players' cards
+[DEBUG] ► Player puts in the small blind of 5 chips 
+[DEBUG] ► Computer puts the big blind of 10 chips 
+[DEBUG] ► The blinds have been bet. The pot is now 15 chips
+[DEBUG] ► Your cards 6H and 3S
+[DEBUG] ► Street name: Pre-Flop
+[DEBUG] ► First player: Player
+[DEBUG] ► Player turn: Player
+[DEBUG] ► Amount to match: 5
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Player --► Active players: 2
+[DEBUG] ► Player Action Data: {'action': 'fold'}
+[DEBUG] ► Current action: fold --► Active players: 1
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 0
+[DEBUG] ► Needs to act: False
+[DEBUG] ► End of loop conditions: all_matched=True, len(players_who_acted_in_round)=2, len(active_players)=1
+[DEBUG] ► Round ended early by fold. Active players: 1
+[DEBUG] ► Current dealer before change: robot
+[DEBUG] ► Current dealer after change: human
+[DEBUG] ► Reset open cards
+[DEBUG] ► Reset active players' cards
+[DEBUG] ► Computer puts in the small blind of 5 chips 
+[DEBUG] ► Player puts the big blind of 10 chips 
+[DEBUG] ► The blinds have been bet. The pot is now 15 chips
+[DEBUG] ► Your cards 2H and 4C
+[DEBUG] ► Street name: Pre-Flop
+[DEBUG] ► First player: Computer
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 5
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Computer --► Active players: 2
+[DEBUG] ► Robot action: call --► Robot total bet ammount: 10
+[DEBUG] ► Current action: call --► Actual bet: 5
+[DEBUG] ► Current dealer before change: robot
+[DEBUG] ► Current dealer after change: human
+[DEBUG] ► Reset open cards
+[DEBUG] ► Reset active players' cards
+[DEBUG] ► Computer puts in the small blind of 5 chips 
+[DEBUG] ► Player puts the big blind of 10 chips 
+[DEBUG] ► The blinds have been bet. The pot is now 15 chips
+[DEBUG] ► Your cards 2D and 7D
+[DEBUG] ► Street name: Pre-Flop
+[DEBUG] ► First player: Computer
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 5
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Computer --► Active players: 2
+[DEBUG] ► Robot action: fold --► Robot total bet ammount: 0
+[DEBUG] ► Current action: fold --► Active players: 1
+[DEBUG] ► Player turn: Player
+[DEBUG] ► Amount to match: 0
+[DEBUG] ► Needs to act: False
+[DEBUG] ► End of loop conditions: all_matched=True, len(players_who_acted_in_round)=2, len(active_players)=1
+[DEBUG] ► Round ended early by fold. Active players: 1
+[DEBUG] ► Current dealer before change: human
+[DEBUG] ► Current dealer after change: robot
+[DEBUG] ► Reset open cards
+[DEBUG] ► Reset active players' cards
+[DEBUG] ► Player puts in the small blind of 5 chips 
+[DEBUG] ► Computer puts the big blind of 10 chips 
+[DEBUG] ► The blinds have been bet. The pot is now 15 chips
+[DEBUG] ► Your cards 4C and 6C
+[DEBUG] ► Street name: Pre-Flop
+[DEBUG] ► First player: Player
+[DEBUG] ► Player turn: Player
+[DEBUG] ► Amount to match: 5
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Player --► Active players: 2
+[DEBUG] ► Player Action Data: {'action': 'fold'}
+[DEBUG] ► Current action: fold --► Active players: 1
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 0
+[DEBUG] ► Needs to act: False
+[DEBUG] ► End of loop conditions: all_matched=True, len(players_who_acted_in_round)=2, len(active_players)=1
+[DEBUG] ► Round ended early by fold. Active players: 1
+[DEBUG] ► Current dealer before change: robot
+[DEBUG] ► Current dealer after change: human
+[DEBUG] ► Reset open cards
+[DEBUG] ► Reset active players' cards
+[DEBUG] ► Computer puts in the small blind of 5 chips 
+[DEBUG] ► Player puts the big blind of 10 chips 
+[DEBUG] ► The blinds have been bet. The pot is now 15 chips
+[DEBUG] ► Your cards 8D and 2H
+[DEBUG] ► Street name: Pre-Flop
+[DEBUG] ► First player: Computer
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 5
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Computer --► Active players: 2
+[DEBUG] ► Robot action: fold --► Robot total bet ammount: 0
+[DEBUG] ► Current action: fold --► Active players: 1
+[DEBUG] ► Player turn: Player
+[DEBUG] ► Amount to match: 0
+[DEBUG] ► Needs to act: False
+[DEBUG] ► End of loop conditions: all_matched=True, len(players_who_acted_in_round)=2, len(active_players)=1
+[DEBUG] ► Round ended early by fold. Active players: 1
+[DEBUG] ► Current dealer before change: human
+[DEBUG] ► Current dealer after change: robot
+[DEBUG] ► Reset open cards
+[DEBUG] ► Reset active players' cards
+[DEBUG] ► Player puts in the small blind of 5 chips 
+[DEBUG] ► Computer puts the big blind of 10 chips 
+[DEBUG] ► The blinds have been bet. The pot is now 15 chips
+[DEBUG] ► Your cards 3C and 7C
+[DEBUG] ► Street name: Pre-Flop
+[DEBUG] ► First player: Player
+[DEBUG] ► Player turn: Player
+[DEBUG] ► Amount to match: 5
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Player --► Active players: 2
+[DEBUG] ► Player Action Data: {'action': 'call', 'amount': 10}
+[DEBUG] ► Current action: call --► Actual bet: 5
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 0
+[DEBUG] ► Needs to act: False
+[DEBUG] ► End of loop conditions: all_matched=True, len(players_who_acted_in_round)=2, len(active_players)=2
+[DEBUG] ► Flop : KH, 5D, 7H
+[DEBUG] ► Street name: Flop
+[DEBUG] ► First player: Player
+[DEBUG] ► Player turn: Player
+[DEBUG] ► Amount to match: 0
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Player --► Active players: 2
+[DEBUG] ► Player Action Data: {'action': 'fold'}
+[DEBUG] ► Current action: fold --► Active players: 1
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 0
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Computer --► Active players: 1
+[DEBUG] ► Robot action: check --► Robot total bet ammount: 0
+[DEBUG] ► Current action: check
+[DEBUG] ► End of loop conditions: all_matched=True, len(players_who_acted_in_round)=1, len(active_players)=1
+[DEBUG] ► Current dealer before change: robot
+[DEBUG] ► Current dealer after change: human
+[DEBUG] ► Reset open cards
+[DEBUG] ► Reset active players' cards
+[DEBUG] ► Computer puts in the small blind of 5 chips 
+[DEBUG] ► Player puts the big blind of 10 chips 
+[DEBUG] ► The blinds have been bet. The pot is now 15 chips
+[DEBUG] ► Your cards KS and 3D
+[DEBUG] ► Street name: Pre-Flop
+[DEBUG] ► First player: Computer
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 5
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Computer --► Active players: 2
+[DEBUG] ► Robot action: call --► Robot total bet ammount: 10
+[DEBUG] ► Current action: call --► Actual bet: 5
+[DEBUG] ► Player turn: Player
+[DEBUG] ► Amount to match: 0
+[DEBUG] ► Needs to act: False
+[DEBUG] ► End of loop conditions: all_matched=True, len(players_who_acted_in_round)=2, len(active_players)=2
+[DEBUG] ► Flop : KH, JC, 4D
+[DEBUG] ► Street name: Flop
+[DEBUG] ► First player: Computer
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 0
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Computer --► Active players: 2
+[DEBUG] ► Robot action: bet --► Robot total bet ammount: 10
+[DEBUG] ► Current action: bet --► Last Raiser: Computer
+[DEBUG] ► Player turn: Player
+[DEBUG] ► Amount to match: 10
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Player --► Active players: 2
+[DEBUG] ► Player Action Data: {'action': 'fold'}
+[DEBUG] ► Current action: fold --► Active players: 1
+[DEBUG] ► End of loop conditions: all_matched=True, len(players_who_acted_in_round)=1, len(active_players)=1
+[DEBUG] ► Current dealer before change: human
+[DEBUG] ► Current dealer after change: robot
+[DEBUG] ► Reset open cards
+[DEBUG] ► Reset active players' cards
+[DEBUG] ► Player puts in the small blind of 5 chips 
+[DEBUG] ► Computer puts the big blind of 10 chips 
+[DEBUG] ► The blinds have been bet. The pot is now 15 chips
+[DEBUG] ► Your cards TS and TH
+[DEBUG] ► Street name: Pre-Flop
+[DEBUG] ► First player: Player
+[DEBUG] ► Player turn: Player
+[DEBUG] ► Amount to match: 5
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Player --► Active players: 2
+[DEBUG] ► Player Action Data: {'action': 'fold'}
+[DEBUG] ► Current action: fold --► Active players: 1
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 0
+[DEBUG] ► Needs to act: False
+[DEBUG] ► End of loop conditions: all_matched=True, len(players_who_acted_in_round)=2, len(active_players)=1
+[DEBUG] ► Round ended early by fold. Active players: 1
+[DEBUG] ► Current dealer before change: robot
+[DEBUG] ► Current dealer after change: human
+[DEBUG] ► Reset open cards
+[DEBUG] ► Reset active players' cards
+[DEBUG] ► Computer puts in the small blind of 5 chips 
+[DEBUG] ► Player puts the big blind of 10 chips 
+[DEBUG] ► The blinds have been bet. The pot is now 15 chips
+[DEBUG] ► Your cards QS and 8D
+[DEBUG] ► Street name: Pre-Flop
+[DEBUG] ► First player: Computer
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 5
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Computer --► Active players: 2
+[DEBUG] ► Robot action: call --► Robot total bet ammount: 10
+[DEBUG] ► Current action: call --► Actual bet: 5
+[DEBUG] ► Player turn: Player
+[DEBUG] ► Amount to match: 0
+[DEBUG] ► Needs to act: False
+[DEBUG] ► End of loop conditions: all_matched=True, len(players_who_acted_in_round)=2, len(active_players)=2
+[DEBUG] ► Flop : JS, 7C, 4H
+[DEBUG] ► Street name: Flop
+[DEBUG] ► First player: Computer
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 0
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Computer --► Active players: 2
+[DEBUG] ► Robot action: bet --► Robot total bet ammount: 10
+[DEBUG] ► Current action: bet --► Last Raiser: Computer
+[DEBUG] ► Player turn: Player
+[DEBUG] ► Amount to match: 10
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Player --► Active players: 2
+[DEBUG] ► Player Action Data: {'action': 'call', 'amount': 10}
+[DEBUG] ► Current action: call --► Actual bet: 10
+[DEBUG] ► End of loop conditions: all_matched=True, len(players_who_acted_in_round)=2, len(active_players)=2
+[DEBUG] ► Street name: Turn
+[DEBUG] ► First player: Computer
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 0
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Computer --► Active players: 2
+[DEBUG] ► Robot action: bet --► Robot total bet ammount: 10
+[DEBUG] ► Current action: bet --► Last Raiser: Computer
+[DEBUG] ► Player turn: Player
+[DEBUG] ► Amount to match: 10
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Player --► Active players: 2
+[DEBUG] ► Player Action Data: {'action': 'fold'}
+[DEBUG] ► Current action: fold --► Active players: 1
+[DEBUG] ► End of loop conditions: all_matched=True, len(players_who_acted_in_round)=1, len(active_players)=1
+[DEBUG] ► Current dealer before change: human
+[DEBUG] ► Current dealer after change: robot
+[DEBUG] ► Reset open cards
+[DEBUG] ► Reset active players' cards
+[DEBUG] ► Player puts in the small blind of 5 chips 
+[DEBUG] ► Computer puts the big blind of 10 chips 
+[DEBUG] ► The blinds have been bet. The pot is now 15 chips
+[DEBUG] ► Your cards 3H and 4H
+[DEBUG] ► Street name: Pre-Flop
+[DEBUG] ► First player: Player
+[DEBUG] ► Player turn: Player
+[DEBUG] ► Amount to match: 5
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Player --► Active players: 2
+[DEBUG] ► Player Action Data: {'action': 'raise', 'amount': 30}
+[DEBUG] ► Current action: raise --► Last Raiser: Player ----► Current bet: 15
+[DEBUG] ► Player turn: Computer
+[DEBUG] ► Amount to match: 5
+[DEBUG] ► Needs to act: True
+[DEBUG] ► Turn: Computer --► Active players: 2
+[DEBUG] ► Robot action: call --► Robot total bet ammount: 15
+[DEBUG] ► Current action: call --► Actual bet: 5
+[DEBUG] ► End of loop conditions: all_matched=True, len(players_who_acted_in_round)=2, len(active_players)=2
+[DEBUG] ► Flop : TC, 8D, KH
+[DEBUG] ► Street name: Flop
+[DEBUG] ► First player: Player
+[DEBUG] ► Round ended early by fold. Active players: 1
+[DEBUG] ► Current dealer before change: robot
+[DEBUG] ► Current dealer after change: human
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s

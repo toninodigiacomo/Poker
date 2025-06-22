@@ -1,0 +1,1057 @@
+# ╔═════════════════════════════════════════════════════════════════════════════
+# ║╔════════════════════════════════════════════════════════════════════════════
+# ║║  Global variables
+# ║╚════════════════════════════════════════════════════════════════════════════
+# ╚═════════════════════════════════════════════════════════════════════════════
+define DEALER                   = ""
+define POKER_CHEAT              = False
+define SMALL_BLIND              = 5
+define BIG_BLIND                = 10
+define POKER_AI_AGGRESSION      = 3 # De 1 (passif) à 5 (très agressif)
+
+define HUMAN_NAME               = "Player"
+define ROBOT_NAME               = "Computer"
+
+# ╔═════════════════════════════════════════════════════════════════════════════
+# ║╔════════════════════════════════════════════════════════════════════════════
+# ║║  Global Text Style
+# ║╚════════════════════════════════════════════════════════════════════════════
+# ╚═════════════════════════════════════════════════════════════════════════════
+style STYLE_CHOICE_BUTTON_LIME:
+    font "Futura.ttc"
+    size 32
+    idle_color "#FFFFFF"
+    hover_color "#00FF00"
+    insensitive_color "#808080"
+    outlines [ (absolute(2), "#000", absolute(1), absolute(1)) ]
+# End style
+style STYLE_CHOICE_BUTTON_ORANGE:
+    font "Futura.ttc"
+    size 32
+    idle_color "#FFFFFF"
+    hover_color "#FF6600"
+    insensitive_color "#808080"
+    outlines [ (absolute(2), "#000", absolute(1), absolute(1)) ]
+# End style
+style STYLE_CHOICE_BUTTON_RED:
+    font "Futura.ttc"
+    size 32
+    idle_color "#FFFFFF"
+    hover_color "#FF0000"
+    insensitive_color "#808080"
+    outlines [ (absolute(2), "#000", absolute(1), absolute(1)) ]
+# End style
+
+# ╔═════════════════════════════════════════════════════════════════════════════
+# ║╔════════════════════════════════════════════════════════════════════════════
+# ║║  Python code block for Texas Hold'Em Classes
+# ║╚════════════════════════════════════════════════════════════════════════════
+# ╚═════════════════════════════════════════════════════════════════════════════
+init python:
+    import random
+    from collections import Counter                                                                                         # ═══► Import Counter pour compter les occurrences
+
+    # ═══► Dictionary for converting card ranks into numerical values
+    # ═══► Useful for comparing card and hand heights
+    RANK_VALUES = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, 'T': 10, 'J': 11, 'Q': 12, 'K': 13, 'A': 14}
+    # ═══► List of hand rankings, from weakest to strongest
+    HAND_RANKING = [
+        "High Card",
+        "One Pair",
+        "Two Pair",
+        "Three of a Kind",
+        "Straight",
+        "Flush",
+        "Full House",
+        "Four of a Kind",
+        "Straight Flush"
+    ]
+
+    class CL_HUMAN:
+        # ► This class represents a human in the game.
+        def __init__(self, name, chips):
+            self.name       = name                                                                                          # ═══► Human's name
+            self.chips      = chips                                                                                         # ═══► Human's available chips
+            self.hand       = []                                                                                            # ═══► Human's hand (two cards)
+            self.currentBet = 0                                                                                             # ═══► Human's current bet in the round
+            self.isFolded   = False                                                                                         # ═══► Find out if the human fold
+        # End def
+        def fold(self):
+            self.isFolded   = True
+        # End def
+        def resetForNewHand(self):
+            self.hand       = []
+            self.currentBet = 0
+            self.isFolded   = False
+        # End def
+        def resetBet(self):
+            self.currentBet = 0
+        # End def
+    # End class
+    class CL_DECK:
+        # ► This class represents the deck of cards.
+        def __init__(self):
+            suits = ['C', 'D', 'H', 'S']
+            ranks = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A']
+            self.cards = [{'suit': suit, 'rank': rank} for suit in suits for rank in ranks]
+            random.shuffle(self.cards)                                                                                      # ═══► Shuffle the deck
+            # Validation des cartes
+            rank_order = '23456789TJQKA'
+            for card in self.cards:
+                if card['rank'] not in rank_order:
+                    raise ValueError(f"Invalid rank found in deck: {card['rank']}")
+                # End if
+            # End for
+        # End def
+        def draw(self, count):
+            drawn_cards = self.cards[:count]                                                                                # ═══► Draw 'count' number of cards from the deck
+            self.cards = self.cards[count:]
+            return drawn_cards
+        # End def
+    # End class
+    def INITIALIZE_GAME(sHuman="Player", sRobot="Computer", iChips=100):
+        global human, robot, pot
+        human           = CL_HUMAN(sHuman, iChips)                                                                          # ═══► Create humans with 100 chips each
+        robot           = CL_HUMAN(sRobot, iChips)
+        deck            = CL_DECK()                                                                                         # ═══► Initialize a shuffled deck
+        pot             = 0
+        cards_open      = []
+        active_player   = [human, robot]                                                                                    # ═══► List of players still in the game for the round
+        DECK_RESET()
+    # End def
+    def BETTING_ROUND(dealer, bet):                                                                                         # ═══► Function for a betting round
+        global pot
+        if turn == "human":
+            human.resetBet()
+            human.current_bet = bet
+            human.chips -= 10
+            pot += 10
+        else:
+            robot.resetBet()
+            robot.current_bet = 10
+            robot.chips -= 10
+            pot += 10
+        # End if
+    # End def
+    def BLINDS(dealer_position):
+        global pot
+        small_blind_player      = None
+        big_blind_player        = None
+        if dealer_position     == "human":                                                                                  # ═══► Human is dealer, Robot is small blind, Human is big blind (or vice-versa for 2 players)
+            small_blind_player  = robot
+            big_blind_player    = player
+        else:                                                                                                               # ═══► Robot is dealer, Human is small blind, Robot is big blind
+            small_blind_player  = player
+            big_blind_player    = robot
+        # End if
+        amount_small_blind = min(small_blind_player.chips, SMALL_BLIND)                                                     # ═══► Pay Small Blind
+        small_blind_player.chips       -= amount_small_blind
+        small_blind_player.currentBet += amount_small_blind
+        pot += amount_small_blind
+        renpy.say(None, f"{small_blind_player.name} puts the small blind of {amount_small_blind} chips.")
+        amount_big_blind = min(big_blind_player.chips, BIG_BLIND)                                                           # ═══► Pay Big Blind
+        big_blind_player.chips           -= amount_big_blind
+        big_blind_player.currentBet   += amount_big_blind
+        pot += amount_big_blind
+        renpy.say(None, f"{big_blind_player.name} puts the big blind of {amount_big_blind} chips.")
+        return big_blind_player                                                                                             # ═══► The big blind player is usually the last to act pre-flop, starting the action post-flop
+    # End def
+    def CARDS_DEAL():                                                                                                       # ═══► Function to distribute cards to players
+        human.hand q= deck.draw(2)                                                                                            # ═══► Two cards for the Human
+        robot.hand = deck.draw(2)                                                                                            # ═══► Two cards for the Robot
+    # End def
+    def CARDS_IMAGE(card):
+        return f"cards/{card['rank']}{card['suit']}.png"
+    # End def
+    def CARDS_OPEN_RESET():                                                                                                 # ═══► Function to reset open cards
+        global cards_open
+        cards_open = []
+    # End def
+    def CARDS_OPEN_REVEAL(turn):                                                                                               # ═══► Function to reveal open cards
+        count = 0
+        if turn == "FLOP":
+            count = 3
+        else:
+            count = 1
+        # End if
+        cards_open.extend(deck.draw(count))
+    # End def
+    def CARDS_PLAYERS_RESET():                                                                                              # ═══► Function to reset players cards
+        global active_players
+        human.resetForNewHand
+        robot.resetForNewHand
+        active_players = [p for p in [human, robot] if p.chips > 0]                                                            # ═══► Reset active players
+    # End def
+    def DEALER_RANDOM():                                                                                                    # ═══► Function to switch the dealer position
+        dealer_position = renpy.random.choice(["human", "robot"])                                                           # ═══► Randomly choose who starts as the dealer
+        return dealer_position
+    # End def
+    def DEALER_SWITCH(dealer_position):                                                                                     # ═══► Function to switch the dealer position
+        print("Dealer before switch [dealer_position]")
+        if dealer_position   == "human":
+            dealer_position   = "robot"
+        elif dealer_position == "robot":
+            dealer_position   = "human"
+        # End if
+        print("Dealer after switch [dealer_position]")
+        return dealer_position
+    # End def
+    def DECK_RESET():                                                                                                       # ═══► Function to switch the dealer position
+        global deck
+        deck = CL_DECK()                                                                                                    # ═══► Initialize a shuffled deck
+    # End def
+    def HANDS_COMPARE(human_hand, robot_hand, cards_open):
+        human_evaluated = HAND_EVALUATE(human_hand, list(cards_open))
+        robot_evaluated = HAND_EVALUATE(robot_hand, list(cards_open))
+        print("Human hand assessment [human_evaluated]")
+        print("Robot hand assessment [robot_evaluated]")
+        # ═══► Compare hands using evaluation tuples
+        # ═══► Tuples are compared element by element
+        if human_evaluated > robot_evaluated:
+            return ["human", HAND_RANKING[human_evaluated[0]]]
+        elif human_evaluated < robot_evaluated:
+            return ["robot", HAND_RANKING[robot_evaluated[0]]]
+        else:
+            return ["tie", HAND_RANKING[human_evaluated[0]]]
+        # End if
+    # End def
+    def POT_RESET(iPot=0):                                                                                                  # ═══► Function to initialize the pot
+        global pot
+        pot = iPot
+    # End def
+    def RANK_TO_VALUE(rank):                                                                                                # ═══► Converts a card rank into its numerical value
+        #print("Rank: [rank]")
+        return RANK_VALUES.get(rank, 0)
+    # End def
+    # ╭─────────────────────────────────────────────────────────────────────────
+    # │  Function for the best poker hand possible evaluation
+    # ╰─────────────────────────────────────────────────────────────────────────
+    def HAND_EVALUATE(hand, cards_open):
+        # ► Evaluates the best poker hand possible using the player's hand and the community cards.
+        # ►   Returns a tuple representing the hand's strength, which can be used for comparisons.
+        # ►   Parameters:
+        # ►     hand          ═══► A list of 2 cards representing the player's hand.
+        # ►     cards_open    ═══► A list of community cards visible to all players.
+        # ►   Returns:
+        # ►     A tuple of the form (rank, tie_breakers...) where:
+        # ►       rank         ═══► Numerical ranking of the hand strength (e.g., Straight Flush, Four of a Kind, etc.).
+        # ►       tie_breakers ═══► Values of cards used to break ties, in descending priority.        combined    = hand + list(cards_open)
+        rank_counts = Counter(card['rank'] for card in combined)
+        suit_counts = Counter(card['suit'] for card in combined)
+        def find_ranks_by_count(count):
+            return sorted([_rank_to_value(r) for r, c in rank_counts.items() if c == count], reverse=True)
+        # End def
+        def get_kickers(exclude_ranks):
+            all_ranks_values = sorted([_rank_to_value(card['rank']) for card in combined], reverse=True)
+            kickers = []                                                                                                    # ═══► Filter out excluded ranks and take only unique kickers
+            for r in all_ranks_values:
+                if r not in exclude_ranks or exclude_ranks.count(r) < all_ranks_values.count(r):                            # ═══► Allow using a card if it's not fully "used up" by the primary hand
+                    if r not in kickers:                                                                                    # ═══► Add unique kickers only once
+                        kickers.append(r)
+                    # End if
+                # End if
+            # End for
+            kickers = sorted(kickers, reverse=True)
+            return kickers[:5 - len(exclude_ranks)]
+        # End def
+        flush_suit = None                                                                                                   # ═══► Check for Flush
+        for suit, count in suit_counts.items():
+            if count >= 5:
+                flush_suit = suit
+                break
+            # End if
+        # End for
+        is_flush = (flush_suit is not None)
+        unique_ranks_values = sorted(list(set(_rank_to_value(card['rank']) for card in combined)), reverse=True)            # ═══► Check for Straight
+        if 14 in unique_ranks_values:                                                                                       # ═══► Add Ace as 1 for A-2-3-4-5 straight
+            unique_ranks_values.append(1)
+        # End if
+        unique_ranks_values.sort(reverse=True)
+        straight_high_card = 0
+        for i in range(len(unique_ranks_values) - 4):
+            if unique_ranks_values[i] - unique_ranks_values[i+4] == 4 and \
+                all(r in unique_ranks_values for r in range(unique_ranks_values[i+4], unique_ranks_values[i]+1)):             # ═══► Ensure all intermediate cards exist
+                straight_high_card = unique_ranks_values[i]
+                break
+            # End if
+        # End for
+        is_straight = (straight_high_card > 0)
+        four_of_a_kind_ranks = find_ranks_by_count(4)                                                                       # ═══► Evaluate hand strength and return with tie-breakers
+        three_of_a_kind_ranks = find_ranks_by_count(3)
+        pairs_ranks = find_ranks_by_count(2)
+        if is_straight and is_flush:                                                                                        # ═══► Get the straight-flush high card
+            flush_ranks_in_order = sorted([_rank_to_value(card['rank']) for card in combined if card['suit'] == flush_suit], reverse=True)
+            if 14 in flush_ranks_in_order:                                                                                  # ═══► Add Ace as 1 for A-2-3-4-5 straight flush
+                flush_ranks_in_order.append(1)
+            # End if
+            flush_ranks_in_order.sort(reverse=True)
+            sf_high_card = 0
+            for i in range(len(flush_ranks_in_order) - 4):
+                if flush_ranks_in_order[i] - flush_ranks_in_order[i+4] == 4 and \
+                    all(r in flush_ranks_in_order for r in range(flush_ranks_in_order[i+4], flush_ranks_in_order[i]+1)):
+                    sf_high_card = flush_ranks_in_order[i]
+                    break
+                # End if
+            # End for
+            if sf_high_card == 0 and 14 in flush_ranks_in_order and all(r in flush_ranks_in_order for r in [2,3,4,5]):
+                sf_high_card = 5 # A-2-3-4-5 straight flush
+            # End if
+            return (HAND_RANKING.index("Straight Flush"), sf_high_card)
+        elif four_of_a_kind_ranks:
+            quad_rank = four_of_a_kind_ranks[0]
+            kicker = get_kickers([quad_rank, quad_rank, quad_rank, quad_rank])                                              # ═══► Exclude all 4 for kicker
+            return (HAND_RANKING.index("Four of a Kind"), quad_rank, *kicker)
+        elif three_of_a_kind_ranks and pairs_ranks:
+            full_house_3_rank = three_of_a_kind_ranks[0]                                                                    # ═══► Find the best pair for the full house, prioritize from remaining triples if multiple
+            available_for_pair = [r for r, c in rank_counts.items() if r != full_house_3_rank or c >= 5]                    # ═══► Exclude used triple, allow if 5-of-a-kind
+            potential_pairs = sorted([_rank_to_value(r) for r in available_for_pair if rank_counts[r] >= 2], reverse=True)
+            if len(three_of_a_kind_ranks) > 1:                                                                              # ═══► If multiple Three of a Kinds, use the highest for triple and next highest for pair
+                full_house_3_rank = three_of_a_kind_ranks[0]                                                                # ═══► Highest triple
+                if len(three_of_a_kind_ranks) > 1:                                                                          # ═══► The second highest triple can become the pair for full house
+                    if len(potential_pairs) > 0:
+                        full_house_2_rank = max(potential_pairs[0], three_of_a_kind_ranks[1])                               # ═══► Pick best available pair
+                    else:
+                        full_house_2_rank = three_of_a_kind_ranks[1]                                                         # ═══► Use next best triple for pair
+                    # End if
+                # End if
+            else:
+                full_house_2_rank = potential_pairs[0] if potential_pairs else 0
+            # End if
+            return (HAND_RANKING.index("Full House"), full_house_3_rank, full_house_2_rank)
+        elif is_flush:
+            flush_cards_values = sorted([_rank_to_value(card['rank']) for card in combined if card['suit'] == flush_suit], reverse=True)
+            return (HAND_RANKING.index("Flush"), *flush_cards_values[:5])
+        elif is_straight:
+            return (HAND_RANKING.index("Straight"), straight_high_card)
+        elif three_of_a_kind_ranks:
+            triple_rank = three_of_a_kind_ranks[0]
+            kickers = get_kickers([triple_rank, triple_rank, triple_rank])
+            return (HAND_RANKING.index("Three of a Kind"), triple_rank, *kickers[:2])
+        elif len(pairs_ranks) >= 2:
+            pairs_ranks.sort(reverse=True)
+            pair1_rank = pairs_ranks[0]
+            pair2_rank = pairs_ranks[1]
+            kickers = get_kickers([pair1_rank, pair1_rank, pair2_rank, pair2_rank])
+            return (HAND_RANKING.index("Two Pair"), pair1_rank, pair2_rank, *kickers[:1])
+        elif len(pairs_ranks) == 1:
+            pair_rank = pairs_ranks[0]
+            kickers = get_kickers([pair_rank, pair_rank])
+            return (HAND_RANKING.index("One Pair"), pair_rank, *kickers[:3])
+        else:
+            high_cards = sorted([_rank_to_value(card['rank']) for card in combined], reverse=True)[:5]
+            return (HAND_RANKING.index("High Card"), *high_cards)
+        # End if
+    # End def
+    # ╭─────────────────────────────────────────────────────────────────────────
+    # │  Function to compare robot and human's hand
+    # ╰─────────────────────────────────────────────────────────────────────────
+    def HANDS_COMPARE(human_hand, robot_hand, cards_open):
+        human_evaluated = HAND_EVALUATE(human_hand, list(cards_open))
+        robot_evaluated = HAND_EVALUATE(robot_hand, list(cards_open))
+        print("Human's hand assessment: {human_evaluated} ({HAND_RANKING[human_evaluated[0]]})")
+        print("Robot's hand assessment: {robot_evaluated} ({HAND_RANKING[robot_evaluated[0]]})")
+        if human_evaluated > robot_evaluated:
+            return ["human", HAND_RANKING[human_evaluated[0]]]
+        elif human_evaluated < robot_evaluated:
+            return ["robot", HAND_RANKING[robot_evaluated[0]]]
+        else:
+            return ["tie", HAND_RANKING[human_evaluated[0]]]
+        #End if
+    # End def
+    # ╭─────────────────────────────────────────────────────────────────────────
+    # │  Function for the computer decision logic
+    # ╰─────────────────────────────────────────────────────────────────────────
+    def DECIDE_ACTION_AI(ai_hand, community_cards, current_bet_to_match, ai_chips, opponent_chips, aggression_level_param, num_community_cards_revealed):
+        # ► Determines the action (Fold, Call, Raise, Check) of the AI according to its hand, community cards, current bet, chips and level of aggressiveness.
+        # ►   Returns (action, bet_amount)
+        # ►     action     ═══► "Fold", "Call", "Raise", "Check", "Bet"
+        # ►     bet_amount ═══► The total amount to bet/raise (not just the difference).
+        # ►   ai_hand and community_cards   ═══► Visible cards for the AI.
+        # ►   current_bet_to_match          ═══► The amount the AI has to pay to follow.
+        # ►   ai_chips and opponent_chips   ═══► Chips remaining from the AI and the opponent (for ‘all-in’ or bluff decisions).
+        # ►   aggression_level_param        ═══► The aggressiveness parameter (1-5).
+        # ►   num_community_cards_revealed  ═══► To find out what stage of the game you are at (0=Pre-flop, 3=Flop, 4=Turn, 5=River).
+        ai_hand_eval     = HAND_EVALUATE(ai_hand, community_cards)                                                           # ═══► Evaluate the current strength of the AI's hand
+        hand_rank_index  = ai_hand_eval[0]                                                                                   # ═══► 0 for High Card, up to 8 for Straight Flush
+        agg_factor       = aggression_level_param / 5.0                                                                      # ═══► Standardised aggressiveness factor (0.2 for passive, 1.0 for very aggressive)
+        cost_to_call     = current_bet_to_match                                                                              # ═══► Cost of tracking current stake, if applicable
+        # ► Determine the “tier” of hand strength for AI
+        is_strong_hand   = False
+        is_medium_hand   = False
+        is_decent_hand   = False
+        # ► Hand strength adjustments based on stage of play (pre-flop, flop, turn, river)
+        # ► The strength of a hand is more "potential" pre-flop.
+        if num_community_cards_revealed == 0: # Pré-Flop
+            rank1        = _rank_to_value(ai_hand[0]['rank'])
+            rank2        = _rank_to_value(ai_hand[1]['rank'])
+            is_suited    = ai_hand[0]['suit'] == ai_hand[1]['suit']
+            is_connected = abs(rank1 - rank2) == 1 and max(rank1, rank2) <= RANK_VALUES['Q']                                # ═══► Connected cards (not A-K, A-Q etc)
+            if rank1 == rank2:                                                                                              # ═══► Pair served
+                if rank1 >= RANK_VALUES['T']: is_strong_hand = True                                                         # ═══► TT+
+                elif rank1 >= RANK_VALUES['7']: is_medium_hand = True                                                       # ═══► 77-99
+                else: is_decent_hand = True                                                                                 # ═══► 22-66
+            elif max(rank1, rank2) >= RANK_VALUES['A'] and min(rank1, rank2) >= RANK_VALUES['T']:                           # ═══► AK, AQ, AJ
+                if is_suited: is_strong_hand = True
+                else: is_medium_hand = True
+            elif is_suited and max(rank1, rank2) >= RANK_VALUES['T']:                                                       # ═══► Suited high cards (KQ, KJ, QJ, etc.)
+                is_medium_hand = True
+            elif is_suited and is_connected and max(rank1, rank2) >= RANK_VALUES['7']:                                      # ═══► Suited connectors 78s+
+                is_decent_hand = True
+            elif (max(rank1, rank2) >= RANK_VALUES['Q'] and min(rank1, rank2) >= RANK_VALUES['9']):                         # ═══► Unsuited broadways QJ, KT etc
+                is_decent_hand = True
+            else:
+                pass                                                                                                        # ═══► Remains weak
+            #End if
+        else:                                                                                                               # ═══► Post-flop: evaluate the hand and the draw potential
+            if hand_rank_index >= HAND_RANKING.index("Straight"):
+                is_strong_hand = True
+            elif hand_rank_index >= HAND_RANKING.index("Two Pair"):
+                is_medium_hand = True
+            elif hand_rank_index >= HAND_RANKING.index("One Pair"):
+                pair_rank = ai_hand_eval[1]                                                                                 # ═══► For a pair, consider the strength of the pair and the kickers
+                if pair_rank >= RANK_VALUES['J']:                                                                           # ═══► High Pair (JJ+)
+                    is_medium_hand = True
+                else:                                                                                                       # ═══► Weak Pair
+                    is_decent_hand = True
+                # End if
+            # End if
+        # End if
+        # ► Drawings (Flush draw, Straight draw)
+        # ► This is a simplification. A more complex AI would calculate the outs.
+        # ► For the moment, it's based on the curetn hand calculation
+        action = "Fold"                                                                                                     # ═══► Action decision
+        bet_amount = 0                                                                                                      # ═══► Total amount the AI will bet in the pot for its next action
+        if current_bet_to_match == 0:                                                                                       # ═══► If the AI is the first to speak (current_bet_to_match is 0)
+            if is_strong_hand:
+                action = "Bet"
+                bet_amount = BIG_BLIND * 2 if agg_factor >= 0.7 and ai_chips >= BIG_BLIND * 2 else BIG_BLIND
+            elif is_medium_hand:
+                action = "Bet"
+                bet_amount = BIG_BLIND if agg_factor >= 0.5 and ai_chips >= BIG_BLIND else 0                                # ═══► If not aggressive enough or no chips, check
+                if bet_amount == 0:
+                    action = "Check"
+                # End if
+            elif is_decent_hand:
+                if agg_factor > 0.7 and ai_chips >= BIG_BLIND:                                                              # ═══► Aggressive enough to make a small bet/bluff
+                    action = "Bet"
+                    bet_amount = BIG_BLIND
+                else:
+                    action = "Check"                                                                                        # ═══► Passive, check
+                # End if
+            else:                                                                                                           # ═══► Weak hand
+                if agg_factor > 0.9 and ai_chips >= SMALL_BLIND:                                                            # ═══► Bluff very aggressive
+                    action = "Bet"
+                    bet_amount = SMALL_BLIND                                                                                # ═══► Very small bluff, to probe
+                else:
+                    action = "Check"
+                # End if
+            # End if
+        else:
+            # ► Ratio of call cost to AI tokens
+            # ► Checks whether the AI can at least track the bet
+            if ai_chips < cost_to_call:                                                                                     # ═══► Not enough chips to call, must have to fold or go all-in
+                if ai_chips > 0 and ai_chips >= (cost_to_call * (0.5 - agg_factor * 0.1)):
+                    action = "Call"                                                                                         # ═══► All-in for Call
+                    bet_amount = ai_chips
+                else:
+                    action = "Fold"
+                    bet_amount = 0
+                # End if
+                return action, int(bet_amount)                                                                              # ═══► Early exit if fold or partial all-in
+            # End if
+            if is_strong_hand:                                                                                              # ═══► If AI can keep up with the
+                if agg_factor > 0.4:                                                                                        # ═══► Agressive
+                    action = "Raise"
+                    raise_increment = BIG_BLIND * 2 if agg_factor >= 0.7 and ai_chips >= current_bet_to_match + (BIG_BLIND * 2) else BIG_BLIND
+                    bet_amount = current_bet_to_match + raise_increment
+                else:                                                                                                       # ═══► Less aggressive, just Call
+                    action = "Call"
+                    bet_amount = current_bet_to_match
+                # End if
+            elif is_medium_hand:
+                if agg_factor > 0.6:                                                                                        # ═══► Aggressive mid-range AI could Raise
+                    action = "Raise"
+                    raise_increment = BIG_BLIND if ai_chips >= current_bet_to_match + BIG_BLIND else 0
+                    if raise_increment > 0:
+                        bet_amount = current_bet_to_match + raise_increment
+                    else:                                                                                                   # ═══► Cannot raise, must Call or Fold
+                        action = "Call"
+                        bet_amount = current_bet_to_match
+                    # End if
+                else:
+                    action = "Call"
+                    bet_amount = current_bet_to_match
+                # End if
+            elif is_decent_hand:
+                if agg_factor > 0.4 and ai_chips >= current_bet_to_match:                                                   # ═══► IA not agressive
+                    action = "Call"
+                    bet_amount = current_bet_to_match
+                else:
+                    action = "Fold"
+                    bet_amount = 0
+                # End if
+            else:                                                                                                           # ═══► Weak hand
+                if agg_factor > 0.95 and ai_chips >= current_bet_to_match and random.random() < 0.2:                        # ═══► Occasional very aggressive Bluff
+                    action = "Call"                                                                                         # ═══► Just Call to Bluff
+                    bet_amount = current_bet_to_match
+                else:
+                    action = "Fold"
+                    bet_amount = 0
+                # End if
+            # End if
+        # End if
+        # ► Final adjustments for chips (All-in if the desired stake exceeds the chips)
+        if action != "Fold" and bet_amount > ai_chips:
+            bet_amount = ai_chips
+            if bet_amount < current_bet_to_match and current_bet_to_match > 0:                                              # ═══► If all-in amount is less than current bet, it's a fold
+                action = "Fold"
+                bet_amount = 0
+            # End if
+        # End if
+        return action, int(bet_amount)                                                                                      # ═══► Ensure bet_amount is an integer
+    # End def
+# End init python
+    # ╭─────────────────────────────────────────────────────────────────────────
+    # │  Function for the Betting Round Logic
+    # ╰─────────────────────────────────────────────────────────────────────────
+    def BETTING_ROUND_LOGIC(first_player_obj, initial_bet, street_name, num_community_cards_revealed):
+        global human, robot, pot, active_players
+
+        current_highest_bet = initial_bet
+        last_raiser = None
+        players_who_acted_in_round = set()
+
+        if street_name != "Pre-Flop":
+        order_of_play = []
+        if first_player_obj == human:
+            order_of_play = [human, robot]
+        else:
+            order_of_play = [robot, human]
+
+        round_completed = False
+        while not round_completed:
+            for p_turn in order_of_play:
+                if not p_turn.is_folded and p_turn.chips > 0:
+                    amount_to_match = GET_AMOUNT_TO_MATCH(p_turn, current_highest_bet)
+
+                    needs_to_act = True
+                    if (p_turn.currentBet == current_highest_bet and p_turn in players_who_acted_in_round):
+                        needs_to_act = False
+                    elif p_turn.chips == 0:
+                        needs_to_act = False
+
+                    if needs_to_act:
+                        if p_turn == human:
+                            player_action_data = renpy.call_screen("player_betting_screen", street_name, pot, current_highest_bet, human.chips, human.currentBet, amount_to_match, BIG_BLIND)
+
+                            action_type = player_action_data["action"]
+                            chosen_amount = player_action_data.get("amount", 0)
+
+                            if action_type == "fold":
+                                renpy.say(None, "Vous vous couchez.")
+                                human.fold()
+                                active_players.remove(human)
+                            elif action_type == "check":
+                                renpy.say(None, "Vous checkez.")
+                                players_who_acted_in_round.add(human)
+                            elif action_type == "call":
+                                actual_bet = APPLY_BET(player, current_highest_bet)
+                                if actual_bet < amount_to_match:
+                                    renpy.say(None, f"Vous n'avez pas assez de jetons. Vous suivez à tapis pour {actual_bet} jetons.")
+                                else:
+                                    renpy.say(None, f"Vous suivez pour {actual_bet} jetons.")
+                                players_who_acted_in_round.add(human)
+                            elif action_type == "bet":
+                                actual_bet = APPLY_BET(human, chosen_amount)
+                                current_highest_bet = human.currentBet
+                                last_raiser = human
+                                renpy.say(None, f"Vous misez {actual_bet} jetons. La mise la plus haute est de {current_highest_bet} jetons.")
+                                players_who_acted_in_round = set([human])
+                            elif action_type == "raise":
+                                actual_bet = APPLY_BET(human, chosen_amount)
+                                raised_by = actual_bet - amount_to_match
+                                current_highest_bet = player.currentBet
+                                last_raiser = human
+                                renpy.say(None, f"Vous relancez de {raised_by} jetons (total: {current_highest_bet} jetons).")
+                                players_who_acted_in_round = set([human])
+                   
+                        elif p_turn == robot:
+                            ai_action, ai_total_bet_amount = DECIDE_ACTION_AI(
+                                robot.hand, cards_open, amount_to_match,
+                                robot.chips, human.chips, POKER_AI_AGGRESSION, num_community_cards_revealed
+                            )
+
+                            if ai_action == "Fold":
+                                renpy.say(None, f"{robot.name} se couche.")
+                                robot.fold()
+                                active_players.remove(robot)
+                            elif ai_action == "Check":
+                                renpy.say(None, f"{robot.name} checke.")
+                                players_who_acted_in_round.add(robot)
+                            elif ai_action == "Call":
+                                actual_bet = APPLY_BET(robot, ai_total_bet_amount)
+                                if actual_bet < amount_to_match:
+                                    renpy.say(None, f"{robot.name} suit à tapis pour {actual_bet} jetons.")
+                                else:
+                                    renpy.say(None, f"{robot.name} suit pour {actual_bet} jetons.")
+                                players_who_acted_in_round.add(robot)
+                            elif ai_action == "Bet":
+                                actual_bet = APPLY_BET(robot, ai_total_bet_amount)
+                                current_highest_bet = robot.currentBet
+                                last_raiser = robot
+                                renpy.say(None, f"{robot.name} mise {actual_bet} jetons. La mise la plus haute est de {current_highest_bet} jetons.")
+                                players_who_acted_in_round = set([robot])
+                            elif ai_action == "Raise":
+                                actual_bet = APPLY_BET(robot, ai_total_bet_amount)
+                                raised_by = actual_bet - amount_to_match
+                                current_highest_bet = robot.currentBet
+                                last_raiser = robot
+                                renpy.say(None, f"{robot.name} relance de {raised_by} jetons (total: {current_highest_bet} jetons).")
+                                players_who_acted_in_round = set([robot])
+
+                        renpy.show_screen("SC_HAND_PLAYER")
+                        renpy.show_screen("SC_HAND_COMPUTER", reveal=False)
+                        renpy.show_screen("SC_OPEN_CARDS")
+                        renpy.pause(0.5)
+
+            if len(active_players) <= 1:
+                round_completed = True
+                break
+
+            all_matched = True
+            for p_check in active_players:
+                if p_check.currentBet < current_highest_bet and p_check.chips > 0:
+                    all_matched = False
+                    break
+           
+            if all_matched and (len(players_who_acted_in_round) == len(active_players) or last_raiser == p_turn):
+                round_completed = True
+                break
+
+        if len(active_players) <= 1:
+            winner_of_round = active_players[0] if active_players else None
+            if winner_of_round == human:
+                renpy.say(None, f"Tous les adversaires se sont couchés. Vous gagnez le pot de {pot} jetons !")
+                human.chips += pot
+                pot = 0
+                return True
+            elif winner_of_round == robot:
+                renpy.say(None, f"{winner_of_round.name} a gagné le pot de {pot} jetons car tout le monde s'est couché !")
+                robot.chips += pot
+                pot = 0
+                return True
+            else:
+                renpy.say(None, "Il n'y a plus de joueurs actifs dans la main. Pot divisé ou erreur.")
+                return True
+
+        renpy.say(None, f"Le tour de mise {street_name} est terminé.")
+        return False
+
+# ╔═════════════════════════════════════════════════════════════════════════════
+# ║╔════════════════════════════════════════════════════════════════════════════
+# ║║  Texas Hold'Em Game Flow (Updated with Betting Rounds)
+# ║╚════════════════════════════════════════════════════════════════════════════
+# ╚═════════════════════════════════════════════════════════════════════════════
+label LB_TEXAS_HOLDEM(sHuman=HUMAN_NAME, sRobot=ROBOT_NAME):
+    $ INITIALIZE_GAME(sHuman, sRobot)
+    $ DEALER = DEALER_RANDOM()                                                                                              # ═══► Determines the first dealer
+
+    show screen SC_HAND_HUMAN()
+    show screen SC_HAND_ROBOT()
+    show screen SC_DEALER_CHIP(DEALER)
+
+    # Main game loop
+    while True:
+        if player.chips <= 0:                                                                                               # ═══► Checks whether a player has chips
+            "Vous n'avez plus de jetons. [sRobot] a gagné la partie !"
+            jump end_game_label     # ► Or an end-of-game screen
+        # End if
+        if computer.chips <= 0:
+            "[sRobot] n'a plus de jetons. Vous avez gagné la partie !"
+            jump end_game_label     # ► Or an end-of-game screen
+        # End if
+
+        $ DECK_RESET()
+        $ POT_RESET(0)
+        $ CARDS_OPEN_RESET()
+        $ CARDS_PLAYERS_RESET()
+
+        if DEALER == "player":                                                                                              # ═══► Affiche le croupier actuel
+            "Vous êtes le croupier."
+        else:
+            "[sRobot] est le croupier."
+        # End if
+
+        $ highest_bet_this_round = BIG_BLIND                                                                                # ═══► At the start of the round, the big blind is the bet to call
+        $ small_blind_player_obj = robot if DEALER == "human" else human
+        $ big_blind_player_obj   = human if DEALER == "human" else robot
+
+        $ big_blind_player_who_posted = BLINDS(DEALER)                                                                      # ═══► Places the blinds and picks up the player who must speak first post-blinds (the player after the big blind)
+        $ first_to_act_preflop = human if big_blind_player_who_posted == robot else robot
+
+        "Les blinds ont été misés. Le pot est maintenant de [pot] jetons."
+        show screen SC_HAND_HUMAN()
+        show screen SC_HAND_ROBOT()
+
+        $ CARDS_DEAL()                                                                                                      # ═══► Deal the players cards
+        "Vos cartes : [player.hand[0]['rank']][player.hand[0]['suit']] et [player.hand[1]['rank']][player.hand[1]['suit']]."
+        show screen SC_HAND_HUMAN()
+        show screen SC_HAND_ROBOT()
+
+        # ╔═════════════════════════════════════════════════════════════════════
+        # ║ Betting rounds (Pre-Flop, Flop, Turn, River)
+        # ╚═════════════════════════════════════════════════════════════════════
+        # ► The LB_BETTING_ROUND_LOGIC function manages the betting flow. It returns True if the round ends in a Fold.
+        # ► It takes into account: the first player to act, the current bet and the name of the stage.
+
+        # ╭─────────────────────────────────────────────────────────────────────
+        # │  Pre-Flop
+        # ╰─────────────────────────────────────────────────────────────────────
+        $ round_ended_by_fold = renpy.call("LB_BETTING_ROUND_LOGIC", first_to_act_preflop, BIG_BLIND, "Pre-Flop", 0)
+        if round_ended_by_fold:
+            "Le tour est terminé."
+            $ DEALER = DEALER_SWITCH(DEALER)
+            hide screen SC_DEALER_CHIP
+            show screen SC_DEALER_CHIP(DEALER)
+            jump LB_TEXAS_HOLDEM
+        # End if
+        # ╭─────────────────────────────────────────────────────────────────────
+        # │  Flop
+        # ╰─────────────────────────────────────────────────────────────────────
+        $ CARDS_OPEN_REVEAL(3)
+        "Le Flop : [cards_open[0]['rank']][cards_open[0]['suit']], [cards_open[1]['rank']][cards_open[1]['suit']], [cards_open[2]['rank']][cards_open[2]['suit']]."
+        show screen SC_OPEN_CARDS()
+        $ first_to_act_postflop = small_blind_player_obj                                                                    # ═══► Small Blind acts first post-flop, or player left of dealer
+        $ round_ended_by_fold = renpy.call("LB_BETTING_ROUND_LOGIC", first_to_act_postflop, 0, "Flop", 3)
+        if round_ended_by_fold:
+            "Le tour est terminé."
+            $ DEALER = DEALER_SWITCH(DEALER)
+            hide screen SC_DEALER_CHIP
+            show screen SC_DEALER_CHIP(DEALER)
+            jump LB_TEXAS_HOLDEM
+        # End if
+        # ╭─────────────────────────────────────────────────────────────────────
+        # │  Turn
+        # ╰─────────────────────────────────────────────────────────────────────
+        $ CARDS_OPEN_REVEAL(1)
+        "Le Turn : [cards_open[3]['rank']][cards_open[3]['suit']]."
+        show screen SC_OPEN_CARDS()
+        $ round_ended_by_fold = renpy.call("LB_BETTING_ROUND_LOGIC", first_to_act_postflop, 0, "Turn", 4)
+        if round_ended_by_fold:
+            "Le tour est terminé."
+            $ DEALER = DEALER_SWITCH(DEALER)
+            hide screen SC_DEALER_CHIP
+            show screen SC_DEALER_CHIP(DEALER)
+            jump LB_TEXAS_HOLDEM
+        # End if
+        # ╭─────────────────────────────────────────────────────────────────────
+        # │  River
+        # ╰─────────────────────────────────────────────────────────────────────
+        $ CARDS_OPEN_REVEAL(1)
+        "La River : [cards_open[4]['rank']][cards_open[4]['suit']]."
+        show screen SC_OPEN_CARDS()
+        $ round_ended_by_fold = renpy.call("LB_BETTING_ROUND_LOGIC", first_to_act_postflop, 0, "River", 5)
+        if round_ended_by_fold:
+            "Le tour est terminé."
+            $ DEALER = DEALER_SWITCH(DEALER)
+            hide screen SC_DEALER_CHIP
+            show screen SC_DEALER_CHIP(DEALER)
+            jump LB_TEXAS_HOLDEM
+        # End if
+        # ╭─────────────────────────────────────────────────────────────────────
+        # │  Showdown
+        # ╰─────────────────────────────────────────────────────────────────────
+        "Toutes les mises sont faites. Abattage !"
+        show screen SC_HAND_ROBOT(reveal=True)                                                                              # ═══► Révèle la main de l'ordinateur
+        $ winner_info = HANDS_COMPARE(human.hand, robot.hand, cards_open)
+        $ winner = winner_info[0]
+        $ winning_hand_type = winner_info[1]
+        if winner == "human":
+            "Vous avez [winning_hand_type]. Vous gagnez le pot de [pot] jetons !"
+            $ human.chips += pot
+        elif winner == "computer":
+            "[sRobot] a [winning_hand_type]. [sRobot] gagne le pot de [pot] jetons !"
+            $ robot.chips += pot
+        else: # tie
+            "C'est une égalité ! Vous avez tous les deux [winning_hand_type]."
+            $ human.chips += pot // 2
+            $ robot.chips += pot // 2
+        # End if
+        $ pot = 0                                                                                                           # ═══► The pot is distributed
+        "Vos jetons: [human.chips], Jetons de [sRobot]: [robot.chips]."
+        $ DEALER = DEALER_SWITCH(DEALER)                                                                                    # ═══► Change dealer for next turn
+        hide screen SC_DEALER_CHIP
+        show screen SC_DEALER_CHIP(DEALER)
+        # ╭─────────────────────────────────────────────────────────────────────
+        # │  Option to replay
+        # ╰─────────────────────────────────────────────────────────────────────
+        menu:
+            "Voulez-vous jouer un autre tour ?"
+            "Oui":
+                # Les écrans seront rafraîchis au début de la boucle principale
+                pass
+            "Non":
+                jump end_game_label
+        # End menu
+    # End while
+# End label
+
+screen SC_ACTION_PLAYER(action_player, message):
+    if action_player == "PREFLOP" or action_player == "FLOP":
+        frame:
+            xalign 0.842
+            yalign 0.96
+            xsize 0.06
+            ysize 0.05
+            textbutton ("CALL") action Return (value="Call"):
+                xanchor 0.5
+                xpos 66
+                ypos -5
+                text_style "STYLE_CHOICE_BUTTON_ORANGE"
+        frame:
+            xalign 0.914
+            yalign 0.96
+            xsize 0.06
+            ysize 0.05
+            textbutton ("RAISE") action Return (value="Raise"):
+                xanchor 0.5
+                xpos 66
+                ypos -5
+                text_style "STYLE_CHOICE_BUTTON_ORANGE"
+        frame:
+            xalign 0.986
+            yalign 0.96
+            xsize 0.06
+            ysize 0.05
+            textbutton ("FOLD") action Return (value="Fold"):
+                xanchor 0.5
+                xpos 66
+                ypos -5
+                text_style "STYLE_CHOICE_BUTTON_ORANGE"
+    if action_player == "CONTINUE":
+        frame:
+            background "#404040"
+            xalign 1.0
+            yalign 1.0
+            xsize 0.21
+            ysize 0.13
+            text "{b}[message]{/b}" size 26 color "#FFFFFF"
+        frame:
+            xalign 0.875
+            yalign 0.96
+            xsize 0.09
+            ysize 0.05
+            textbutton ("NEW GAME") action Return (value=True):
+                xanchor 0.5
+                xpos 108
+                ypos -5
+                text_style "STYLE_CHOICE_BUTTON_LIME"
+        frame:
+            xalign 0.98
+            yalign 0.96
+            xsize 0.09
+            ysize 0.05
+            textbutton ("QUIT") action Return (value=False):
+                xanchor 0.5
+                xpos 108
+                ypos -5
+                text_style "STYLE_CHOICE_BUTTON_RED"
+# End screen
+screen SC_HAND_HUMAN():
+    frame:                                                                                                                  # ═══► Background frame for the screen
+        background "#404040"
+        xalign 1.0
+        yalign 0.5
+        xsize 0.22
+        ysize 1.0
+    # End frame
+    frame:                                                                                                                  # ═══► Player hand display
+        background "#404040"
+        xalign 1.0
+        yalign 0.8
+        xsize 0.21
+        ysize 0.2
+        vbox spacing 30:
+            text "{b}Your Chips: [player.chips]{/b}" size 26 color "#FFFFFF"
+            grid 2 1:
+                hbox spacing -220:
+                    xsize 350
+                    for card in player.hand:
+                        add CARDS_IMAGE(card) xsize 188 ysize 251
+                    # End for
+                # End hbox
+            # End Grid
+        # End vbox
+    # End frame
+    frame:                                                                                                                  # ═══► Pot display
+        background "#404040"
+        xalign 1.0
+        yalign 0.45
+        xsize 0.21
+        ysize 0.2
+        hbox:
+            text "{b}Pot: [pot]{/b}" size 26 color "#FFFFFF"
+        # End hbox
+    # End frame
+# End screen
+screen SC_HAND_ROBOT():
+    frame:                                                                                                                  # ═══► Computer hand display
+        background "#404040"
+        xalign 1.0
+        yalign 0.1
+        xsize 0.21
+        ysize 0.2
+        vbox spacing 30:
+            text "{b}[computer.name]: [computer.chips]{/b}" size 26 color "#FFFFFF"
+            grid 2 1:
+                hbox spacing -220:
+                    xsize 350
+                    for card in computer.hand:
+                        if WINNER[0] == "" and POKER_CHEAT == False:
+                            add "cards/back_of_card_1.png" size (188, 251)
+                        elif WINNER[0] != "":
+                            add CARDS_IMAGE(card) xsize 188 ysize 251
+                        elif POKER_CHEAT == True:
+                            add CARDS_IMAGE(card) size (188, 251)
+                            add "cards/back_of_card_1.png" size (188, 251) alpha 0.5 xpos -30
+                        # End if
+                    # End for
+                # End hbox
+            # End Grid
+        # End vbox
+    # End frame
+    frame:                                                                                                                  # ═══► Pot display
+        background "#404040"
+        xalign 1.0
+        yalign 0.45
+        xsize 0.21
+        ysize 0.2
+        hbox:
+            text "{b}Pot: [pot]{/b}" size 26 color "#FFFFFF"
+        # End hbox
+    # End frame
+# End screen
+screen SC_OPEN_CARDS():
+    frame:                                                                                              # ═══► Community cards display
+        background "#404040"
+        xalign 0.997
+        yalign 0.5
+        xsize 0.21
+        ysize 0.185
+        hbox spacing -120:
+            for card in cards_open:
+                add CARDS_IMAGE(card) xsize 188 ysize 251
+            # End Grid
+        # End vbox
+    # End frame
+# End screen
+screen SC_DEALER_CHIP(DEALER):
+    frame:                                                                                                                  # ═══► Player hand display
+        if DEALER == "player":
+            background "#404040"
+            xalign 1.0
+            yalign 0.85
+            xsize 0.08
+            ysize 0.2
+            vbox:
+                add "Dealer.png" size (100, 100)
+            # End vbox
+        # End if
+        elif DEALER == "computer":
+            background "#404040"
+            xalign 1.0
+            yalign 0.15
+            xsize 0.08
+            ysize 0.2
+            vbox:
+                add "Dealer.png" size (100, 100)
+            # End vbox
+        # End if
+    # End frame
+# End screen
+# ╔═════════════════════════════════════════════════════════════════════════════
+# ║╔════════════════════════════════════════════════════════════════════════════
+# ║║  New Player Betting Action Screen
+# ║╚════════════════════════════════════════════════════════════════════════════
+# ╚═════════════════════════════════════════════════════════════════════════════
+screen SC_HUMAN_BETTING_BUTTONS(street_name, current_pot, current_highest_bet_val, player_chips_val, player_current_bet_val, amount_to_match_val, big_blind_val):
+    # Fond semi-transparent pour l'écran d'action
+    modal True
+    zorder 100
+
+    frame:
+        style_prefix "actions_frame"
+        xalign 0.5
+        yalign 0.5
+        xsize 400 # Fixed width for the action box
+        ysize 450 # Fixed height
+
+        vbox:
+            text "Votre tour ({}, Pot: [current_pot], Mise actuelle: [current_highest_bet_val])".format(street_name) style "actions_text"
+            text "Vos Jetons: [player_chips_val], Votre Mise: [player_current_bet_val]".format(human.chips, human.currentBet) style "actions_text"
+            null height 20
+
+            # Option Fold
+            textbutton "Fold" action Return({"action": "fold"}) style "actions_button"
+
+            # Option Check / Call
+            if amount_to_match_val == 0:
+                textbutton "Check" action Return({"action": "check"}) style "actions_button"
+            else:
+                # Call amount is the difference between current_highest_bet and player_current_bet
+                $ actual_call_cost = current_highest_bet_val - player_current_bet_val
+
+                if player_chips_val >= actual_call_cost:
+                    textbutton "Call ([actual_call_cost] jetons)" action Return({"action": "call", "amount": current_highest_bet_val}) style "actions_button"
+                else: # All-in Call
+                    textbutton "Call ([player_chips_val] jetons) - All-in" action Return({"action": "call", "amount": player_chips_val + player_current_bet_val}) style "actions_button"
+
+            # Options Bet / Raise
+            $ can_bet_bb = player_chips_val >= big_blind_val + amount_to_match_val
+            $ can_bet_2bb = player_chips_val >= (big_blind_val * 2) + amount_to_match_val
+
+            if amount_to_match_val == 0: # If no one has bet yet (player can Bet)
+                if can_bet_bb:
+                    textbutton "Bet [big_blind_val] jetons" action Return({"action": "bet", "amount": big_blind_val}) style "actions_button"
+                if can_bet_2bb:
+                    textbutton "Bet [big_blind_val * 2] jetons" action Return({"action": "bet", "amount": big_blind_val * 2}) style "actions_button"
+            else: # If someone has already bet (player can Raise)
+                $ min_raise_needed = big_blind_val
+                if player_chips_val >= amount_to_match_val + min_raise_needed: # Can afford call + basic raise
+                    textbutton "Raise ([big_blind_val] de plus)" action Return({"action": "raise", "amount": current_highest_bet_val + big_blind_val}) style "actions_button"
+
+                if player_chips_val >= amount_to_match_val + (big_blind_val * 2): # Can afford call + double raise
+                    textbutton "Raise ([big_blind_val * 2] de plus)" action Return({"action": "raise", "amount": current_highest_bet_val + (big_blind_val * 2)}) style "actions_button"
+
+    # Définition de styles pour l'écran (optionnel, pour une meilleure apparence)
+style actions_frame is default_frame:
+    background "#2a2a2a" # Couleur de fond sombre
+    xpadding 20
+    ypadding 20
+    spacing 10
+    border_size 2
+    border_left 5
+    border_right 5
+    border_top 5
+    border_bottom 5
+    top_margin 20
+    bottom_margin 20
+
+style actions_text is default_text:
+    color "#FFFFFF" # Texte blanc
+    size 22
+    xalign 0.5
+    text_align 0.5
+
+style actions_button is default_button:
+    xfill True # Bouton remplit la largeur disponible
+    background "#4CAF50" # Couleur de fond du bouton (vert)
+    hover_background "#66BB6A" # Couleur au survol
+    selected_background "#81C784" # Couleur quand sélectionné
+    foreground "#FFFFFF" # Texte blanc
+    text_size 24
+    text_xalign 0.5
+    border_size 2
+    border_radius 5
+    xpadding 10
+    ypadding 10

@@ -4,6 +4,6 @@
 
 label start:
 
-    call LB_TEXAS_HOLDEM()
+    call LB_TEXAS_HOLDEM("Player", "Computer", 1000)
 
     return
