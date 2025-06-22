@@ -778,12 +778,6 @@ label LB_START_NEW_HAND:
         $ CARDS_OPEN_RESET()
         $ CARDS_PLAYERS_RESET() # Reset hands and folded status
 
-        # Affiche le croupier actuel
-#        if DEALER == "human":
-#            "Vous êtes le croupier."
-#        else:
-#            "[sRobot] est le croupier."
-
         $ highest_bet_this_round = BIG_BLIND # Au début du tour, la grosse blinde est la mise à suivre
         $ small_blind_player_obj = robot if DEALER == "human" else human
         $ big_blind_player_obj = human if DEALER == "human" else robot
@@ -885,18 +879,45 @@ label LB_START_NEW_HAND:
         show screen SC_DEALER_CHIP(DEALER)
 
         # Option de rejouer
-        menu:
-            "Voulez-vous jouer un autre tour ?"
-            "Oui":
-                # Les écrans seront rafraîchis au début de la boucle principale
-                jump LB_START_NEW_HAND # Revenir au début de la boucle pour une nouvelle main
-            "Non":
-                jump LB_END_GAME
+        # Remplacer le menu par des boutons
+        $ choice = renpy.call_screen("SC_PLAY_AGAIN_CHOICES")
+        if choice == "continue":
+            jump LB_START_NEW_HAND
+        elif choice == "quit":
+            jump LB_END_GAME
 
 label LB_END_GAME:
     "Merci d'avoir joué !"
     return
 
+screen SC_PLAY_AGAIN_CHOICES():
+    modal True
+    zorder 100
+    frame:
+        xalign  0.872
+        yalign  0.960
+        xsize   0.088
+        ysize   0.050
+        textbutton ("NEW GAME") action Return("continue"):
+            xanchor  0.5
+            xpos   108
+            ypos    -5
+            text_style "STYLE_CHOICE_BUTTON_LIME"
+        # End textbutton
+    # End frame
+    frame:
+        xalign  0.978
+        yalign  0.960
+        xsize   0.088
+        ysize   0.050
+        textbutton ("QUIT") action Return("quit"):
+            xanchor 0.5
+            xpos  100
+            ypos -5
+            text_style "STYLE_CHOICE_BUTTON_RED"
+        # End textbutton
+    # End frame
+# End screen
 screen SC_DEALER_CHIP(current_dealer_param):
     frame:
         if current_dealer_param == "human":
