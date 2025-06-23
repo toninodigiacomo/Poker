@@ -7,6 +7,7 @@ define DEALER               = ""
 define SMALL_BLIND          = 5                                                                                             # ═══► Petite blinde (modifié à 5)
 define BIG_BLIND            = 10                                                                                            # ═══► Grosse blinde (modifié à 10)
 define POKER_AI_AGGRESSION  = 3                                                                                             # ═══► Niveau d'agressivité de l'IA (1=passif à 5=très agressif)
+define PLAYER_FOLD          = False
 
 define POKER_CHEAT          = False
 
@@ -777,6 +778,7 @@ label LB_START_NEW_HAND:
         $ POT_RESET(0)
         $ CARDS_OPEN_RESET()
         $ CARDS_PLAYERS_RESET() # Reset hands and folded status
+        $ PLAYER_FOLD = False
 
         $ highest_bet_this_round = BIG_BLIND # Au début du tour, la grosse blinde est la mise à suivre
         $ small_blind_player_obj = robot if DEALER == "human" else human
@@ -808,71 +810,79 @@ label LB_START_NEW_HAND:
         # Pre-Flop
         $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_preflop, BIG_BLIND, "Pre-Flop", 0)
         if round_ended_by_fold:
-            "Le tour est terminé."
-            $ DEALER = DEALER_SWITCH(DEALER) # Changer de croupier pour la prochaine main
-            hide screen SC_DEALER_CHIP
-            show screen SC_DEALER_CHIP(DEALER)
-            jump LB_START_NEW_HAND # Passer à la main suivante
+#            "Le tour est terminé."
+#            $ DEALER = DEALER_SWITCH(DEALER) # Changer de croupier pour la prochaine main
+#            hide screen SC_DEALER_CHIP
+#            show screen SC_DEALER_CHIP(DEALER)
+#            jump LB_START_NEW_HAND # Passer à la main suivante
+            $ PLAYER_FOLD = True
 
-        # Flop
-        $ CARDS_OPEN_REVEAL(3)
-        $ print(f"[DEBUG] ► Flop : " + str(cards_open[0]['rank']) + str(cards_open[0]['suit']) + ", " + str(cards_open[1]['rank']) + str(cards_open[1]['suit']) + ", " + str(cards_open[2]['rank']) + str(cards_open[2]['suit']))
-        show screen SC_OPEN_CARDS()
+        if PLAYER_FOLD == False:
+            # Flop
+            $ CARDS_OPEN_REVEAL(3)
+            $ print(f"[DEBUG] ► Flop : " + str(cards_open[0]['rank']) + str(cards_open[0]['suit']) + ", " + str(cards_open[1]['rank']) + str(cards_open[1]['suit']) + ", " + str(cards_open[2]['rank']) + str(cards_open[2]['suit']))
+            show screen SC_OPEN_CARDS()
 
-        # Post-flop, le small blind agit en premier
-        $ first_to_act_postflop = small_blind_player_obj
-        $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "Flop", 3)
-        if round_ended_by_fold:
-            "Le tour est terminé."
-            $ DEALER = DEALER_SWITCH(DEALER)
-            hide screen SC_DEALER_CHIP
-            show screen SC_DEALER_CHIP(DEALER)
-            jump LB_START_NEW_HAND
+            # Post-flop, le small blind agit en premier
+            $ first_to_act_postflop = small_blind_player_obj
+            $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "Flop", 3)
+            if round_ended_by_fold:
+#                "Le tour est terminé."
+#                $ DEALER = DEALER_SWITCH(DEALER)
+#                hide screen SC_DEALER_CHIP
+#                show screen SC_DEALER_CHIP(DEALER)
+#                jump LB_START_NEW_HAND
+                $ PLAYER_FOLD = True
 
-        # Turn
-        $ CARDS_OPEN_REVEAL(1)
-        "Le Turn : [cards_open[3]['rank']][cards_open[3]['suit']]."
-        show screen SC_OPEN_CARDS()
-        $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "Turn", 4)
-        if round_ended_by_fold:
-            "Le tour est terminé."
-            $ DEALER = DEALER_SWITCH(DEALER)
-            hide screen SC_DEALER_CHIP
-            show screen SC_DEALER_CHIP(DEALER)
-            jump LB_START_NEW_HAND
+        if PLAYER_FOLD == False:
+            # Turn
+            $ CARDS_OPEN_REVEAL(1)
+            "Le Turn : [cards_open[3]['rank']][cards_open[3]['suit']]."
+            show screen SC_OPEN_CARDS()
+            $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "Turn", 4)
+            if round_ended_by_fold:
+#                "Le tour est terminé."
+#                $ DEALER = DEALER_SWITCH(DEALER)
+#                hide screen SC_DEALER_CHIP
+#                show screen SC_DEALER_CHIP(DEALER)
+#                jump LB_START_NEW_HAND
+                $ PLAYER_FOLD = True
 
-        # River
-        $ CARDS_OPEN_REVEAL(1)
-        "La River : [cards_open[4]['rank']][cards_open[4]['suit']]."
-        show screen SC_OPEN_CARDS()
-        $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "River", 5)
-        if round_ended_by_fold:
-            "Le tour est terminé."
-            $ DEALER = DEALER_SWITCH(DEALER)
-            hide screen SC_DEALER_CHIP
-            show screen SC_DEALER_CHIP(DEALER)
-            jump LB_START_NEW_HAND
+        if PLAYER_FOLD == False:
+            # River
+            $ CARDS_OPEN_REVEAL(1)
+            "La River : [cards_open[4]['rank']][cards_open[4]['suit']]."
+            show screen SC_OPEN_CARDS()
+            $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "River", 5)
+            if round_ended_by_fold:
+#                "Le tour est terminé."
+#                $ DEALER = DEALER_SWITCH(DEALER)
+#                hide screen SC_DEALER_CHIP
+#                show screen SC_DEALER_CHIP(DEALER)
+#                jump LB_START_NEW_HAND
+                $ PLAYER_FOLD = True
 
-        # Showdown (abattage)
-        "Toutes les mises sont faites. Abattage !"
-        show screen SC_HAND_ROBOT(reveal=True) # Révèle la main de l'ordinateur
-        $ winner_info = HANDS_COMPARE(human.hand, robot.hand, cards_open)
-        $ winner = winner_info[0]
-        $ winning_hand_type = winner_info[1]
+        if PLAYER_FOLD == False:
+            # Showdown (abattage)
+            "Toutes les mises sont faites. Abattage !"
+            show screen SC_HAND_ROBOT(reveal=True) # Révèle la main de l'ordinateur
+            $ winner_info = HANDS_COMPARE(human.hand, robot.hand, cards_open)
+            $ winner = winner_info[0]
+            $ winning_hand_type = winner_info[1]
 
-        if winner == "human":
-            "Vous avez [winning_hand_type]. Vous gagnez le pot de [pot] jetons !"
-            $ human.chips += pot
-        elif winner == "robot":
-            "[sRobot] a [winning_hand_type]. [sRobot] gagne le pot de [pot] jetons !"
-            $ robot.chips += pot
-        else: # tie
-            "C'est une égalité ! Vous avez tous les deux [winning_hand_type]."
-            $ human.chips += pot // 2
-            $ robot.chips += pot // 2
-        $ pot = 0 # Le pot est distribué
+            if winner == "human":
+                "Vous avez [winning_hand_type]. Vous gagnez le pot de [pot] jetons !"
+                $ human.chips += pot
+            elif winner == "robot":
+                "[sRobot] a [winning_hand_type]. [sRobot] gagne le pot de [pot] jetons !"
+                $ robot.chips += pot
+            else: # tie
+                "C'est une égalité ! Vous avez tous les deux [winning_hand_type]."
+                $ human.chips += pot // 2
+                $ robot.chips += pot // 2
+            $ pot = 0 # Le pot est distribué
 
-        "Vos jetons: [human.chips], Jetons de [sRobot]: [robot.chips]."
+            "Vos jetons: [human.chips], Jetons de [sRobot]: [robot.chips]."
 
         $ DEALER = DEALER_SWITCH(DEALER) # Changer de croupier pour la prochaine main
         hide screen SC_DEALER_CHIP
