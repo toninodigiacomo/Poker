@@ -4,6 +4,9 @@
 
 label start:
 
-    call LB_TEXAS_HOLDEM("Player", "Computer", 1000)
+    call LB_TEXAS_HOLDEM("Player", "Computer", 5, 100)
+
+
+    "... Fin du jeu ..."
 
     return

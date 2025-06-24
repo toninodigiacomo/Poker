@@ -1,82 +1,34 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While processing text tag {actual_bet} in 'f\n\nYou follow for {actual_bet} chips.'.:
+While running game code:
   File "game/script.rpy", line 7, in script call
-    call LB_TEXAS_HOLDEM("Player", "Computer")
-  File "game/z_Class_Poker.rpy", line 854, in script
-    $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_preflop, BIG_BLIND, "Pre-Flop", 0)
-  File "game/z_Class_Poker.rpy", line 854, in <module>
-    $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_preflop, BIG_BLIND, "Pre-Flop", 0)
-  File "game/z_Class_Poker.rpy", line 247, in BETTING_ROUND_LOGIC
-    renpy.say(None, "f\n\nYou follow for {actual_bet} chips.")
-Exception: Unknown text tag 'actual_bet'
+    call LB_TEXAS_HOLDEM("Player", "Computer", 5, 100)
+  File "game/z_Class_Poker.rpy", line 765, in script call
+    call LB_START_NEW_HAND()
+  File "game/z_Class_Poker.rpy", line 826, in script
+    $ print(f"[DEBUG] ► Flop start --► First to act: {first_to_act_postflop.name}")
+  File "game/z_Class_Poker.rpy", line 826, in <module>
+    $ print(f"[DEBUG] ► Flop start --► First to act: {first_to_act_postflop.name}")
+NameError: name 'first_to_act_postflop' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "game/script.rpy", line 7, in script call
-    call LB_TEXAS_HOLDEM("Player", "Computer")
-  File "game/z_Class_Poker.rpy", line 854, in script
-    $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_preflop, BIG_BLIND, "Pre-Flop", 0)
+    call LB_TEXAS_HOLDEM("Player", "Computer", 5, 100)
+  File "game/z_Class_Poker.rpy", line 765, in script call
+    call LB_START_NEW_HAND()
+  File "game/z_Class_Poker.rpy", line 826, in script
+    $ print(f"[DEBUG] ► Flop start --► First to act: {first_to_act_postflop.name}")
   File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/ast.py", line 827, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/python.py", line 1178, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/z_Class_Poker.rpy", line 854, in <module>
-    $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_preflop, BIG_BLIND, "Pre-Flop", 0)
-  File "game/z_Class_Poker.rpy", line 247, in BETTING_ROUND_LOGIC
-    renpy.say(None, "f\n\nYou follow for {actual_bet} chips.")
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/exports/sayexports.py", line 132, in say
-    who(what, *args, **kwargs)
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/character.py", line 1455, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/character.py", line 1106, in do_display
-    display_say(who,
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/character.py", line 803, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/ui.py", line 301, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/core.py", line 2215, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/core.py", line 2879, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/core.py", line 1381, in draw_screen
-    surftree = renpy.display.render.render_screen(
-  File "render.pyx", line 486, in renpy.display.render.render_screen
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/screen.py", line 752, in render
-    child = renpy.display.render.render(self.child, w, h, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/layout.py", line 1457, in render
-    surf = render(child,
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/text/text.py", line 2600, in render
-    virtual_layout = Layout(self, width, height, renders, drawable_res=False, size_only=True)
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/text/text.py", line 730, in __init__
-    self.paragraphs = self.segment(text.tokens, style, renders, text)
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/text/text.py", line 1526, in segment
-    raise Exception("Unknown text tag %r" % text)
-Exception: Unknown text tag 'actual_bet'
+  File "game/z_Class_Poker.rpy", line 826, in <module>
+    $ print(f"[DEBUG] ► Flop start --► First to act: {first_to_act_postflop.name}")
+NameError: name 'first_to_act_postflop' is not defined
 
 macOS-15.5-arm64-arm-64bit arm64
 Ren'Py 8.3.4.24120703
 Poker 1.0
-Sun Jun 22 16:40:48 2025
+Mon Jun 23 23:21:38 2025

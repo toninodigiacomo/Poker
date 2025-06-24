@@ -213,15 +213,16 @@ init python:
         round_completed = False
         while not round_completed:
             # CHECK FOR EARLY ROUND END DUE TO FOLD
+            print(f"[DEBUG] ► Active players (1): {len(active_players)}")
             if len(active_players) <= 1:
-                # If only one player is left, the round ends.
-                # The remaining player wins the pot.
+                # ► If only one player is left, the round ends.
+                # ► The remaining player wins the pot.
                 print(f"[DEBUG] ► Round ended early by fold. Active players: {len(active_players)}")
-                return True # Indicate that the round ended by a fold
+                round_completed = True                                                                                      # ═══► Indicate that the round ended by a fold
             # End if
             for p_turn in order_of_play:
                 print(f"[DEBUG] ► Player turn: {p_turn.name}")
-                if not p_turn.isFolded and p_turn.chips > 0:
+                if not p_turn.isFolded and p_turn.chips > 0 and not len(active_players) <= 1:
                     # ► GET_AMOUNT_TO_MATCH returns what the player has to ADD.
                     # ► current_highest_bet is the TOTAL AMOUNT to reach.
                     amount_to_match = GET_AMOUNT_TO_MATCH(p_turn, current_highest_bet)
@@ -254,6 +255,7 @@ init python:
                                 print(f"[DEBUG] ► Current action: {action_type} --► Actual bet: {actual_bet}")
                                 if human.currentBet < current_highest_bet:                                                  # ═══► Check if the player is all-in
                                     renpy.say(None, f"\n\nYou don't have enough chips. You call all-in for {actual_bet} chips.")
+                                    action_type = "all-in"
                                 else:
                                     renpy.say(None, f"\n\nYou follow for {actual_bet} chips.")
                                 # End if
@@ -297,6 +299,7 @@ init python:
                                 print(f"[DEBUG] ► Current action: {ai_action} --► Actual bet: {actual_bet}")
                                 if robot.currentBet < current_highest_bet:                                                  # ═══► If all-in
                                     renpy.say(None, f"{robot.name} is all-in for {actual_bet} chips.")
+                                    ai_action = "all-in"
                                 else:
                                     renpy.say(None, f"{robot.name} follows for {actual_bet} chips.")
                                 # End if
@@ -344,18 +347,20 @@ init python:
 
         # ► Gérer le pot et le retour après la boucle while.
         # ► Cette section ne sera atteinte que si `round_completed` devient True sans qu'un `return True` prématuré ne soit appelé pour un fold.
+        print(f"[DEBUG] ► Active players (2): {len(active_players)}")
         if len(active_players) <= 1:
             winner_of_round = active_players[0] if active_players else None
+            print(f"[DEBUG] ► Winner: {winner_of_round.name}")
             if winner_of_round == human:
                 renpy.say(None, f"\n\n{robot.name} have folded. You win the pot of {pot} chips!")
                 human.chips += pot
                 pot = 0
-                return True                                                                                                 # ═══► Round ended by fold
+                return True
             elif winner_of_round == robot:
                 renpy.say(None, f"\n\n{winner_of_round.name} has won the pot of {pot} chips because you have folded!")
                 robot.chips += pot
                 pot = 0
-                return True                                                                                                 # ═══► Round ended by fold
+                return True
             else:
                 renpy.say(None, f"\n\nThere are no more active players in the hand. Split pot or error!!")
                 return True                                                                                                 # ═══► Should not happen in 2-player game if active_players is empty
@@ -751,116 +756,121 @@ init python:
 
 # ╔═════════════════════════════════════════════════════════════════════════════
 # ║╔════════════════════════════════════════════════════════════════════════════
-# ║║  Texas Hold'Em Game Flow (Updated with Betting Rounds)
+# ║║  Texas Hold'Em Game Flow
 # ║╚════════════════════════════════════════════════════════════════════════════
 # ╚═════════════════════════════════════════════════════════════════════════════
-label LB_TEXAS_HOLDEM(sHuman="Human", sRobot="Robot", iChip=100):
+label LB_TEXAS_HOLDEM(sHuman="Human", sRobot="Robot", iAI=3, iChip=100):
     $ INITIALIZE_GAME(sHuman, sRobot, iChip)
     $ DEALER = DEALER_RANDOM() # Détermine le premier croupier
-
+    $ print(f"[DEBUG] ► Label LB_TEXAS_HOLDEM({sHuman},{sRobot},{iAI},{iChip})")
     show screen SC_HAND_HUMAN()
     show screen SC_HAND_ROBOT()
     show screen SC_DEALER_CHIP(DEALER)
-
-# Nouveau label pour recommencer une nouvelle main
-label LB_START_NEW_HAND:
+    $ POKER_AI_AGGRESSION = iAI
+    call LB_START_NEW_HAND()
+# End label
+label LB_START_NEW_HAND():
     # Main game loop
+    $ print(f"[DEBUG] ► Label LB_START_NEW_HAND()")
     while True:
-        # Vérifie si un joueur a des jetons
+        $ print(f"[DEBUG] ► While loop starting point")
+        # ╭─────────────────────────────────────────────────────────────────────
+        # │  Ensure that players still have chips
+        # ╰─────────────────────────────────────────────────────────────────────
         if human.chips <= 0:
-            "Vous n'avez plus de jetons. [sRobot] a gagné la partie !"
-            jump LB_END_GAME # Ou un écran de fin de jeu
+            "\n\nYou have no more chips. [sRobot] has won the game!"
+            jump LB_END_GAME
+        # End if
         if robot.chips <= 0:
-            "[sRobot] n'a plus de jetons. Vous avez gagné la partie !"
-            jump LB_END_GAME # Ou un écran de fin de jeu
-
+            "\n\n[sRobot] has no more chips. You've won the game!"
+            jump LB_END_GAME
+        # End if
         $ DECK_RESET()
         $ POT_RESET(0)
         $ CARDS_OPEN_RESET()
-        $ CARDS_PLAYERS_RESET() # Reset hands and folded status
+        $ CARDS_PLAYERS_RESET()                                                                                             # ═══► Reset hands and folded status
         $ PLAYER_FOLD = False
+        $ print(f"[DEBUG] ► Reset hands and folded status {PLAYER_FOLD}")
 
-        $ highest_bet_this_round = BIG_BLIND # Au début du tour, la grosse blinde est la mise à suivre
+        $ highest_bet_this_round = BIG_BLIND                                                                                # ═══► At the start of the round, the big blind is the bet to call
         $ small_blind_player_obj = robot if DEALER == "human" else human
         $ big_blind_player_obj = human if DEALER == "human" else robot
-
-        # Place les blinds et récupère le joueur qui doit parler en premier post-blinds (celui après la grosse blinde)
-        $ big_blind_player_who_posted = BLINDS(DEALER)
-        # Le joueur qui agit en premier pré-flop est le joueur à gauche de la grosse blinde (small blind)
-        # ou celui à gauche du dealer si 3+ joueurs. Pour 2 joueurs, c'est le small blind.
+        $ print(f"[DEBUG] ► Big bling = {BIG_BLIND} --► Small Blind is {small_blind_player_obj.name} and Big Blind is {big_blind_player_obj.name}")
+        $ big_blind_player_who_posted = BLINDS(DEALER)                                                                      # ═══► Place the blinds and get the player who must speak first post-blinds (the one after the big blind)
         $ first_to_act_preflop = small_blind_player_obj if big_blind_player_obj == human else human
-
-
+        $ print(f"[DEBUG] ► First post-blinds player = {first_to_act_preflop.name}")
         $ print(f"[DEBUG] ► The blinds have been bet. The pot is now " + str(pot) + " chips")
         show screen SC_HAND_HUMAN()
-        show screen SC_HAND_ROBOT(reveal=False) # Assure que la main de l'IA est cachée
-
-        # Distribue les cartes cachées
-        $ CARDS_DEAL()
+        show screen SC_HAND_ROBOT(reveal=False)                                                                             # ═══► Ensures that the AI's hand is hidden
+        $ CARDS_DEAL()                                                                                                      # ═══► Deal the hidden cards
         $ print(f"[DEBUG] ► Your cards " + str(human.hand[0]['rank']) + str(human.hand[0]['suit']) + " and " + str(human.hand[1]['rank']) + str(human.hand[1]['suit']))
         show screen SC_HAND_HUMAN()
-        show screen SC_HAND_ROBOT(reveal=False) # Assure que la main de l'IA est cachée
+        show screen SC_HAND_ROBOT(reveal=False)                                                                             # ═══► Ensures that the AI's hand is hidden
 
         # ╔═════════════════════════════════════════════════════════════════════
         # ║ Tours de mise (Pre-Flop, Flop, Turn, River)
         # ╚═════════════════════════════════════════════════════════════════════
-        # La fonction BETTING_ROUND_LOGIC gère le flux de mise. Elle retourne True si le tour se termine par un Fold.
-        # Elle prend en compte: le premier joueur à agir, la mise courante, et le nom de l'étape.
+        # ► The BETTING_ROUND_LOGIC function manages the betting flow. It returns True if the round ends in a Fold.
+        # ► It takes into account: the first player to act, the current bet and the name of the stage.
 
-        # Pre-Flop
-        $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_preflop, BIG_BLIND, "Pre-Flop", 0)
+        # ╭─────────────────────────────────────────────────────────────────────
+        # │  Pre-Flop
+        # ╰─────────────────────────────────────────────────────────────────────
+        $ print(f"[DEBUG] ► Pre-Flop start --► First to act: {first_to_act_preflop.name} ----► Big Blind: {BIG_BLIND}")
+        if human.chips > 0 and robot.chips > 0:                                                                             # ═══► Not all-in
+            $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_preflop, BIG_BLIND, "Pre-Flop", 0)
+        # End if
+        $ print(f"[DEBUG] ► Pre-Flop end --► Round ended by fold: {round_ended_by_fold}")
         if round_ended_by_fold:
-#            "Le tour est terminé."
-#            $ DEALER = DEALER_SWITCH(DEALER) # Changer de croupier pour la prochaine main
-#            hide screen SC_DEALER_CHIP
-#            show screen SC_DEALER_CHIP(DEALER)
-#            jump LB_START_NEW_HAND # Passer à la main suivante
             $ PLAYER_FOLD = True
-
+        # End if
+        " PAUSE 1 "
+        # ╭─────────────────────────────────────────────────────────────────────
+        # │  Flop
+        # ╰─────────────────────────────────────────────────────────────────────
         if PLAYER_FOLD == False:
-            # Flop
             $ CARDS_OPEN_REVEAL(3)
             $ print(f"[DEBUG] ► Flop : " + str(cards_open[0]['rank']) + str(cards_open[0]['suit']) + ", " + str(cards_open[1]['rank']) + str(cards_open[1]['suit']) + ", " + str(cards_open[2]['rank']) + str(cards_open[2]['suit']))
             show screen SC_OPEN_CARDS()
-
-            # Post-flop, le small blind agit en premier
-            $ first_to_act_postflop = small_blind_player_obj
-            $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "Flop", 3)
+            $ print(f"[DEBUG] ► Flop start --► First to act: {small_blind_player_obj.name}")
+            if human.chips > 0 and robot.chips > 0:                                                                             # ═══► Not all-in
+                $ first_to_act_postflop = small_blind_player_obj                                                                # ═══► Post-flop, the small blind goes first
+                $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "Flop", 3)
+            # End if
+            $ print(f"[DEBUG] ► Pre-Flop end --► Round ended by fold: {round_ended_by_fold}")
             if round_ended_by_fold:
-#                "Le tour est terminé."
-#                $ DEALER = DEALER_SWITCH(DEALER)
-#                hide screen SC_DEALER_CHIP
-#                show screen SC_DEALER_CHIP(DEALER)
-#                jump LB_START_NEW_HAND
                 $ PLAYER_FOLD = True
-
+            # End if
+        # End if
+        " PAUSE 2 "
+        # ╭─────────────────────────────────────────────────────────────────────
+        # │  Turn
+        # ╰─────────────────────────────────────────────────────────────────────
         if PLAYER_FOLD == False:
-            # Turn
             $ CARDS_OPEN_REVEAL(1)
             "Le Turn : [cards_open[3]['rank']][cards_open[3]['suit']]."
             show screen SC_OPEN_CARDS()
             $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "Turn", 4)
             if round_ended_by_fold:
-#                "Le tour est terminé."
-#                $ DEALER = DEALER_SWITCH(DEALER)
-#                hide screen SC_DEALER_CHIP
-#                show screen SC_DEALER_CHIP(DEALER)
-#                jump LB_START_NEW_HAND
                 $ PLAYER_FOLD = True
-
+            # End if
+        # End if
+        " PAUSE 3 "
+        # ╭─────────────────────────────────────────────────────────────────────
+        # │  River
+        # ╰─────────────────────────────────────────────────────────────────────
         if PLAYER_FOLD == False:
-            # River
             $ CARDS_OPEN_REVEAL(1)
             "La River : [cards_open[4]['rank']][cards_open[4]['suit']]."
             show screen SC_OPEN_CARDS()
-            $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "River", 5)
+            if human.chips > 0 and robot.chips > 0:                                                                         # ═══► Not all-in
+                $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "River", 5)
+            # End if
             if round_ended_by_fold:
-#                "Le tour est terminé."
-#                $ DEALER = DEALER_SWITCH(DEALER)
-#                hide screen SC_DEALER_CHIP
-#                show screen SC_DEALER_CHIP(DEALER)
-#                jump LB_START_NEW_HAND
                 $ PLAYER_FOLD = True
+            # End if
+        # End if
+        " PAUSE 4 "
 
         if PLAYER_FOLD == False:
             # Showdown (abattage)
