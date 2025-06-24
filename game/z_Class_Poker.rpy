@@ -284,7 +284,7 @@ init python:
                                 robot.hand, cards_open, current_highest_bet,                                                # ◀═══ Here, pass current_highest_bet as `current_bet_to_match`
                                 robot.chips, human.chips, POKER_AI_AGGRESSION, num_community_cards_revealed
                             )
-                            print(f"[DEBUG] ► Robot action: {ai_action} --► Robot total bet ammount: {ai_total_bet_amount}")
+                            print(f"[DEBUG] ► Robot action: {ai_action} --► Robot total bet amount: {ai_total_bet_amount}")
                             if ai_action == "fold":
                                 robot.fold()
                                 active_players.remove(robot)
