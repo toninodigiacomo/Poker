@@ -4,9 +4,9 @@
 # ║╚════════════════════════════════════════════════════════════════════════════
 # ╚═════════════════════════════════════════════════════════════════════════════
 define DEALER               = ""
-define SMALL_BLIND          = 5                                                                                             # ═══► Petite blinde (modifié à 5)
-define BIG_BLIND            = 10                                                                                            # ═══► Grosse blinde (modifié à 10)
-define POKER_AI_AGGRESSION  = 3                                                                                             # ═══► Niveau d'agressivité de l'IA (1=passif à 5=très agressif)
+define SMALL_BLIND          = 5                                                                                             # ═══► Small Blind
+define BIG_BLIND            = 10                                                                                            # ═══► Big Blind
+define POKER_AI_AGGRESSION  = 3                                                                                             # ═══► IA agressivity level (1=passive - 5=very agressive)
 define PLAYER_FOLD          = False
 
 define POKER_CHEAT          = False
@@ -817,13 +817,16 @@ label LB_START_NEW_HAND():
         # │  Pre-Flop
         # ╰─────────────────────────────────────────────────────────────────────
         $ print(f"[DEBUG] ► Pre-Flop start --► First to act: {first_to_act_preflop.name} ----► Big Blind: {BIG_BLIND}")
+        $ print(f"[DEBUG] ► Human Chips {human.chips} --► Robot Chips: {robot.chips} ----► All-In : {if human.chips > 0 and robot.chips > 0}")
         if human.chips > 0 and robot.chips > 0:                                                                             # ═══► Not all-in
             $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_preflop, BIG_BLIND, "Pre-Flop", 0)
+            if round_ended_by_fold:
+                $ PLAYER_FOLD = True
+            # End if
+        else
+            show screen SC_HAND_ROBOT(reveal=True)                                                                          # ═══► All-in - Reveals the computer hand
         # End if
         $ print(f"[DEBUG] ► Pre-Flop end --► Round ended by fold: {round_ended_by_fold}")
-        if round_ended_by_fold:
-            $ PLAYER_FOLD = True
-        # End if
         " PAUSE 1 "
         # ╭─────────────────────────────────────────────────────────────────────
         # │  Flop
@@ -833,14 +836,17 @@ label LB_START_NEW_HAND():
             $ print(f"[DEBUG] ► Flop : " + str(cards_open[0]['rank']) + str(cards_open[0]['suit']) + ", " + str(cards_open[1]['rank']) + str(cards_open[1]['suit']) + ", " + str(cards_open[2]['rank']) + str(cards_open[2]['suit']))
             show screen SC_OPEN_CARDS()
             $ print(f"[DEBUG] ► Flop start --► First to act: {small_blind_player_obj.name}")
-            if human.chips > 0 and robot.chips > 0:                                                                             # ═══► Not all-in
-                $ first_to_act_postflop = small_blind_player_obj                                                                # ═══► Post-flop, the small blind goes first
+            $ print(f"[DEBUG] ► Human Chips {human.chips} --► Robot Chips: {robot.chips} ----► All-In : {if human.chips > 0 and robot.chips > 0}")
+            if human.chips > 0 and robot.chips > 0:                                                                         # ═══► Not all-in
+                $ first_to_act_postflop = small_blind_player_obj                                                            # ═══► Post-flop, the small blind goes first
                 $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "Flop", 3)
+                if round_ended_by_fold:
+                    $ PLAYER_FOLD = True
+                # End if
+            else
+                show screen SC_HAND_ROBOT(reveal=True)                                                                      # ═══► All-in - Reveals the computer hand
             # End if
             $ print(f"[DEBUG] ► Pre-Flop end --► Round ended by fold: {round_ended_by_fold}")
-            if round_ended_by_fold:
-                $ PLAYER_FOLD = True
-            # End if
         # End if
         " PAUSE 2 "
         # ╭─────────────────────────────────────────────────────────────────────
@@ -848,11 +854,16 @@ label LB_START_NEW_HAND():
         # ╰─────────────────────────────────────────────────────────────────────
         if PLAYER_FOLD == False:
             $ CARDS_OPEN_REVEAL(1)
-            "Le Turn : [cards_open[3]['rank']][cards_open[3]['suit']]."
+            $ print(f"[DEBUG] ► Turn : " + str(cards_open[3]['rank']][cards_open[3]['suit']))
             show screen SC_OPEN_CARDS()
-            $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "Turn", 4)
-            if round_ended_by_fold:
-                $ PLAYER_FOLD = True
+            $ print(f"[DEBUG] ► Human Chips {human.chips} --► Robot Chips: {robot.chips} ----► All-In : {if human.chips > 0 and robot.chips > 0}")
+            if human.chips > 0 and robot.chips > 0:                                                                         # ═══► Not all-in
+                $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "Turn", 4)
+                if round_ended_by_fold:
+                    $ PLAYER_FOLD = True
+                # End if
+            else
+                show screen SC_HAND_ROBOT(reveal=True)                                                                      # ═══► All-in - Reveals the computer hand
             # End if
         # End if
         " PAUSE 3 "
@@ -861,21 +872,25 @@ label LB_START_NEW_HAND():
         # ╰─────────────────────────────────────────────────────────────────────
         if PLAYER_FOLD == False:
             $ CARDS_OPEN_REVEAL(1)
-            "La River : [cards_open[4]['rank']][cards_open[4]['suit']]."
+            $ print(f"[DEBUG] ► River : " + str(cards_open[4]['rank']][cards_open[4]['suit']))
             show screen SC_OPEN_CARDS()
+            $ print(f"[DEBUG] ► Human Chips {human.chips} --► Robot Chips: {robot.chips} ----► All-In : {if human.chips > 0 and robot.chips > 0}")
             if human.chips > 0 and robot.chips > 0:                                                                         # ═══► Not all-in
                 $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "River", 5)
-            # End if
-            if round_ended_by_fold:
-                $ PLAYER_FOLD = True
+                if round_ended_by_fold:
+                    $ PLAYER_FOLD = True
+                # End if
+            else
+                show screen SC_HAND_ROBOT(reveal=True)                                                                      # ═══► All-in - Reveals the computer hand
             # End if
         # End if
         " PAUSE 4 "
-
+        # ╭─────────────────────────────────────────────────────────────────────
+        # │  Showdown
+        # ╰─────────────────────────────────────────────────────────────────────
         if PLAYER_FOLD == False:
-            # Showdown (abattage)
-            "Toutes les mises sont faites. Abattage !"
-            show screen SC_HAND_ROBOT(reveal=True) # Révèle la main de l'ordinateur
+            "\n\nAll bets are in. Showdown!"
+            show screen SC_HAND_ROBOT(reveal=True)                                                                          # ═══► Révèle la main de l'ordinateur
             $ winner_info = HANDS_COMPARE(human.hand, robot.hand, cards_open)
             $ winner = winner_info[0]
             $ winning_hand_type = winner_info[1]
