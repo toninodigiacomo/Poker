@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/z_Class_Poker.rpy", line 357: Indentation mismatch.
+File "game/z_Class_Poker.rpy", line 830: end of line expected.
+    if PLAYER_FOLD == False:"\n\nPre-Flop is over."
+                            ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Mon Jun 23 23:39:40 2025
+Tue Jun 24 18:30:07 2025

@@ -255,7 +255,6 @@ init python:
                                 print(f"[DEBUG] ► Current action: {action_type} --► Actual bet: {actual_bet}")
                                 if human.currentBet < current_highest_bet:                                                  # ═══► Check if the player is all-in
                                     renpy.say(None, f"\n\nYou don't have enough chips. You call all-in for {actual_bet} chips.")
-                                    action_type = "all-in"
                                 else:
                                     renpy.say(None, f"\n\nYou follow for {actual_bet} chips.")
                                 # End if
@@ -299,7 +298,6 @@ init python:
                                 print(f"[DEBUG] ► Current action: {ai_action} --► Actual bet: {actual_bet}")
                                 if robot.currentBet < current_highest_bet:                                                  # ═══► If all-in
                                     renpy.say(None, f"{robot.name} is all-in for {actual_bet} chips.")
-                                    ai_action = "all-in"
                                 else:
                                     renpy.say(None, f"{robot.name} follows for {actual_bet} chips.")
                                 # End if
@@ -817,74 +815,72 @@ label LB_START_NEW_HAND():
         # │  Pre-Flop
         # ╰─────────────────────────────────────────────────────────────────────
         $ print(f"[DEBUG] ► Pre-Flop start --► First to act: {first_to_act_preflop.name} ----► Big Blind: {BIG_BLIND}")
-        $ print(f"[DEBUG] ► Human Chips {human.chips} --► Robot Chips: {robot.chips} ----► All-In : {if human.chips > 0 and robot.chips > 0}")
+        $ print(f"[DEBUG] ► Human Chips {human.chips} --► Robot Chips: {robot.chips} ----► All-In : {human.chips > 0 and robot.chips > 0}")
         if human.chips > 0 and robot.chips > 0:                                                                             # ═══► Not all-in
             $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_preflop, BIG_BLIND, "Pre-Flop", 0)
             if round_ended_by_fold:
                 $ PLAYER_FOLD = True
             # End if
-        else
+        else:
             show screen SC_HAND_ROBOT(reveal=True)                                                                          # ═══► All-in - Reveals the computer hand
         # End if
         $ print(f"[DEBUG] ► Pre-Flop end --► Round ended by fold: {round_ended_by_fold}")
-        " PAUSE 1 "
         # ╭─────────────────────────────────────────────────────────────────────
         # │  Flop
         # ╰─────────────────────────────────────────────────────────────────────
         if PLAYER_FOLD == False:
             $ CARDS_OPEN_REVEAL(3)
-            $ print(f"[DEBUG] ► Flop : " + str(cards_open[0]['rank']) + str(cards_open[0]['suit']) + ", " + str(cards_open[1]['rank']) + str(cards_open[1]['suit']) + ", " + str(cards_open[2]['rank']) + str(cards_open[2]['suit']))
+            $ print(f"[DEBUG] ► Flop : {cards_open[0]['rank']}{cards_open[0]['suit']}, {cards_open[1]['rank']}{cards_open[1]['suit']}, {cards_open[2]['rank']}{cards_open[2]['suit']}")
             show screen SC_OPEN_CARDS()
             $ print(f"[DEBUG] ► Flop start --► First to act: {small_blind_player_obj.name}")
-            $ print(f"[DEBUG] ► Human Chips {human.chips} --► Robot Chips: {robot.chips} ----► All-In : {if human.chips > 0 and robot.chips > 0}")
+            $ print(f"[DEBUG] ► Human Chips {human.chips} --► Robot Chips: {robot.chips} ----► All-In : {human.chips == 0 or robot.chips == 0}")
             if human.chips > 0 and robot.chips > 0:                                                                         # ═══► Not all-in
                 $ first_to_act_postflop = small_blind_player_obj                                                            # ═══► Post-flop, the small blind goes first
                 $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "Flop", 3)
                 if round_ended_by_fold:
                     $ PLAYER_FOLD = True
                 # End if
-            else
+            else:
                 show screen SC_HAND_ROBOT(reveal=True)                                                                      # ═══► All-in - Reveals the computer hand
             # End if
-            $ print(f"[DEBUG] ► Pre-Flop end --► Round ended by fold: {round_ended_by_fold}")
+            $ print(f"[DEBUG] ► Flop end --► Round ended by fold: {round_ended_by_fold}")
         # End if
-        " PAUSE 2 "
         # ╭─────────────────────────────────────────────────────────────────────
         # │  Turn
         # ╰─────────────────────────────────────────────────────────────────────
         if PLAYER_FOLD == False:
             $ CARDS_OPEN_REVEAL(1)
-            $ print(f"[DEBUG] ► Turn : " + str(cards_open[3]['rank']][cards_open[3]['suit']))
+            $ print(f"[DEBUG] ► Turn : {cards_open[3]['rank']}{cards_open[3]['suit']}")
             show screen SC_OPEN_CARDS()
-            $ print(f"[DEBUG] ► Human Chips {human.chips} --► Robot Chips: {robot.chips} ----► All-In : {if human.chips > 0 and robot.chips > 0}")
+            $ print(f"[DEBUG] ► Human Chips {human.chips} --► Robot Chips: {robot.chips} ----► All-In : {human.chips == 0 or robot.chips == 0}")
             if human.chips > 0 and robot.chips > 0:                                                                         # ═══► Not all-in
                 $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "Turn", 4)
                 if round_ended_by_fold:
                     $ PLAYER_FOLD = True
                 # End if
-            else
+            else:
                 show screen SC_HAND_ROBOT(reveal=True)                                                                      # ═══► All-in - Reveals the computer hand
             # End if
+            $ print(f"[DEBUG] ► Turn end --► Round ended by fold: {round_ended_by_fold}")
         # End if
-        " PAUSE 3 "
         # ╭─────────────────────────────────────────────────────────────────────
         # │  River
         # ╰─────────────────────────────────────────────────────────────────────
         if PLAYER_FOLD == False:
             $ CARDS_OPEN_REVEAL(1)
-            $ print(f"[DEBUG] ► River : " + str(cards_open[4]['rank']][cards_open[4]['suit']))
+            $ print(f"[DEBUG] ► Turn : {cards_open[4]['rank']}{cards_open[4]['suit']}")
             show screen SC_OPEN_CARDS()
-            $ print(f"[DEBUG] ► Human Chips {human.chips} --► Robot Chips: {robot.chips} ----► All-In : {if human.chips > 0 and robot.chips > 0}")
+            $ print(f"[DEBUG] ► Human Chips {human.chips} --► Robot Chips: {robot.chips} ----► All-In : {human.chips == 0 or robot.chips == 0}")
             if human.chips > 0 and robot.chips > 0:                                                                         # ═══► Not all-in
                 $ round_ended_by_fold = BETTING_ROUND_LOGIC(first_to_act_postflop, 0, "River", 5)
                 if round_ended_by_fold:
                     $ PLAYER_FOLD = True
                 # End if
-            else
+            else:
                 show screen SC_HAND_ROBOT(reveal=True)                                                                      # ═══► All-in - Reveals the computer hand
             # End if
+            $ print(f"[DEBUG] ► River end --► Round ended by fold: {round_ended_by_fold}")
         # End if
-        " PAUSE 4 "
         # ╭─────────────────────────────────────────────────────────────────────
         # │  Showdown
         # ╰─────────────────────────────────────────────────────────────────────
@@ -982,6 +978,7 @@ screen SC_HAND_HUMAN():
         yalign 0.5
         xsize 0.22
         ysize 1.0
+    # End frame
     frame:
         background "#40404000"
         xalign 1.0
@@ -1036,10 +1033,8 @@ screen SC_HAND_ROBOT(reveal=False): # Ajout du paramètre reveal
     # End frame
 # End screen
 screen SC_HUMAN_CHOICES(street_name, current_pot, current_highest_bet_val, player_chips_val, player_current_bet_val, amount_to_match_val, big_blind_val):
-    # Fond semi-transparent pour l'écran d'action
     modal True
     zorder 100
-
     frame:
         xalign  0.842
         yalign  0.960

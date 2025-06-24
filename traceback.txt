@@ -3,32 +3,34 @@
 While running game code:
   File "game/script.rpy", line 7, in script call
     call LB_TEXAS_HOLDEM("Player", "Computer", 5, 100)
-  File "game/z_Class_Poker.rpy", line 765, in script call
+  File "game/z_Class_Poker.rpy", line 770, in script call
     call LB_START_NEW_HAND()
-  File "game/z_Class_Poker.rpy", line 826, in script
-    $ print(f"[DEBUG] ► Flop start --► First to act: {first_to_act_postflop.name}")
-  File "game/z_Class_Poker.rpy", line 826, in <module>
-    $ print(f"[DEBUG] ► Flop start --► First to act: {first_to_act_postflop.name}")
-NameError: name 'first_to_act_postflop' is not defined
+  File "game/z_Class_Poker.rpy", line 857, in script
+    $ print(f"[DEBUG] ► Turn : " + str([cards_open[3]['rank']][cards_open[3]['suit']]))
+  File "game/z_Class_Poker.rpy", line 857, in <module>
+    $ print(f"[DEBUG] ► Turn : " + str([cards_open[3]['rank']][cards_open[3]['suit']]))
+TypeError: list indices must be integers or slices, not str
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "game/script.rpy", line 7, in script call
     call LB_TEXAS_HOLDEM("Player", "Computer", 5, 100)
-  File "game/z_Class_Poker.rpy", line 765, in script call
+  File "game/z_Class_Poker.rpy", line 770, in script call
     call LB_START_NEW_HAND()
-  File "game/z_Class_Poker.rpy", line 826, in script
-    $ print(f"[DEBUG] ► Flop start --► First to act: {first_to_act_postflop.name}")
+  File "game/z_Class_Poker.rpy", line 857, in script
+    $ print(f"[DEBUG] ► Turn : " + str([cards_open[3]['rank']][cards_open[3]['suit']]))
   File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/ast.py", line 827, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/python.py", line 1178, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/z_Class_Poker.rpy", line 826, in <module>
-    $ print(f"[DEBUG] ► Flop start --► First to act: {first_to_act_postflop.name}")
-NameError: name 'first_to_act_postflop' is not defined
+  File "game/z_Class_Poker.rpy", line 857, in <module>
+    $ print(f"[DEBUG] ► Turn : " + str([cards_open[3]['rank']][cards_open[3]['suit']]))
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/revertable.py", line 214, in __getitem__
+    rv = list.__getitem__(self, index)
+TypeError: list indices must be integers or slices, not str
 
 macOS-15.5-arm64-arm-64bit arm64
 Ren'Py 8.3.4.24120703
 Poker 1.0
-Mon Jun 23 23:21:38 2025
+Tue Jun 24 18:15:29 2025
