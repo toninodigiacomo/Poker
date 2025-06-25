@@ -349,3 +349,57 @@ class PokerGame:
         # End for
         print(f"New hand. Dealer: {self.players[self.dealer_index].name}")
     # End def
+    def assign_blinds(self):
+        # ► Assign small and large blinds and collect initial bets.
+        active_players_in_hand = [p for p in self.players if p.chips > 0]
+        if len(active_players_in_hand) < 2:
+            print("Pas assez de joueurs actifs pour assigner les blinds.")
+            return
+        # End if
+        if len(active_players_in_hand) == 2:                                                                                # ═══► For a two-player game (Heads-up): Dealer is SB, other player is BB
+            dealer_player = self.players[self.dealer_index]
+            other_player = [p for p in active_players_in_hand if p != dealer_player][0]                                     # ═══► Find the other active player
+            sb_player = dealer_player
+            bb_player = other_player
+            sb_player.is_small_blind = True
+            bb_player.is_big_blind   = True
+#        else:                                                                                                               # ═══► For 3+ players, the normal logic
+#            player_order = self.players[self.dealer_index+1:] + self.players[:self.dealer_index+1] # Ordre après le dealer
+#            sb_player = None
+#            bb_player = None
+#            for p in player_order:                                                                                          # ═══► Find the Small Blind (first active player after the dealer)
+#                if p.name == self.players[self.dealer_index].name: # Skip dealer (si il est le premier dans player_order)
+#                    continue
+#                if p.chips > 0:
+#                    sb_player = p
+#                    break
+#                # End if
+#            # End for
+#            sb_found = False                                                                                                # ═══► Find the Big Blind (first active player after the Small Blind)
+#            for p in player_order:
+                if p == sb_player:
+                    sb_found = True
+                    continue
+                if sb_found and p.chips > 0:
+                    bb_player = p
+                    break
+
+
+        if sb_player and sb_player.chips > 0:
+            sb_paid = sb_player.remove_chips(self.SMALL_BLIND_VAL)
+            sb_player.current_bet += sb_paid
+            sb_player.bet_in_hand += sb_paid
+            self.pot += sb_paid
+            sb_player.is_small_blind = True
+            print(f"{sb_player.name} poste la Petite Blinde: {sb_paid}")
+
+        if bb_player and bb_player.chips > 0:
+            bb_paid = bb_player.remove_chips(self.BIG_BLIND_VAL)
+            bb_player.current_bet += bb_paid
+            bb_player.bet_in_hand += bb_paid
+            self.pot += bb_paid
+            self.current_highest_bet = self.BIG_BLIND_VAL
+            bb_player.is_big_blind = True
+            print(f"{bb_player.name} poste la Grosse Blinde: {bb_paid}")
+
+        print(f"Mise la plus haute après les blinds: {self.current_highest_bet}. Pot: {self.pot}")
