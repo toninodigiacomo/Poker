@@ -405,3 +405,96 @@ class PokerGame:
         # End if
         print(f"Highest bet after the blinds: {self.current_highest_bet}. Pot: {self.pot}")
     # End def
+    def deal_hole_cards(self):
+        # ► Distribue 2 cartes privées à chaque joueur actif."""
+        for _ in range(2):                                                                                                  # ═══► 2 cards per player
+            for player in self.players:
+                if player.chips > 0 and not player.has_folded:                                                              # ═══► Do not distribute to eliminated/folded players
+                    player.hand.append(self.deck.deal_card())
+                # End if
+            # End for
+        # End for
+        print("Private cards distributed.")
+    # End def
+    def deal_community_cards(self, num_cards):
+        # ► Deal common cards on the table (Flop, Turn, River).
+        if num_cards > len(self.deck.cards):
+            print("Not enough cards in the deck to deal.")
+            return
+        # End if
+        for _ in range(num_cards):
+            if len(self.deck.cards) > 0:                                                                                    # ═══► Burning a card before dealing (poker convention)
+                self.deck.deal_card()                                                                                       # ═══► Card burnt (discarded)
+            else:
+                print("The deck is empty before burning a card.")
+                break                                                                                                       # ═══► Do not continue if the pack is empty
+            # End if
+            self.community_cards.append(self.deck.deal_card())
+        # End for
+        print(f"Common cards distributed: {', '.join(str(c) for c in self.community_cards)}")
+    # End def
+    def get_active_players_in_hand(self):
+        # ► Returns the list of players who have not folded and who have chips.
+        return [p for p in self.players if not p.has_folded and p.chips > 0]
+    # End def
+    def start_betting_round(self):
+        # ► Prépare le jeu pour un nouveau tour de mise.
+        for p in self.players:                                                                                              # ═══► Reset the round stakes for each active player
+            p.current_bet = 0
+        # End for
+        # ► The current_highest_bet is not reset to 0 if it is pre-flop because the blinds have already established a bet. For post-flop rounds, it is 0.
+        if self.game_state != self.GAME_STATE_PREFLOP:
+             self.current_highest_bet = 0
+        # End if
+
+        # ► Determine the first player to speak for this round.
+        # ► At pre-flop, the action starts with the player after the big blind.
+        # ► On the following rounds (flop, turn, river), the action starts with the first active player after the dealer..
+
+        start_player_found = False
+        active_players_in_hand = self.get_active_players_in_hand()
+
+        if not active_players_in_hand:
+            self.current_player_index = -1
+            print("Aucun joueur actif pour commencer le tour de mise.")
+            return
+        # End if
+        if self.game_state == self.GAME_STATE_PREFLOP:                                                                      # ═══► Action commence après la grosse blinde
+            bb_player = next((p for p in self.players if p.is_big_blind), None)
+            if bb_player:
+                bb_index = self.players.index(bb_player)
+                for i in range(1, len(self.players) + 1):                                                                   # ═══► Chercher le joueur après la BB
+                    idx = (bb_index + i) % len(self.players)
+                    if self.players[idx] in active_players_in_hand:
+                        self.current_player_index = idx
+                        start_player_found = True
+                        break
+                    # End if
+                # End for
+            # End if
+        else:                                                                                                               # ═══► Flop, Turn, River
+            dealer_idx = self.dealer_index                                                                                  # ═══► Action begins with the first active player after the dealer
+            for i in range(1, len(self.players) + 1):                                                                       # ═══► Find the player after the dealer
+                idx = (dealer_idx + i) % len(self.players)
+                if self.players[idx] in active_players_in_hand:
+                    self.current_player_index = idx
+                    start_player_found = True
+                    break
+                # End if
+            # End for
+        # End if
+        if not start_player_found:
+            self.current_player_index = -1
+            print("Impossible to find the first player to act. The betting round could be over.")
+            return
+        # End if
+        self.last_raiser_index = self.current_player_index # Initialise le dernier relanceur au premier à agir
+        print(f"Start of the '{self.game_state}' betting round. First to act Début du tour de mise: {self.players[self.current_player_index].name}")
+    # End def
+    def get_current_player(self):
+        # ► Returns the Player object whose turn it is.
+        if self.current_player_index == -1 or not self.players:
+            return None
+        # End if
+        return self.players[self.current_player_index]
+    # End def
