@@ -498,3 +498,31 @@ class PokerGame:
         # End if
         return self.players[self.current_player_index]
     # End def
+    def get_next_player_to_act(self):
+        # ► Détermine le prochain joueur qui doit agir dans le tour de mise.
+        # ► Gère la rotation des joueurs et saute ceux qui ont foldé ou sont all-in.
+        active_players = self.get_active_players_in_hand()
+        if len(active_players) <= 1:
+            return None                                                                                                     # ═══► One player left active or none, the round is over
+        # End if
+        initial_start_index = self.current_player_index                                                                     # ═══► To detect a complete lap
+        # ► If the last player to raise is the current player, he is "done" EXCEPT if someone else raised AFTER him, which would reset last_raiser_index.
+        # ► The loop stops when all active players have matched the highest bet AND action has returned to the last player to bet/raise (or to the turn initiator if no raise).
+        for _ in range(len(self.players)):                                                                                  # ═══► Browse all players to the maximum
+            self.current_player_index = (self.current_player_index + 1) % len(self.players)
+            player = self.players[self.current_player_index]
+            if player.has_folded or player.is_all_in or player.chips <= 0:
+                continue                                                                                                    # ═══► This player is out of action or has no more tokens
+            # End if
+            if player.current_bet < self.current_highest_bet:                                                               # ═══► If the current player has to match the highest bet
+                return player
+            # End if
+            # ► Special case: the player has matched the bet, but he is the last raiser, or he is the ‘original’ player who has the floor and the round has gone full circle.
+            if player.current_bet == self.current_highest_bet:
+                # ► If the action has gone to the last player who made an aggressive move, and everyone else has tied, then the turn is potentially over.
+                # ► However, other players may still have a turn if it has not gone to the right person.
+                pass                                                                                                        # Continue to check that the tour is completely finished
+            # End if
+        # End for
+        return None                                                                                                         # No active player needs to act, the betting round is over
+    # End def
