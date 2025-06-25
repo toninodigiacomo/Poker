@@ -224,7 +224,7 @@ class RobotPlayer(HumanPlayer):
         hand_rank, hand_description = get_hand_rank_and_description(combined_cards)
         # ► hand_rank: a number for strength (e.g. 1=high card, 2=pair, ..., 9=straight flush)
         # ► description_de_la_main : "Paire d'As", "Couleur", etc.
-        
+
         # ► Adapted to hand strength (hand_rank) and aggressiveness level.
         # ► hand_strength_score is a value between 0 and 1 (0 = weak, 1 = very strong)
         hand_strength_score = hand_rank / 9.0                                                                               # ═══► Max 9 main hand types
@@ -377,22 +377,23 @@ class PokerGame:
 #            # End for
 #            sb_found = False                                                                                                # ═══► Find the Big Blind (first active player after the Small Blind)
 #            for p in player_order:
-                if p == sb_player:
-                    sb_found = True
-                    continue
-                if sb_found and p.chips > 0:
-                    bb_player = p
-                    break
-
-
+#                if p == sb_player:
+#                    sb_found = True
+#                    continue
+#                if sb_found and p.chips > 0:
+#                    bb_player = p
+#                    break
+#                # End if
+#            # End for
+        # End if
         if sb_player and sb_player.chips > 0:
             sb_paid = sb_player.remove_chips(self.SMALL_BLIND_VAL)
             sb_player.current_bet += sb_paid
             sb_player.bet_in_hand += sb_paid
             self.pot += sb_paid
             sb_player.is_small_blind = True
-            print(f"{sb_player.name} poste la Petite Blinde: {sb_paid}")
-
+            print(f"{sb_player.name} pays the Small Blind: {sb_paid}")
+        # End if
         if bb_player and bb_player.chips > 0:
             bb_paid = bb_player.remove_chips(self.BIG_BLIND_VAL)
             bb_player.current_bet += bb_paid
@@ -400,6 +401,7 @@ class PokerGame:
             self.pot += bb_paid
             self.current_highest_bet = self.BIG_BLIND_VAL
             bb_player.is_big_blind = True
-            print(f"{bb_player.name} poste la Grosse Blinde: {bb_paid}")
-
-        print(f"Mise la plus haute après les blinds: {self.current_highest_bet}. Pot: {self.pot}")
+            print(f"{bb_player.name} pays the Big Blind: {bb_paid}")
+        # End if
+        print(f"Highest bet after the blinds: {self.current_highest_bet}. Pot: {self.pot}")
+    # End def
