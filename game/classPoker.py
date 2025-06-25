@@ -310,5 +310,42 @@ class PokerGame:
         self.game_state             = None                                                                                  # ═══► Current state of game (preflop, flop, etc.)
         self.last_raiser_index      = -1                                                                                    # ═══► Index of the last player to make an aggressive action (bet/raise)
         self.num_hands_played       = 0                                                                                     # ═══► Hands played counter
-
         print("Poker game initialized.")
+    # End def
+    def reset_hand(self):
+        # ► Resets the state of the game for a new hand.
+        self.deck.reset()
+        for player in self.players:
+            player.reset_for_new_hand()                                                                                     # ═══► Resets the stats of the player's hand
+        self.community_cards = []
+        self.pot = 0
+        self.current_highest_bet = 0
+        self.current_player_index = -1
+        self.game_state = None
+        self.last_raiser_index = -1
+        self.num_hands_played += 1
+        active_indices = [i for i, p in enumerate(self.players) if p.chips > 0]                                             # ═══► Turn the dealer chip
+        if not active_indices:
+            print("No more active players, game over.")
+            return
+        # End if
+        new_dealer_found = False                                                                                            # ═══► Find the next active dealer
+        for i in range(1, len(self.players) + 1):
+            potential_dealer_idx = (self.dealer_index + i) % len(self.players)
+            if self.players[potential_dealer_idx].chips > 0:
+                self.dealer_index = potential_dealer_idx
+                new_dealer_found = True
+                break
+            # End if
+        # End for
+        if not new_dealer_found:                                                                                            # ═══► Should not happen if at least one active player
+            print("Error: no new active dealer found.")
+            return
+        # End if
+        for i, player in enumerate(self.players):
+            player.is_dealer = (i == self.dealer_index)
+            player.is_small_blind = False
+            player.is_big_blind = False
+        # End for
+        print(f"New hand. Dealer: {self.players[self.dealer_index].name}")
+    # End def
