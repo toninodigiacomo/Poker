@@ -626,5 +626,77 @@ class PokerGame:
                 player.current_bet = 0                                                                                      # ═══► Reset the round bet for the next round
             # End if
         # End for
+        print(f"All bets collected in the pot. Current pot: {self.pot}")
     # End def
+    def determine_winner(self):
+        # ► Determines the winner(s) of the hand and the description of the winning hand.
+        # ► This is a MAJOR PLACEHOLDER and must be replaced by a complete poker hand evaluation algorithm (e.g. Straight Flush, Four of a Kind, etc.).
+        active_players = [p for p in self.players if not p.has_folded]
+        if not active_players:
+            print("No active players to determine a winner (all folded or eliminated).")
+            return None, "No one won (everyone folded)."
+        # End if
+        if len(active_players) == 1:
+            winner = active_players[0]
+            print(f"{winner.name} wins by default (all others have folded).")
+            return [winner], f"{winner.name} wins by default!"
+        # End if
+        # ═══► START OF HAND EVALUATION (SIMPLIFIED PLACEHOLDER!) ◀═══ 
+        # ► TODO: REPLACE THIS SECTION WITH A REAL POKER HAND EVALUATOR.
+        # ►       Python libraries such as “deuces” or “poker-eval” can be useful.
+        best_hand_rank = -1                                                                                                 # ═══► Use -1 to ensure that even a “High Card” wins initially
+        winners = []
+        winning_description = ""
+        for player in active_players:
+            # ► Combination of the player's 2 cards and 5 common cards (max. 7 cards)
+            # ► Objective: to find the best 5-card hand among these 7.
+            player_all_cards = player.hand + self.community_cards                                                           # ═══► Calling the "bogus" hand evaluator
+            current_player_hand_rank, current_player_desc = get_hand_rank_and_description(player_all_cards)                 # ═══► get_hand_rank_and_description should take the player's hand + common cards
+            print(f"Debug: {player.name}'s best hand: {current_player_desc} (Rank: {current_player_hand_rank})")
+            if current_player_hand_rank > best_hand_rank:
+                best_hand_rank = current_player_hand_rank
+                winners = [player]
+                winning_description = f"{player.name} wins with {current_player_desc}."
+            elif current_player_hand_rank == best_hand_rank:                                                                # ═══► Handle ties (kickers, etc.). The hand evaluator should handle this
+                winners.append(player)                                                                                      # ═══►PLACEHOLDER (simplified) co-winners
+                winning_description += f" et {player.name} (également avec {current_player_desc})."
+            # End if
+        # End for
+        # ═══►  END OF HAND EVALUATION (SIMPLIFIED PLACEHOLDER!)  ◀═══ 
+        if not winners:                                                                                                     # ═══► It should not happen
+            return None, "Error: No winner found despite active players."
+        # End if
+        if len(winners) > 1:
+            winning_description = f"Pot shared between: {', '.join(w.name for w in winners)}."                              # ═══► The desc will be the same for shares
+        # End if
+        print(f"Winner(s): {', '.join(w.name for w in winners)}. Description: {winning_description}")
+        return winners, winning_description
+    # End def
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
