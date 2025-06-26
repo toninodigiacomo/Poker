@@ -672,6 +672,29 @@ class PokerGame:
         print(f"Winner(s): {', '.join(w.name for w in winners)}. Description: {winning_description}")
         return winners, winning_description
     # End def
+    def distribute_pot(self, winners):
+        # ► Distribute the pot to the winners.
+        if not winners:
+            print("No winner to distribute the pot.")
+            return
+        # End if
+        amount_per_winner = self.pot // len(winners)
+        remaining_pot = self.pot % len(winners)                                                                             # ═══► To manage odd-numbered chips
+        for winner in winners:
+            winner.add_chips(amount_per_winner)
+            print(f"{winner.name} receives {amount_per_winner} from the pot.")
+        # End for
+        if remaining_pot > 0:                                                                                               # ═══► Distribute the remaining chips (if the pot is not divisible) to the first winner, or to the dealer.
+            if winners:
+                winners[0].add_chips(remaining_pot)
+                print(f"{winners[0].name} receives the remaining token from {remaining_pot}.")
+            else:
+                print(f"Remaining {remaining_pot} not distributed.")                                                        # ═══► If for any reason there is no winner but a remaining pot
+        # End if
+        self.pot = 0                                                                                                        # ═══► The pot is emptied after distribution
+        print(f"Pot distributed. Final pot: {self.pot}")
+    # End def
+
 
 
 
