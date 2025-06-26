@@ -168,7 +168,7 @@ class HumanPlayer(Player):
             bet_made_this_action = actual_paid
             print(f"{self.name} calls {actual_paid} (total bet in the round: {self.current_bet}). Remaining chips: {self.chips}")
         elif action_type == "bet":
-            bet_amount = amount_needed                                                                                     # ═══► For an initial bet, amount_needed is the bet amount
+            bet_amount = amount_needed                                                                                      # ═══► For an initial bet, amount_needed is the bet amount
             actual_paid = self.remove_chips(bet_amount)
             self.current_bet += actual_paid
             self.bet_in_hand += actual_paid
@@ -521,8 +521,110 @@ class PokerGame:
             if player.current_bet == self.current_highest_bet:
                 # ► If the action has gone to the last player who made an aggressive move, and everyone else has tied, then the turn is potentially over.
                 # ► However, other players may still have a turn if it has not gone to the right person.
-                pass                                                                                                        # Continue to check that the tour is completely finished
+                pass                                                                                                        # ═══► Continue to check that the tour is completely finished
             # End if
         # End for
-        return None                                                                                                         # No active player needs to act, the betting round is over
+        return None                                                                                                         # ═══► No active player needs to act, the betting round is over
     # End def
+    def is_betting_round_over(self):
+        # ► Checks if the current betting round has ended.
+        # ► A round is over when:
+        # ►     1. Only one player remains active (the others have folded).
+        # ►     2. All active players (non-folded and non-all-in) have matched the highest bet.
+        # ►     3. The action is returned to the player who made the last aggressive action (bet or raise),
+        # ►        OR if no one has bet, the action must have taken a full turn and everyone has checked.
+        active_players = self.get_active_players_in_hand()
+        # ► Case 1: Less than 2 active players
+        if len(active_players) <= 1:
+            print("Betting round over: less than 2 active players.")
+            return True
+        # End if
+        # ► Case 2: All active players have matched the highest bet or are all-in
+        all_bets_equalized = True
+        for p in active_players:
+            # ► A player is considered to have “matched” if he has bet current_highest_bet
+            # ► OR if he is all-in (and therefore can no longer bet).
+            if not p.is_all_in and p.current_bet < self.current_highest_bet:
+                all_bets_equalized = False
+                break
+            # End if
+        # End for
+        if not all_bets_equalized:
+            return False                                                                                                    # ═══► Some players still need to match the bet
+        # End if
+        # ► Case 3: Action reverts to the player who made the last aggressive move (bet/raise)
+        # ►         OR if the current_highest_bet is 0, everyone has checked and the action has returned to the first to speak.
+        first_to_act_in_round_idx = -1                                                                                      # ═══► Find the player who started the betting round (the one with the “button” or the word) at the beginning of THIS round.
+        if self.game_state == self.GAME_STATE_PREFLOP:
+            bb_player = next((p for p in self.players if p.is_big_blind), None)                                             # ═══► At pre-flop, the action starts with the player after the big blind
+            if bb_player:
+                bb_index = self.players.index(bb_player)
+                for i in range(1, len(self.players) + 1):
+                    idx = (bb_index + i) % len(self.players)
+                    if self.players[idx] in active_players:
+                        first_to_act_in_round_idx = idx
+                        break
+                    # End if
+                # End for
+            # End if
+        else:                                                                                                               # ═══► Flop, Turn, River
+            dealer_idx = self.dealer_index                                                                                  # ═══► Action begins with the first active player after the dealer
+            for i in range(1, len(self.players) + 1):
+                idx = (dealer_idx + i) % len(self.players)
+                if self.players[idx] in active_players:
+                    first_to_act_in_round_idx = idx
+                    break
+                # End if
+            # End for
+        # End if
+        if first_to_act_in_round_idx == -1:                                                                                 # ═══► No player to start the round, already handled above
+            return True
+        # End if
+        if self.current_highest_bet == 0:                                                                                   # ═══► If current_highest_bet is 0 (everyone has checked), the round is over if everyone has tied (at 0).
+            return all_bets_equalized                                                                                       # ═══► If everyone has checked, and all bets are at 0, you're in.
+        # End if
+
+        # ► If current_highest_bet > 0, action must have returned to the last raiser.
+        # ► AND all other players who acted AFTER him must have paid the bet.
+        # ► This means that `current_player_index` must be the `last_raiser_index`.
+        # ► AFTER all other players have had their turn and paid.
+        
+        # ► One way of checking this is that the player whose turn it is is the last to raise, and that he no longer has to act (he has already matched his own bet).
+        # ► OR that it's a "normal" betting round and all active players have already acted, and the action has returned to the round's starting point.
+        
+        # ► Simulate the “next” player to see if there's anyone who still has an action waiting.
+        # ► This part is tricky without a more robust action history.
+        # ► Simplified: If all bets are equal, and the current player is the last raiser, the round is over.
+        # ►             Or if the next player to act (according to get_next_player_to_act) is None.
+        
+        temp_current_player_index = self.current_player_index                                                               # ═══► Let's test whether the “next player to act” (conceptually) no longer needs to act
+        for _ in range(len(self.players)):                                                                                  # ═══► Find the next player who should theoretically act, WITHOUT advancing current_player_index
+            temp_current_player_index = (temp_current_player_index + 1) % len(self.players)
+            p = self.players[temp_current_player_index]
+            if not p.has_folded and not p.is_all_in and p.chips > 0:
+                if p.current_bet < self.current_highest_bet:
+                    return False                                                                                            # ═══► Someone still has to act (pay the bet)
+                # End if
+                if self.current_highest_bet > 0 and temp_current_player_index == self.last_raiser_index:                    # ═══► If the player has matched the bet, does the last raiser “close” the round?
+                    # ► The turn came back to the last raiser, and he paid his own raise.
+                    # ► All the others before him have paid. The round is over.
+                    return True # Le tour de mise est terminé
+                elif self.current_highest_bet > 0 and temp_current_player_index == first_to_act_in_round_idx:
+                    # ► If there has been no raise since the beginning of the turn (or the last raiser), and the action has returned to the first to speak, the round is over.
+                    # ► This handles the case where no one has raised and everyone has called.
+                    return True
+                # End if
+            # End if
+        # End for
+        return True                                                                                                         # ═══► If the loop ends, no one needs to act
+    # End def
+    def collect_bets_to_pot(self):
+        # ► Moves chips wagered by players to the main pot.
+        for player in self.players:
+            if player.current_bet > 0:
+                self.pot += player.current_bet
+                player.current_bet = 0                                                                                      # ═══► Reset the round bet for the next round
+            # End if
+        # End for
+    # End def
+
