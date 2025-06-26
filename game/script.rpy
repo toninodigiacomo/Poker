@@ -288,7 +288,145 @@ label start:
     # ╭─────────────────────────────────────────────────────────────────────────
     # │  Call the main game loop
     # ╰─────────────────────────────────────────────────────────────────────────
-    call game_loop
+    call LB_TEXAS_HOLDEM()
     "Thanks for playing Texas Hold'em!"
+    return
+# End label
+label LB_TEXAS_HOLDEM():
+    # Boucle qui représente la succession des mains de poker
+    while PokerLoop:
+        # Afficher la main actuelle (pour le joueur humain, les cartes des IA sont cachées)
+        $ current_message_1 = f"Main #{poker_game.num_hands_played + 1}"
+        $ current_message_2 = "Nouvelle main en préparation..."
+        show screen poker_game_screen
+        pause 1.0 # Petite pause visuelle
+
+        # Vérifier si la partie doit se terminer (ex: un seul joueur restant avec des jetons)
+        $ active_players_in_game = [p for p in poker_game.players if p.chips > 0]
+        if len(active_players_in_game) <= 1:
+            $ final_winner = active_players_in_game[0] if active_players_in_game else None
+            if final_winner:
+                "Félicitations, [final_winner.name], vous avez remporté la partie !"
+            else:
+                "La partie est terminée, mais aucun vainqueur n'a pu être désigné."
+            # End screen
+            PokerLoop = False # Sortir de la boucle de jeu
+        # End if
+
+        # 1. Réinitialiser la main et assigner le bouton du dealer
+        $ poker_game.reset_hand()
+        $ current_message_2 = f"Dealer: {poker_game.players[poker_game.dealer_index].name}"
+        show screen poker_game_screen
+        pause 1.0
+
+        # 2. Assigner et collecter les blinds
+        $ poker_game.assign_blinds()
+        $ current_message_2 = f"Petite Blinde: {pl.PokerGame.SMALL_BLIND_VAL}, Grosse Blinde: {pl.PokerGame.BIG_BLIND_VAL}"
+        show screen poker_game_screen
+        pause 1.5
+
+        # 3. Distribuer les cartes privées (hole cards)
+        $ poker_game.deal_hole_cards()
+        $ current_message_1 = "Cartes distribuées."
+        # Afficher les cartes du joueur humain dans le message d'info
+        $ human_player_hand_str = " ".join(str(c) for c in poker_game.players[0].hand)
+        $ current_message_2 = f"Vos cartes: [human_player_hand_str]"
+        show screen poker_game_screen
+        pause 2.0
+
+        # 4. Tour de mise (Pre-flop)
+        $ poker_game.game_state = pl.PokerGame.GAME_STATE_PREFLOP
+        $ current_message_1 = "Tour de mise: Pre-flop"
+        $ current_message_2 = f"Pot: {poker_game.pot}. Mise la plus haute: {poker_game.current_highest_bet}"
+        show screen poker_game_screen
+        call betting_round_logic # Appel de la logique du tour de mise
+
+        # Vérifier si la main est terminée après le tour de mise (si un seul joueur actif)
+        $ active_players_count = len(poker_game.get_active_players_in_hand())
+        if active_players_count <= 1:
+            jump hand_end # Aller à la fin de la main si un seul joueur restant
+
+        # 5. Distribuer le Flop et nouveau tour de mise
+        $ current_message_1 = "Tour de mise: Flop"
+        $ current_message_2 = "Distribution du Flop..."
+        show screen poker_game_screen
+        pause 1.0
+        $ poker_game.deal_community_cards(3) # Distribue 3 cartes pour le Flop
+        show screen poker_game_screen
+        pause 1.5
+        $ poker_game.game_state = pl.PokerGame.GAME_STATE_FLOP
+        call betting_round_logic
+
+        if active_players_count <= 1:
+            jump hand_end
+
+        # 6. Distribuer le Turn et nouveau tour de mise
+        $ current_message_1 = "Tour de mise: Turn"
+        $ current_message_2 = "Distribution du Turn..."
+        show screen poker_game_screen
+        pause 1.0
+        $ poker_game.deal_community_cards(1) # Distribue 1 carte pour le Turn
+        show screen poker_game_screen
+        pause 1.5
+        $ poker_game.game_state = pl.PokerGame.GAME_STATE_TURN
+        call betting_round_logic
+
+        if active_players_count <= 1:
+            jump hand_end
+
+        # 7. Distribuer la River et nouveau tour de mise
+        $ current_message_1 = "Tour de mise: River"
+        $ current_message_2 = "Distribution de la River..."
+        show screen poker_game_screen
+        pause 1.0
+        $ poker_game.deal_community_cards(1) # Distribue 1 carte pour la River
+        show screen poker_game_screen
+        pause 1.5
+        $ poker_game.game_state = pl.PokerGame.GAME_STATE_RIVER
+        call betting_round_logic
+
+        if active_players_count <= 1:
+            jump hand_end
+
+        # 8. Showdown (dévoilement des mains et détermination du gagnant)
+        label showdown:
+            $ poker_game.game_state = pl.PokerGame.GAME_STATE_SHOWDOWN
+            $ current_message_1 = "Showdown !"
+            $ current_message_2 = "Dévoilement des mains des joueurs restants..."
+            show screen poker_game_screen
+            pause 2.0
+
+            # Déterminer le(s) gagnant(s)
+            $ winners, winning_desc = poker_game.determine_winner()
+            $ current_message_1 = "Résultats de la main :"
+            $ current_message_2 = winning_desc
+            show screen poker_game_screen
+            pause 3.0
+
+            # Distribuer le pot
+            $ poker_game.distribute_pot(winners)
+            show screen poker_game_screen
+            pause 2.0
+
+        # Fin de la main (pour les cas de fold anticipé ou de showdown)
+        label hand_end:
+            $ poker_game.game_state = pl.PokerGame.GAME_STATE_END_HAND
+            $ current_message_1 = "Fin de la main."
+            $ current_message_2 = "Préparation de la prochaine main..."
+            show screen poker_game_screen
+            pause 2.0
+
+            # Vérifier si des joueurs sont éliminés
+            $ players_eliminated_this_hand = [p for p in poker_game.players if p.chips <= 0]
+            if players_eliminated_this_hand:
+                $ current_message_1 = "Joueurs éliminés :"
+                $ current_message_2 = ", ".join([p.name for p in players_eliminated_this_hand]) + " n'ont plus de jetons !"
+                show screen poker_game_screen
+                pause 2.0
+
+    return # Fin de la boucle de jeu principale
+
+
+
     return
 # End label
