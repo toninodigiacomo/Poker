@@ -223,7 +223,7 @@ class RobotPlayer(HumanPlayer):
         combined_cards = self.hand + community_cards
         hand_rank, hand_description = get_hand_rank_and_description(combined_cards)
         # ► hand_rank: a number for strength (e.g. 1=high card, 2=pair, ..., 9=straight flush)
-        # ► description_de_la_main : "Paire d'As", "Couleur", etc.
+        # ► description_de_la_main : "Pair of Aces", "Flush", etc.
 
         # ► Adapted to hand strength (hand_rank) and aggressiveness level.
         # ► hand_strength_score is a value between 0 and 1 (0 = weak, 1 = very strong)
@@ -694,32 +694,70 @@ class PokerGame:
         self.pot = 0                                                                                                        # ═══► The pot is emptied after distribution
         print(f"Pot distributed. Final pot: {self.pot}")
     # End def
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def get_hand_rank_and_description(cards):
+        # ► (PLACEHOLDER) Evaluates a hand of cards and returns a numerical rank and description.
+        # ►    This function is VERY SIMPLIFIED function and does NOT correctly handle all poker rules. It must be REPLACED by a real evaluator.
+        # ►    A TRUE hand evaluator must be able to identify all 5-card combinations (High Card, Pair, Two Pair, Three of a Kind, Straight, Flush, Full House, Four of a Kind, Straight Flush, Royal Flush) and rank them correctly, including handling kickers and ties.    
+        # ► Returns (hand_rank, hand_description).
+        # ► Higher rank = better hand.
+        if len(cards) < 2: # Une main de poker nécessite au moins 2 cartes pour le joueur + communes
+            return 0, "Pas assez de cartes"
+        # End if
+        ranks_values = sorted([card.get_value(aces_high=True) for card in cards])                                           # ═══► Extract ranks and colors for evaluation
+        suits = [card.suit for card in cards]
+        rank_counts = {}                                                                                                    # ═══► Frequency counting for pairs, three of a kind, four of a kind
+        for r in ranks_values:
+            rank_counts[r] = rank_counts.get(r, 0) + 1
+        # End for
+        suit_counts = {}                                                                                                    # ═══► Counting frequencies for colors
+        for s in suits:
+            suit_counts[s] = suit_counts.get(s, 0) + 1
+        # End for
+        num_pairs = sum(1 for count in rank_counts.values() if count == 2)                                                  # ═══► Checking pairs, three of a kind, four of a kind
+        has_trips = any(count == 3 for count in rank_counts.values())
+        has_quads = any(count == 4 for count in rank_counts.values())
+        is_flush = any(count >= 5 for count in suit_counts.values())                                                        # ═══► Color check (Flush)
+        unique_ranks_sorted = sorted(list(set(ranks_values)))
+        is_straight = False                                                                                                 # ═══► Straight verification
+        if len(unique_ranks_sorted) >= 5:                                                                                   # ═══► Simple check for 5-card sequences. Aces can be high or low.
+            if 14 in unique_ranks_sorted and 2 in unique_ranks_sorted and 3 in unique_ranks_sorted and 4 in unique_ranks_sorted and 5 in unique_ranks_sorted:
+               is_straight = True                                                                                           # ═══► Check for Straight information A-5 (Ace low)
+            # End if
+            for i in range(len(unique_ranks_sorted) - 4):                                                                   # ═══► Check for other suites
+                if unique_ranks_sorted[i+4] - unique_ranks_sorted[i] == 4:
+                    is_straight = True
+                    break
+                # End if
+            # End for
+        # End if
+        if is_straight and is_flush:                                                                                        # ═══► Combination of hands (descending order of force)
+            # It should be checked whether it's a Royal Flush (T,J,Q,K,A of the same color).
+            # For this simplified case, group Straight Flush is grouped.
+            return 9, "Straight Flush"                                                                                      # ═══► Rank 9: for the highest hand (Royal Flush is a Straight Flush)
+        elif has_quads:
+            return 8, "Four-of-a-Kind"
+        elif has_trips and num_pairs >= 1:                                                                                  # ═══► Three of a kind and at least one pair
+            return 7, "Full House"
+        elif is_flush:
+            return 6, "Flush"
+        elif is_straight:
+            return 5, "Straight"
+        elif has_trips:
+            return 4, "Three-of-a-Kind"
+        elif num_pairs >= 2:
+            return 3, "Two Pairs"
+        elif num_pairs == 1:
+            return 2, "Pair"
+        else:
+            high_card_rank = max(ranks_values)                                                                              # ═══► High Card
+            high_card_desc = ""
+            for card in cards:
+                if card.get_value() == high_card_rank:
+                    high_card_desc = str(card)
+                    break
+                # End if
+            # End for
+            return 1, f"Carte Haute ({high_card_desc})"
+        # End if
+    # End def
+# End class
