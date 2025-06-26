@@ -23,9 +23,9 @@ init python:
 # ► These variables are instances of the poker_logic.py classes.
 default poker_game         = None                                                                                           # ═══► Instance of the PokerGame class
 default player_name        = "You"                                                                                          # ═══► Human player name
-default current_message_1  = ""   # Message d'information principal (ex: "Tour de mise: Flop")
-default current_message_2  = ""   # Message d'information secondaire (ex: "Vos cartes: AH KS")
-default game_debug_mode    = True   # Si True, les cartes des IA sont visibles pour le débogage
+default current_message_1  = ""                                                                                             # ═══► Main information message (e.g. “Betting round: Flop”)
+default current_message_2  = ""                                                                                             # ═══► Secondary information message (e.g. “Your cards: AH KS”)
+default game_debug_mode    = True                                                                                           # ═══► If True, AI maps are visible for debugging purposes
 
 
 
