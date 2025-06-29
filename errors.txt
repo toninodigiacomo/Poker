@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/z_Class_Poker.rpy", line 830: end of line expected.
-    if PLAYER_FOLD == False:"\n\nPre-Flop is over."
-                            ^
+File "game/script.rpy", line 237: expected statement.
+    poker.PokerGame.INITIAL_CHIPS = 100
+                                  ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Tue Jun 24 18:30:07 2025
+Sat Jun 28 07:15:08 2025

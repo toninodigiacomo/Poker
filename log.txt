@@ -1,2616 +1,813 @@
-2025-06-24 18:35:36 UTC
-macOS-15.5-arm64-arm-64bit
-Ren'Py 8.3.4.24120703
+2025-06-28 23:34:30 UTC
+Windows-10-10.0.26100
+Ren'Py 8.3.7.25031702
 
-Early init took 0.03s
-Loading error handling took 0.02s
-Loading script took 0.13s
-Loading save slot metadata took 0.02s
+Early init took 0.06s
+Loading error handling took 0.05s
+Loading script took 0.84s
+Loading save slot metadata took 0.05s
 Loading persistent took 0.00s
-Running init code took 0.03s
+Running init code took 0.16s
 Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.02s
 Index archives took 0.00s
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.02s
-DPI scale factor: 1.000000
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.02s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.55s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Apple'"
-Renderer: b'Apple M1'
-Version: b'2.1 Metal - 89.4'
-Display Info: None
-Screen sizes: virtual=(2560, 1440) physical=(2388, 1343) drawable=(2388, 1343)
-Maximum texture size: 4096x4096
-[DEBUG] ► Dealer defined for this round: human
-[DEBUG] ► Label LB_TEXAS_HOLDEM(Player,Computer,5,100)
-[DEBUG] ► Label LB_START_NEW_HAND()
-[DEBUG] ► While loop starting point
-[DEBUG] ► Reset open cards
-[DEBUG] ► Reset active players' cards
-[DEBUG] ► Reset hands and folded status False
-[DEBUG] ► Big bling = 10 --► Small Blind is Computer and Big Blind is Player
-[DEBUG] ► Computer puts in the small blind of 5 chips 
-[DEBUG] ► Player puts the big blind of 10 chips 
-[DEBUG] ► First post-blinds player = Computer
-[DEBUG] ► The blinds have been bet. The pot is now 15 chips
-[DEBUG] ► Your cards TC and QD
-[DEBUG] ► Pre-Flop start --► First to act: Computer ----► Big Blind: 10
-[DEBUG] ► Human Chips 90 --► Robot Chips: 95 ----► All-In : True
-[DEBUG] ► Street name: Pre-Flop
-[DEBUG] ► First player: Computer
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 5
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: fold --► Robot total bet amount: 0
-[DEBUG] ► Current action: fold --► Active players: 1
-[DEBUG] ► Player turn: Player
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 2, len(active_players) = 1
-[DEBUG] ► Active players (1): 1
-[DEBUG] ► Round ended early by fold. Active players: 1
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Player turn: Player
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 2, len(active_players) = 1
-[DEBUG] ► Active players (2): 1
-[DEBUG] ► Winner: Player
-[DEBUG] ► Pre-Flop end --► Round ended by fold: True
-[DEBUG] ► Current dealer before change: human
-[DEBUG] ► Current dealer after change: robot
-[DEBUG] ► Label LB_START_NEW_HAND()
-[DEBUG] ► While loop starting point
-[DEBUG] ► Reset open cards
-[DEBUG] ► Reset active players' cards
-[DEBUG] ► Reset hands and folded status False
-[DEBUG] ► Big bling = 10 --► Small Blind is Player and Big Blind is Computer
-[DEBUG] ► Player puts in the small blind of 5 chips 
-[DEBUG] ► Computer puts the big blind of 10 chips 
-[DEBUG] ► First post-blinds player = Player
-[DEBUG] ► The blinds have been bet. The pot is now 15 chips
-[DEBUG] ► Your cards 3S and 2C
-[DEBUG] ► Pre-Flop start --► First to act: Player ----► Big Blind: 10
-[DEBUG] ► Human Chips 100 --► Robot Chips: 85 ----► All-In : True
-[DEBUG] ► Street name: Pre-Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 5
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Street name: Pre-Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 5
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'fold'}
-[DEBUG] ► Current action: fold --► Active players: 1
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 2, len(active_players) = 1
-[DEBUG] ► Active players (1): 1
-[DEBUG] ► Round ended early by fold. Active players: 1
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 2, len(active_players) = 1
-[DEBUG] ► Active players (2): 1
-[DEBUG] ► Winner: Computer
-[DEBUG] ► Pre-Flop end --► Round ended by fold: True
-[DEBUG] ► Current dealer before change: robot
-[DEBUG] ► Current dealer after change: human
-[DEBUG] ► Label LB_START_NEW_HAND()
-[DEBUG] ► While loop starting point
-[DEBUG] ► Reset open cards
-[DEBUG] ► Reset active players' cards
-[DEBUG] ► Reset hands and folded status False
-[DEBUG] ► Big bling = 10 --► Small Blind is Computer and Big Blind is Player
-[DEBUG] ► Computer puts in the small blind of 5 chips 
-[DEBUG] ► Player puts the big blind of 10 chips 
-[DEBUG] ► First post-blinds player = Computer
-[DEBUG] ► The blinds have been bet. The pot is now 15 chips
-[DEBUG] ► Your cards KS and 5S
-[DEBUG] ► Pre-Flop start --► First to act: Computer ----► Big Blind: 10
-[DEBUG] ► Human Chips 90 --► Robot Chips: 95 ----► All-In : True
-[DEBUG] ► Street name: Pre-Flop
-[DEBUG] ► First player: Computer
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 5
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: call --► Robot total bet amount: 10
-[DEBUG] ► Current action: call --► Actual bet: 5
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 2, len(active_players) = 2
-[DEBUG] ► Active players (2): 2
-[DEBUG] ► Pre-Flop end --► Round ended by fold: False
-[DEBUG] ► Flop : 4D, QC, JD
-[DEBUG] ► Flop start --► First to act: Computer
-[DEBUG] ► Human Chips 90 --► Robot Chips: 90 ----► All-In : False
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Computer
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Pre-Flop end --► Round ended by fold: False
-[DEBUG] ► Label LB_START_NEW_HAND()
-[DEBUG] ► While loop starting point
-[DEBUG] ► Reset open cards
-[DEBUG] ► Reset active players' cards
-[DEBUG] ► Reset hands and folded status False
-[DEBUG] ► Big bling = 10 --► Small Blind is Computer and Big Blind is Player
-[DEBUG] ► Computer puts in the small blind of 5 chips 
-[DEBUG] ► Player puts the big blind of 10 chips 
-[DEBUG] ► First post-blinds player = Computer
-[DEBUG] ► The blinds have been bet. The pot is now 15 chips
-[DEBUG] ► Your cards TS and 3H
-[DEBUG] ► Pre-Flop start --► First to act: Computer ----► Big Blind: 10
-[DEBUG] ► Human Chips 90 --► Robot Chips: 95 ----► All-In : True
-[DEBUG] ► Street name: Pre-Flop
-[DEBUG] ► First player: Computer
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 5
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: fold --► Robot total bet amount: 0
-[DEBUG] ► Current action: fold --► Active players: 1
-[DEBUG] ► Player turn: Player
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 2, len(active_players) = 1
-[DEBUG] ► Active players (1): 1
-[DEBUG] ► Round ended early by fold. Active players: 1
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Player turn: Player
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 2, len(active_players) = 1
-[DEBUG] ► Active players (2): 1
-[DEBUG] ► Winner: Player
-[DEBUG] ► Pre-Flop end --► Round ended by fold: True
-[DEBUG] ► Current dealer before change: human
-[DEBUG] ► Current dealer after change: robot
-[DEBUG] ► Label LB_START_NEW_HAND()
-[DEBUG] ► While loop starting point
-[DEBUG] ► Reset open cards
-[DEBUG] ► Reset active players' cards
-[DEBUG] ► Reset hands and folded status False
-[DEBUG] ► Big bling = 10 --► Small Blind is Player and Big Blind is Computer
-[DEBUG] ► Player puts in the small blind of 5 chips 
-[DEBUG] ► Computer puts the big blind of 10 chips 
-[DEBUG] ► First post-blinds player = Player
-[DEBUG] ► The blinds have been bet. The pot is now 15 chips
-[DEBUG] ► Your cards 6C and JC
-[DEBUG] ► Pre-Flop start --► First to act: Player ----► Big Blind: 10
-[DEBUG] ► Human Chips 100 --► Robot Chips: 85 ----► All-In : True
-[DEBUG] ► Street name: Pre-Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 5
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'call', 'amount': 10}
-[DEBUG] ► Current action: call --► Actual bet: 5
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 2, len(active_players) = 2
-[DEBUG] ► Active players (2): 2
-Resetting cache.
-Early init took 159.63s
-Loading error handling took 0.43s
-Loading script took 0.35s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-Running init code took 0.03s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to '/Users/toninodigiacomo/Library/RenPy/backups/Poker':
-Dump and make backups took 0.03s
+Dump and make backups took 0.04s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc took 0.03s
-DPI scale factor: 1.000000
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
 Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.02s
+Init translation took 0.00s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.04s
+Save screen analysis took 0.02s
+Prepare screens took 0.07s
 Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
+Save bytecode. took 0.03s
 Running _start took 0.00s
-Interface start took 0.07s
+Interface start took 0.47s
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
+primary display bounds: (0, 0, 2880, 1920)
 swap interval: 1 frames
 Windowed mode.
-Vendor: "b'Apple'"
-Renderer: b'Apple M1'
-Version: b'2.1 Metal - 89.4'
+Vendor: "b'Microsoft Corporation'"
+Renderer: b'D3D12 (Qualcomm(R) Adreno(TM) X1-85 GPU)'
+Version: b'4.6 (Compatibility Profile) Mesa 25.2.0-devel (git-3753bb8501)'
 Display Info: None
-Screen sizes: virtual=(2560, 1440) physical=(2388, 1343) drawable=(2388, 1343)
+Screen sizes: virtual=(2560, 1440) physical=(1818, 1023) drawable=(1818, 1023)
 Maximum texture size: 4096x4096
-[DEBUG] ► Label LB_START_NEW_HAND()
-[DEBUG] ► While loop starting point
-[DEBUG] ► Reset open cards
-[DEBUG] ► Reset active players' cards
-[DEBUG] ► Reset hands and folded status False
-[DEBUG] ► Big bling = 10 --► Small Blind is Player and Big Blind is Computer
-[DEBUG] ► Player puts in the small blind of 5 chips 
-[DEBUG] ► Computer puts the big blind of 10 chips 
-[DEBUG] ► First post-blinds player = Player
-[DEBUG] ► The blinds have been bet. The pot is now 15 chips
-[DEBUG] ► Your cards 7D and TS
-[DEBUG] ► Pre-Flop start --► First to act: Player ----► Big Blind: 10
-[DEBUG] ► Human Chips 100 --► Robot Chips: 85 ----► All-In : True
-[DEBUG] ► Street name: Pre-Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 5
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'call', 'amount': 10}
-[DEBUG] ► Current action: call --► Actual bet: 5
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 2, len(active_players) = 2
-[DEBUG] ► Active players (2): 2
-[DEBUG] ► Pre-Flop end --► Round ended by fold: False
-Resetting cache.
-Early init took 193.18s
-Loading error handling took 0.02s
-Loading script took 0.13s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to '/Users/toninodigiacomo/Library/RenPy/backups/Poker':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.04s
-DPI scale factor: 1.000000
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.04s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.07s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Apple'"
-Renderer: b'Apple M1'
-Version: b'2.1 Metal - 89.4'
-Display Info: None
-Screen sizes: virtual=(2560, 1440) physical=(2388, 1343) drawable=(2388, 1343)
+Base path for map images set to: images/cards/
+Poker game initialized.
+Screen sizes: virtual=(2560, 1440) physical=(2880, 1814) drawable=(2880, 1814)
 Maximum texture size: 4096x4096
-[DEBUG] ► Pre-Flop end --► Round ended by fold: False
-[DEBUG] ► Flop : 3H, 9H, QC
-[DEBUG] ► Flop start --► First to act: Player
-[DEBUG] ► Human Chips 95 --► Robot Chips: 85 ----► All-In : False
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► Pre-Flop end --► Round ended by fold: False
-[DEBUG] ► Flop : 3H, 9H, QC
-[DEBUG] ► Flop start --► First to act: Player
-[DEBUG] ► Human Chips 95 --► Robot Chips: 85 ----► All-In : False
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► Pre-Flop end --► Round ended by fold: False
-[DEBUG] ► Flop : 3H, 9H, QC
-[DEBUG] ► Flop start --► First to act: Player
-[DEBUG] ► Human Chips 95 --► Robot Chips: 85 ----► All-In : False
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'bet', 'amount': 20}
-[DEBUG] ► Current action: bet --► Last Raiser: Player
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 20
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: fold --► Robot total bet amount: 0
-[DEBUG] ► Current action: fold --► Active players: 1
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 1
-[DEBUG] ► Active players (2): 1
-[DEBUG] ► Winner: Player
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'bet', 'amount': 20}
-[DEBUG] ► Current action: bet --► Last Raiser: Player
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 20
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: fold --► Robot total bet amount: 0
-[DEBUG] ► Current action: fold --► Active players: 1
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Label LB_START_NEW_HAND()
-[DEBUG] ► While loop starting point
-[DEBUG] ► Reset open cards
-[DEBUG] ► Reset active players' cards
-[DEBUG] ► Reset hands and folded status False
-[DEBUG] ► Big bling = 10 --► Small Blind is Player and Big Blind is Computer
-[DEBUG] ► Player puts in the small blind of 5 chips 
-[DEBUG] ► Computer puts the big blind of 10 chips 
-[DEBUG] ► First post-blinds player = Player
-[DEBUG] ► The blinds have been bet. The pot is now 15 chips
-[DEBUG] ► Your cards KS and KC
-[DEBUG] ► Pre-Flop start --► First to act: Player ----► Big Blind: 10
-[DEBUG] ► Human Chips 100 --► Robot Chips: 85 ----► All-In : True
-[DEBUG] ► Street name: Pre-Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 5
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Pre-Flop end --► Round ended by fold: True
-[DEBUG] ► Current dealer before change: human
-[DEBUG] ► Current dealer after change: robot
-[DEBUG] ► Label LB_START_NEW_HAND()
-[DEBUG] ► While loop starting point
-[DEBUG] ► Reset open cards
-[DEBUG] ► Reset active players' cards
-[DEBUG] ► Reset hands and folded status False
-[DEBUG] ► Big bling = 10 --► Small Blind is Player and Big Blind is Computer
-[DEBUG] ► Player puts in the small blind of 5 chips 
-[DEBUG] ► Computer puts the big blind of 10 chips 
-[DEBUG] ► First post-blinds player = Player
-[DEBUG] ► The blinds have been bet. The pot is now 15 chips
-[DEBUG] ► Your cards 3D and JC
-[DEBUG] ► Pre-Flop start --► First to act: Player ----► Big Blind: 10
-[DEBUG] ► Human Chips 100 --► Robot Chips: 85 ----► All-In : True
-[DEBUG] ► Street name: Pre-Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 5
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'call', 'amount': 10}
-[DEBUG] ► Current action: call --► Actual bet: 5
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 2, len(active_players) = 2
-[DEBUG] ► Active players (2): 2
-[DEBUG] ► Pre-Flop end --► Round ended by fold: False
-[DEBUG] ► Flop : 5D, QS, 2C
-[DEBUG] ► Flop start --► First to act: Player
-[DEBUG] ► Human Chips 95 --► Robot Chips: 85 ----► All-In : False
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► Pre-Flop end --► Round ended by fold: False
-[DEBUG] ► Flop : 5D, QS, 2C
-[DEBUG] ► Flop start --► First to act: Player
-[DEBUG] ► Human Chips 95 --► Robot Chips: 85 ----► All-In : False
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-Resetting cache.
-Early init took 650.27s
-Loading error handling took 0.02s
-Loading script took 0.36s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-Running init code took 0.03s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to '/Users/toninodigiacomo/Library/RenPy/backups/Poker':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.000000
-Creating interface object took 0.01s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.04s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.19s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Apple'"
-Renderer: b'Apple M1'
-Version: b'2.1 Metal - 89.4'
-Display Info: None
-Screen sizes: virtual=(2560, 1440) physical=(2388, 1343) drawable=(2388, 1343)
-Maximum texture size: 4096x4096
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-Resetting cache.
-Early init took 700.49s
-Loading error handling took 0.02s
-Loading script took 0.13s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to '/Users/toninodigiacomo/Library/RenPy/backups/Poker':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.000000
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.04s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Apple'"
-Renderer: b'Apple M1'
-Version: b'2.1 Metal - 89.4'
-Display Info: None
-Screen sizes: virtual=(2560, 1440) physical=(2388, 1343) drawable=(2388, 1343)
-Maximum texture size: 4096x4096
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-Resetting cache.
-Early init took 715.92s
-Loading error handling took 0.02s
-Loading script took 0.13s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to '/Users/toninodigiacomo/Library/RenPy/backups/Poker':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.000000
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.04s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Apple'"
-Renderer: b'Apple M1'
-Version: b'2.1 Metal - 89.4'
-Display Info: None
-Screen sizes: virtual=(2560, 1440) physical=(2388, 1343) drawable=(2388, 1343)
-Maximum texture size: 4096x4096
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-Resetting cache.
-Early init took 782.77s
-Loading error handling took 0.02s
-Loading script took 0.12s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to '/Users/toninodigiacomo/Library/RenPy/backups/Poker':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.000000
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.06s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Apple'"
-Renderer: b'Apple M1'
-Version: b'2.1 Metal - 89.4'
-Display Info: None
-Screen sizes: virtual=(2560, 1440) physical=(2388, 1343) drawable=(2388, 1343)
-Maximum texture size: 4096x4096
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-Resetting cache.
-Early init took 845.08s
-Loading error handling took 0.02s
-Loading script took 0.14s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.02s
-Index archives took 0.00s
-Backing up script files to '/Users/toninodigiacomo/Library/RenPy/backups/Poker':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.000000
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.04s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.07s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Apple'"
-Renderer: b'Apple M1'
-Version: b'2.1 Metal - 89.4'
-Display Info: None
-Screen sizes: virtual=(2560, 1440) physical=(2388, 1343) drawable=(2388, 1343)
-Maximum texture size: 4096x4096
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-Resetting cache.
-Early init took 849.89s
-Loading error handling took 0.01s
-Loading script took 0.10s
-Loading save slot metadata took 0.01s
-Loading persistent took 0.00s
-Running init code took 0.01s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to '/Users/toninodigiacomo/Library/RenPy/backups/Poker':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.000000
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.04s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Apple'"
-Renderer: b'Apple M1'
-Version: b'2.1 Metal - 89.4'
-Display Info: None
-Screen sizes: virtual=(2560, 1440) physical=(2388, 1343) drawable=(2388, 1343)
-Maximum texture size: 4096x4096
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-Resetting cache.
-Early init took 897.01s
-Loading error handling took 0.02s
-Loading script took 0.13s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to '/Users/toninodigiacomo/Library/RenPy/backups/Poker':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.000000
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.04s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Apple'"
-Renderer: b'Apple M1'
-Version: b'2.1 Metal - 89.4'
-Display Info: None
-Screen sizes: virtual=(2560, 1440) physical=(2388, 1343) drawable=(2388, 1343)
-Maximum texture size: 4096x4096
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-Resetting cache.
-Early init took 912.48s
-Loading error handling took 0.02s
-Loading script took 0.13s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to '/Users/toninodigiacomo/Library/RenPy/backups/Poker':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.000000
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.03s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Apple'"
-Renderer: b'Apple M1'
-Version: b'2.1 Metal - 89.4'
-Display Info: None
-Screen sizes: virtual=(2560, 1440) physical=(2388, 1343) drawable=(2388, 1343)
-Maximum texture size: 4096x4096
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
-[DEBUG] ► Player Action Data: {'action': 'check'}
-[DEBUG] ► Current action: check
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: False
-[DEBUG] ► Player turn: Computer
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Computer --► Active players: 2
-[DEBUG] ► Robot action: Bet --► Robot total bet amount: 5
-[DEBUG] ► End of loop conditions: all_matched = True, len(players_who_acted_in_round) = 1, len(active_players) = 2
-Resetting cache.
-Early init took 1011.22s
-Loading error handling took 0.02s
-Loading script took 0.13s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
-Index archives took 0.00s
-Backing up script files to '/Users/toninodigiacomo/Library/RenPy/backups/Poker':
-Dump and make backups took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
-DPI scale factor: 1.000000
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.04s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.01s
-Running _start took 0.00s
-Interface start took 0.07s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Apple'"
-Renderer: b'Apple M1'
-Version: b'2.1 Metal - 89.4'
-Display Info: None
-Screen sizes: virtual=(2560, 1440) physical=(2388, 1343) drawable=(2388, 1343)
-Maximum texture size: 4096x4096
-[DEBUG] ► Street name: Flop
-[DEBUG] ► First player: Player
-[DEBUG] ► Active players (1): 2
-[DEBUG] ► Player turn: Player
-[DEBUG] ► Amount to match: 0
-[DEBUG] ► Needs to act: True
-[DEBUG] ► Turn: Player --► Active players: 2
+New hand. Dealer: Vous
+Vous pays the Small Blind: 10
+AI Player 1 pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: Vous
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 180. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.11 (Carte Haute (AS))
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: fold
+AI Player 1 (180 chips) performs fold.
+AI Player 1 folds.
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous']
+DEBUG is_betting_round_over: Less than 2 players remaining in hand. Round over (hand ends).
+DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round (preflop): 1
+DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.
+DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: 30
+DEBUG LB_TEXAS_HOLDEM: Vous is the only player in hand. S/he should win the pot.
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG: Attempt to distribute the 30 to the winners: ['Vous']
+Vous wins 30 chips. Total: 220
+Vous receives 30 from the pot.
+Pot distributed. Final pot: 0
+New hand. Dealer: AI Player 1
+AI Player 1 pays the Small Blind: 10
+Vous pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: AI Player 1
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found Vous (idx 0) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de Vous (humain: True). Jetons: 200. Mise actuelle: 0
+DEBUG LB_BETTING_ROUND_LOGIC(): Action du joueur humain: fold
+Vous (200 chips) performs fold.
+Vous folds.
+DEBUG LB_BETTING_ROUND_LOGIC(): Humain a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['AI Player 1']
+DEBUG is_betting_round_over: Less than 2 players remaining in hand. Round over (hand ends).
+DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round (preflop): 1
+DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.
+DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: 30
+DEBUG LB_TEXAS_HOLDEM: AI Player 1 is the only player in hand. S/he should win the pot.
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG: Attempt to distribute the 30 to the winners: ['AI Player 1']
+AI Player 1 wins 30 chips. Total: 200
+AI Player 1 receives 30 from the pot.
+Pot distributed. Final pot: 0
+New hand. Dealer: Vous
+Vous pays the Small Blind: 10
+AI Player 1 pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: Vous
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 180. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.11 (Carte Haute (KS))
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: fold
+AI Player 1 (180 chips) performs fold.
+AI Player 1 folds.
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous']
+DEBUG is_betting_round_over: Less than 2 players remaining in hand. Round over (hand ends).
+DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round (preflop): 1
+DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.
+DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: 30
+DEBUG LB_TEXAS_HOLDEM: Vous is the only player in hand. S/he should win the pot.
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG: Attempt to distribute the 30 to the winners: ['Vous']
+Vous wins 30 chips. Total: 220
+Vous receives 30 from the pot.
+Pot distributed. Final pot: 0
+New hand. Dealer: AI Player 1
+AI Player 1 pays the Small Blind: 10
+Vous pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: AI Player 1
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found Vous (idx 0) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de Vous (humain: True). Jetons: 200. Mise actuelle: 0
+DEBUG LB_BETTING_ROUND_LOGIC(): Action du joueur humain: raise
+Vous (200 chips) performs raise.
+Vous raises to 40 (added 40). Remaining chips: 160
+DEBUG LB_BETTING_ROUND_LOGIC(): Humain a misé 40. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: AI Player 1 has not matched the bet (0 vs 40).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 40, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 170. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.11 (Carte Haute (KH))
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: fold
+AI Player 1 (170 chips) performs fold.
+AI Player 1 folds.
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 40
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous']
+DEBUG is_betting_round_over: Less than 2 players remaining in hand. Round over (hand ends).
+DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 40
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 70
+All bets collected in the pot. Current pot: 70
+DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round (preflop): 1
+DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.
+DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: 70
+DEBUG LB_TEXAS_HOLDEM: Vous is the only player in hand. S/he should win the pot.
+DEBUG: Pot before collection of bets: 70
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 70
+All bets collected in the pot. Current pot: 70
+DEBUG: Attempt to distribute the 70 to the winners: ['Vous']
+Vous wins 70 chips. Total: 230
+Vous receives 70 from the pot.
+Pot distributed. Final pot: 0
+New hand. Dealer: Vous
+Vous pays the Small Blind: 10
+AI Player 1 pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: Vous
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 150. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.11 (Carte Haute (QC))
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: fold
+AI Player 1 (150 chips) performs fold.
+AI Player 1 folds.
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous']
+DEBUG is_betting_round_over: Less than 2 players remaining in hand. Round over (hand ends).
+DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round (preflop): 1
+DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.
+DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: 30
+DEBUG LB_TEXAS_HOLDEM: Vous is the only player in hand. S/he should win the pot.
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG: Attempt to distribute the 30 to the winners: ['Vous']
+Vous wins 30 chips. Total: 250
+Vous receives 30 from the pot.
+Pot distributed. Final pot: 0
+New hand. Dealer: AI Player 1
+AI Player 1 pays the Small Blind: 10
+Vous pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: AI Player 1
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found Vous (idx 0) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de Vous (humain: True). Jetons: 230. Mise actuelle: 0
+DEBUG LB_BETTING_ROUND_LOGIC(): Action du joueur humain: raise
+Vous (230 chips) performs raise.
+Vous raises to 40 (added 40). Remaining chips: 190
+DEBUG LB_BETTING_ROUND_LOGIC(): Humain a misé 40. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: AI Player 1 has not matched the bet (0 vs 40).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 40, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 140. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.11 (Carte Haute (JC))
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: fold
+AI Player 1 (140 chips) performs fold.
+AI Player 1 folds.
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 40
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous']
+DEBUG is_betting_round_over: Less than 2 players remaining in hand. Round over (hand ends).
+DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 40
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 70
+All bets collected in the pot. Current pot: 70
+DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round (preflop): 1
+DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.
+DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: 70
+DEBUG LB_TEXAS_HOLDEM: Vous is the only player in hand. S/he should win the pot.
+DEBUG: Pot before collection of bets: 70
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 70
+All bets collected in the pot. Current pot: 70
+DEBUG: Attempt to distribute the 70 to the winners: ['Vous']
+Vous wins 70 chips. Total: 260
+Vous receives 70 from the pot.
+Pot distributed. Final pot: 0
+New hand. Dealer: Vous
+Vous pays the Small Blind: 10
+AI Player 1 pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: Vous
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 120. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.11 (Carte Haute (8C))
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: fold
+AI Player 1 (120 chips) performs fold.
+AI Player 1 folds.
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous']
+DEBUG is_betting_round_over: Less than 2 players remaining in hand. Round over (hand ends).
+DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round (preflop): 1
+DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.
+DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: 30
+DEBUG LB_TEXAS_HOLDEM: Vous is the only player in hand. S/he should win the pot.
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG: Attempt to distribute the 30 to the winners: ['Vous']
+Vous wins 30 chips. Total: 280
+Vous receives 30 from the pot.
+Pot distributed. Final pot: 0
+New hand. Dealer: AI Player 1
+AI Player 1 pays the Small Blind: 10
+Vous pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: AI Player 1
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found Vous (idx 0) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de Vous (humain: True). Jetons: 260. Mise actuelle: 0
+DEBUG LB_BETTING_ROUND_LOGIC(): Action du joueur humain: raise
+Vous (260 chips) performs raise.
+Vous raises to 40 (added 40). Remaining chips: 220
+DEBUG LB_BETTING_ROUND_LOGIC(): Humain a misé 40. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: AI Player 1 has not matched the bet (0 vs 40).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 40, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 110. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.11 (Carte Haute (8C))
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: fold
+AI Player 1 (110 chips) performs fold.
+AI Player 1 folds.
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 40
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous']
+DEBUG is_betting_round_over: Less than 2 players remaining in hand. Round over (hand ends).
+DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 40
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 70
+All bets collected in the pot. Current pot: 70
+DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round (preflop): 1
+DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.
+DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: 70
+DEBUG LB_TEXAS_HOLDEM: Vous is the only player in hand. S/he should win the pot.
+DEBUG: Pot before collection of bets: 70
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 70
+All bets collected in the pot. Current pot: 70
+DEBUG: Attempt to distribute the 70 to the winners: ['Vous']
+Vous wins 70 chips. Total: 290
+Vous receives 70 from the pot.
+Pot distributed. Final pot: 0
+New hand. Dealer: Vous
+Vous pays the Small Blind: 10
+AI Player 1 pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: Vous
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 90. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.11 (Carte Haute (9C))
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: fold
+AI Player 1 (90 chips) performs fold.
+AI Player 1 folds.
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous']
+DEBUG is_betting_round_over: Less than 2 players remaining in hand. Round over (hand ends).
+DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round (preflop): 1
+DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.
+DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: 30
+DEBUG LB_TEXAS_HOLDEM: Vous is the only player in hand. S/he should win the pot.
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG: Attempt to distribute the 30 to the winners: ['Vous']
+Vous wins 30 chips. Total: 310
+Vous receives 30 from the pot.
+Pot distributed. Final pot: 0
+New hand. Dealer: AI Player 1
+AI Player 1 pays the Small Blind: 10
+Vous pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: AI Player 1
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found Vous (idx 0) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de Vous (humain: True). Jetons: 290. Mise actuelle: 0
+DEBUG LB_BETTING_ROUND_LOGIC(): Action du joueur humain: all_in
+Vous (290 chips) performs all_in.
+Vous goes ALL-IN for 290 (total bet in round: 290).
+DEBUG LB_BETTING_ROUND_LOGIC(): Humain a misé 290. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: AI Player 1 has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 80. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.11 (Carte Haute (KH))
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: fold
+AI Player 1 (80 chips) performs fold.
+AI Player 1 folds.
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous']
+DEBUG is_betting_round_over: Less than 2 players remaining in hand. Round over (hand ends).
+DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 290
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 320
+All bets collected in the pot. Current pot: 320
+DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round (preflop): 1
+DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.
+DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: 320
+DEBUG LB_TEXAS_HOLDEM: Vous is the only player in hand. S/he should win the pot.
+DEBUG: Pot before collection of bets: 320
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 320
+All bets collected in the pot. Current pot: 320
+DEBUG: Attempt to distribute the 320 to the winners: ['Vous']
+Vous wins 320 chips. Total: 320
+Vous receives 320 from the pot.
+Pot distributed. Final pot: 0
+New hand. Dealer: Vous
+Vous pays the Small Blind: 10
+AI Player 1 pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: Vous
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 60. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.11 (Carte Haute (QC))
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: fold
+AI Player 1 (60 chips) performs fold.
+AI Player 1 folds.
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous']
+DEBUG is_betting_round_over: Less than 2 players remaining in hand. Round over (hand ends).
+DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round (preflop): 1
+DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.
+DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: 30
+DEBUG LB_TEXAS_HOLDEM: Vous is the only player in hand. S/he should win the pot.
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG: Attempt to distribute the 30 to the winners: ['Vous']
+Vous wins 30 chips. Total: 340
+Vous receives 30 from the pot.
+Pot distributed. Final pot: 0
+New hand. Dealer: AI Player 1
+AI Player 1 pays the Small Blind: 10
+Vous pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: AI Player 1
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found Vous (idx 0) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de Vous (humain: True). Jetons: 320. Mise actuelle: 0
+DEBUG LB_BETTING_ROUND_LOGIC(): Action du joueur humain: raise
+Vous (320 chips) performs raise.
+Vous raises to 40 (added 40). Remaining chips: 280
+DEBUG LB_BETTING_ROUND_LOGIC(): Humain a misé 40. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: AI Player 1 has not matched the bet (0 vs 40).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 40, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 50. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.11 (Carte Haute (6S))
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: fold
+AI Player 1 (50 chips) performs fold.
+AI Player 1 folds.
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 40
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous']
+DEBUG is_betting_round_over: Less than 2 players remaining in hand. Round over (hand ends).
+DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 40
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 70
+All bets collected in the pot. Current pot: 70
+DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round (preflop): 1
+DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.
+DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: 70
+DEBUG LB_TEXAS_HOLDEM: Vous is the only player in hand. S/he should win the pot.
+DEBUG: Pot before collection of bets: 70
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 70
+All bets collected in the pot. Current pot: 70
+DEBUG: Attempt to distribute the 70 to the winners: ['Vous']
+Vous wins 70 chips. Total: 350
+Vous receives 70 from the pot.
+Pot distributed. Final pot: 0
+New hand. Dealer: Vous
+Vous pays the Small Blind: 10
+AI Player 1 pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: Vous
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 30. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.22 (Pair)
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: fold
+AI Player 1 (30 chips) performs fold.
+AI Player 1 folds.
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous']
+DEBUG is_betting_round_over: Less than 2 players remaining in hand. Round over (hand ends).
+DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round (preflop): 1
+DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.
+DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: 30
+DEBUG LB_TEXAS_HOLDEM: Vous is the only player in hand. S/he should win the pot.
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 30
+All bets collected in the pot. Current pot: 30
+DEBUG: Attempt to distribute the 30 to the winners: ['Vous']
+Vous wins 30 chips. Total: 370
+Vous receives 30 from the pot.
+Pot distributed. Final pot: 0
+New hand. Dealer: AI Player 1
+AI Player 1 pays the Small Blind: 10
+Vous pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: AI Player 1
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found Vous (idx 0) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de Vous (humain: True). Jetons: 350. Mise actuelle: 0
+DEBUG LB_BETTING_ROUND_LOGIC(): Action du joueur humain: call
+Vous (350 chips) performs call.
+Vous calls 20 (total bet in the round: 20). Remaining chips: 330
+DEBUG LB_BETTING_ROUND_LOGIC(): Humain a misé 20. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: AI Player 1 has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 20. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.11 (Carte Haute (TD))
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: fold
+AI Player 1 (20 chips) performs fold.
+AI Player 1 folds.
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous']
+DEBUG is_betting_round_over: Less than 2 players remaining in hand. Round over (hand ends).
+DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().
+DEBUG: Pot before collection of bets: 30
+DEBUG: player: Vous
+DEBUG: player.current_bet: 20
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 50
+All bets collected in the pot. Current pot: 50
+DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round (preflop): 1
+DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.
+DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: 50
+DEBUG LB_TEXAS_HOLDEM: Vous is the only player in hand. S/he should win the pot.
+DEBUG: Pot before collection of bets: 50
+DEBUG: player: Vous
+DEBUG: player.current_bet: 0
+DEBUG: player: AI Player 1
+DEBUG: player.current_bet: 0
+DEBUG: Pot after collection of bets: 50
+All bets collected in the pot. Current pot: 50
+DEBUG: Attempt to distribute the 50 to the winners: ['Vous']
+Vous wins 50 chips. Total: 380
+Vous receives 50 from the pot.
+Pot distributed. Final pot: 0
+New hand. Dealer: Vous
+Vous pays the Small Blind: 10
+AI Player 1 pays the Big Blind: 20
+Highest bet after the blinds: 20. Pot: 30
+Private cards distributed.
+DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: preflop. Pot: 30. Mise la plus haute: 20
+Start of the 'preflop' betting round. First to act Début du tour de mise: Vous
+DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 0. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.22 (Pair)
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: check
+AI Player 1 (0 chips) performs check.
+WARNING: AI Player 1 tried to Check but couldn't (bet to match=20, current bet=0).
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: Vous has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found Vous (idx 0) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de Vous (humain: True). Jetons: 370. Mise actuelle: 0
+DEBUG LB_BETTING_ROUND_LOGIC(): Action du joueur humain: call
+Vous (370 chips) performs call.
+Vous calls 20 (total bet in the round: 20). Remaining chips: 350
+DEBUG LB_BETTING_ROUND_LOGIC(): Humain a misé 20. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: AI Player 1 has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 0. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.22 (Pair)
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: check
+AI Player 1 (0 chips) performs check.
+WARNING: AI Player 1 tried to Check but couldn't (bet to match=20, current bet=0).
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: AI Player 1 has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 0. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.22 (Pair)
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: check
+AI Player 1 (0 chips) performs check.
+WARNING: AI Player 1 tried to Check but couldn't (bet to match=20, current bet=0).
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: AI Player 1 has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 0. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.22 (Pair)
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: check
+AI Player 1 (0 chips) performs check.
+WARNING: AI Player 1 tried to Check but couldn't (bet to match=20, current bet=0).
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: AI Player 1 has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 0. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.22 (Pair)
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: check
+AI Player 1 (0 chips) performs check.
+WARNING: AI Player 1 tried to Check but couldn't (bet to match=20, current bet=0).
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: AI Player 1 has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 0. Mise actuelle: 0
+Robot AI Player 1: Hand Strength Score = 0.22 (Pair)
+DEBUG LB_BETTING_ROUND_LOGIC(): IA AI Player 1 action: check
+AI Player 1 (0 chips) performs check.
+WARNING: AI Player 1 tried to Check but couldn't (bet to match=20, current bet=0).
+DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé 0. Pot total: 30. Mise la plus haute: 20
+DEBUG is_betting_round_over: Checking end of round. Players in hand: ['Vous', 'AI Player 1']
+DEBUG is_betting_round_over: AI Player 1 has not matched the bet (0 vs 20).
+DEBUG is_betting_round_over: All bets are not equalized. The round is not over.
+DEBUG get_next_player_to_act: Found AI Player 1 (idx 1) to act.
+  Current bet: 0, Highest bet: 20, Has acted this round: False
+DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de AI Player 1 (humain: False). Jetons: 0. Mise actuelle: 0

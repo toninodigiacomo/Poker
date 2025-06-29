@@ -1,42 +1,28 @@
-# ╭───────────────────────────────────────────────────────────────────────────
-# │  This file manages the user interface and game flow in Ren'Py, by         ──
-# │  interacting with the game logic defined in poker_logic.py.
-# ╰───────────────────────────────────────────────────────────────────────────
-#   ╰───────────────────────────────────────────────────────────────────────────
+# game/script.rpy
+# Ce fichier gère l'interface utilisateur et le flux du jeu dans Ren'Py,
+# en interagissant avec la logique du jeu définie dans classPoker.py.
 
-# ╔═════════════════════════════════════════════════════════════════════════════
-# ║╔════════════════════════════════════════════════════════════════════════════
-# ║║  Importing  Python classes
-# ║╚════════════════════════════════════════════════════════════════════════════
-# ╚═════════════════════════════════════════════════════════════════════════════
+# Importation de vos classes Python
 init python:
-    # ► classPoker.py must be in game/python/
-    import python/classPoker as poker
-    import random
-# End init python
+    # La ligne d'importation correcte pour un fichier dans game/python/
+    import python.classPoker as poker
+    import random # Gardons random pour les IA, etc.
+    # sys n'est plus nécessaire si le bloc de débogage sys.path est supprimé.
 
-# ╔═════════════════════════════════════════════════════════════════════════════
-# ║╔════════════════════════════════════════════════════════════════════════════
-# ║║  Global game variables
-# ║╚════════════════════════════════════════════════════════════════════════════
-# ╚═════════════════════════════════════════════════════════════════════════════
-# ► These variables are instances of the poker_logic.py classes.
-default poker_game         = None                                                                                           # ═══► Instance of the PokerGame class
-default player_name        = "You"                                                                                          # ═══► Human player name
-default current_message_1  = ""                                                                                             # ═══► Main information message (e.g. “Betting round: Flop”)
-default current_message_2  = ""                                                                                             # ═══► Secondary information message (e.g. “Your cards: AH KS”)
-default game_debug_mode    = True                                                                                           # ═══► If True, AI maps are visible for debugging purposes
+# Variables globales du jeu (maintenues par Ren'Py, donc sauvegardées)
+default POKER_GAME              = None
+default player_name             = "Vous"
+default Current_Message_1       = ""
+default Current_Message_2       = ""
+default game_debug_mode         = True
 
-# ╔═════════════════════════════════════════════════════════════════════════════
-# ║╔════════════════════════════════════════════════════════════════════════════
-# ║║  Ren'Py styles definition
-# ║╚════════════════════════════════════════════════════════════════════════════
-# ╚═════════════════════════════════════════════════════════════════════════════
+# --- Définitions des styles Ren'Py ---
+# CORRECTION: Déplacé les définitions de style ici pour qu'elles soient reconnues avant l'écran.
 style default:
-    font  "Futura.ttc"
-    size  28
+    font "Futura.ttc"
+    size 28
     color "#FFFFFF"
-# End syle
+
 style STYLE_CHOICE_BUTTON_LIME:
     font "Futura.ttc"
     size 32
@@ -44,389 +30,431 @@ style STYLE_CHOICE_BUTTON_LIME:
     hover_color "#FFFF00"
     selected_idle_color "#00FF00"
     selected_hover_color "#AAFF00"
-    background "#404040CC"                                                                                                  # ═══► Slightly transparent background
+    background "#404040CC" # Fond légèrement transparent
     hover_background "#606060CC"
-    xmaximum 200                                                                                                            # ═══► Largeur max des boutons
-    ymaximum 60                                                                                                             # ═══► Hauteur max des boutons
+    xmaximum 200 # Largeur max des boutons
+    ymaximum 60  # Hauteur max des boutons
     box_wrap True
     text_align 0.5
-    text_vertical_align 0.5
-    padding (10, 10)
-    xradius 10                                                                                                              # ═══► Add rounded corners for enhanced aesthetics
-    yradius 10
-# End syle
+    # CORRECTION: Supprimé vertical_align, car non directement supporté ici.
+    # CORRECTION: Supprimé xradius et yradius d'ici pour la compatibilité
+    # xradius 10
+    # yradius 10
+
 style POKER_TEXT:
     font "Futura.ttc"
     size 28
     color "#FFFFFF"
-    outlines [ (1, "#000000", 0, 0) ]                                                                                       # ═══► Black outline for easy viewing
-# End syle
+    outlines [ (1, "#000000", 0, 0) ] # Contour noir pour la lisibilité
+
 style POKER_CHIP_TEXT:
     font "Futura.ttc"
     size 22
-    color "#FFFF00"                                                                                                         # ═══► Yellow for chips
+    color "#FFFF00" # Jaune pour les jetons
     outlines [ (1, "#000000", 0, 0) ]
-# End syle
+
 style POKER_PLAYER_NAME:
     font "Futura.ttc"
     size 26
-    color "#ADD8E6"                                                                                                         # ═══► Light blue for player names
+    color "#ADD8E6" # Bleu clair pour les noms de joueurs
     outlines [ (1, "#000000", 0, 0) ]
-# End syle
 
-# ╔═════════════════════════════════════════════════════════════════════════════
-# ║╔════════════════════════════════════════════════════════════════════════════
-# ║║  Ren'Py images definition
-# ║╚════════════════════════════════════════════════════════════════════════════
-# ╚═════════════════════════════════════════════════════════════════════════════
-# ► Make sure images are in the ‘images/’ folder.
-# ►    Ex: AH.png, 2C.png, card_back.png, poker_table_bg.jpg
-image card_back = "images/cards/card_back.png"                                                                         # ═══► Image for the back of the hidden cards
-#image poker_table_bg = "poker_table_bg.jpg"                                                                            # ═══► Poker table background image
+# --- Définition des images Ren'Py ---
+image card_back = "images/cards/card_back.png"
+image poker_table_bg = "poker_table_bg.jpg"
 
-# ╔═════════════════════════════════════════════════════════════════════════════
-# ║╔════════════════════════════════════════════════════════════════════════════
-# ║║  Ren'Py poker screens definition
-# ║╚════════════════════════════════════════════════════════════════════════════
-# ╚═════════════════════════════════════════════════════════════════════════════
-screen poker_game_screen():
-    tag menu                                                                                                           # ═══► Hide this screen with commands such as ‘hide screen menu’.
-   
-#    add "poker_table_bg"                                                                                               # ═══► Poker table background
+# --- Écran principal du jeu de poker (screen SC_POKER) ---
+screen SC_POKER(sMessage1, sMessage2):
+    tag menu
 
-    # ╭─────────────────────────────────────────────────────────────────────────
-    # │  Displaying common cards
-    # ╰─────────────────────────────────────────────────────────────────────────
+    add "poker_table_bg"
+
     frame:
         xalign 0.5
         yalign 0.3
-        background "#00000088"                                                                                         # ═══► Semi-transparent black background
+        background "#00000088"
         padding (10, 10)
-        xradius 10
-        yradius 10
+        # CORRECTION: Supprimé xradius et yradius d'ici, car non supporté directement sur frame.
         hbox:
             spacing 10
-            for card in poker_game.community_cards:
-                add card.get_image_name() size (80, 112)                                                               # ═══► Size of card images
-            # End for
-        # End hbox
-    # End frame
-    # ╭─────────────────────────────────────────────────────────────────────────
-    # │  Pot display
-    # ╰─────────────────────────────────────────────────────────────────────────
-    text "Pot: [poker_game.pot]" style POKER_TEXT:
+            for card in POKER_GAME.community_cards:
+                add card.get_image_name() size (80, 112)
+
+    text "Pot: [POKER_GAME.pot]" style "POKER_TEXT": # CORRECTION: Style entre guillemets
         xalign 0.5
         yalign 0.45
-        outlines [ (2, "#000000", 0, 0) ]                                                                              # ═══► More pronounced pot shape
-    # End text
-    # ╭─────────────────────────────────────────────────────────────────────────
-    # │  Displaying player information
-    # ╰─────────────────────────────────────────────────────────────────────────
-    # ► Use a "fixed" to position players around the table more flexibly.
+        outlines [ (2, "#000000", 0, 0) ]
+
     fixed:
-        $ human_player = poker_game.players[0]                                                                         # ═══► The human player is always first
+        $ human_player = POKER_GAME.players[0]
         vbox:
             xalign 0.5
             yalign 0.9
             spacing 5
             text "[human_player.name]":
-                style POKER_PLAYER_NAME
-                if human_player.is_dealer: text_color "#FFD700"                                                        # ═══► Gold for the dealer
-                if human_player.is_small_blind: text_color "#FFA07A"                                                   # ═══► Salmon for Small Blind
-                if human_player.is_big_blind: text_color "#FF8C00"                                                     # ═══► Dark orange for Big Blind
-            text "Chips: [human_player.chips]" style POKER_CHIP_TEXT
-            text "Bet: [human_player.current_bet]" style POKER_CHIP_TEXT
+                style "POKER_PLAYER_NAME" # CORRECTION: Style entre guillemets
+                # CORRECTION: Utiliser 'color' au lieu de 'text_color'
+                if human_player.is_dealer:
+                    color "#FFD700"
+                if human_player.is_small_blind:
+                    color "#FFA07A"
+                if human_player.is_big_blind:
+                    color "#FF8C00"
+            text "Jetons: [human_player.chips]" style "POKER_CHIP_TEXT" # CORRECTION: Style entre guillemets
+            text "Mise: [human_player.current_bet]" style "POKER_CHIP_TEXT" # CORRECTION: Style entre guillemets
             hbox:
                 spacing 5
                 for card in human_player.hand:
-                    add card.get_image_name() size (70, 98)                                                            # ═══► Slightly larger size for player cards
-                # End for
-            # End hbox
-            if human_player.has_folded: text "(FOLDED)" style POKER_TEXT color "#FF0000"
-            if human_player.is_all_in: text "(ALL-IN)" style POKER_TEXT color "#00FF00"
-        # End vbox
-        if len(poker_game.players) > 1:
-            $ robot_player = poker_game.players[1]                                                                      # ═══► Robot player (second player)
+                    add card.get_image_name() size (70, 98)
+
+            # CORRECTION: Conditionnement du displayable text entier
+            if human_player.has_folded:
+                text "(FOLDED)" style "POKER_TEXT" color "#FF0000" # CORRECTION: Style entre guillemets
+            if human_player.is_all_in:
+                text "(ALL-IN)" style "POKER_TEXT" color "#00FF00" # CORRECTION: Style entre guillemets
+
+        if len(POKER_GAME.players) > 1:
+            $ ai_player_1 = POKER_GAME.players[1]
             vbox:
                 xalign 0.5
                 yalign 0.1
                 spacing 5
-                text "[robot_player.name]":
-                    style POKER_PLAYER_NAME
-                    if robot_player.is_dealer: text_color "#FFD700"
-                    if robot_player.is_small_blind: text_color "#FFA07A"
-                    if robot_player.is_big_blind: text_color "#FF8C00"
-                # End text
-                text "Jetons: [robot_player.chips]" style POKER_CHIP_TEXT
-                text "Mise: [robot_player.current_bet]" style POKER_CHIP_TEXT
+                text "[ai_player_1.name]":
+                    style "POKER_PLAYER_NAME" # CORRECTION: Style entre guillemets
+                    # CORRECTION: Utiliser 'color' au lieu de 'text_color'
+                    if ai_player_1.is_dealer:
+                        color "#FFD700"
+                    if ai_player_1.is_small_blind:
+                        color "#FFA07A"
+                    if ai_player_1.is_big_blind:
+                        color "#FF8C00"
+                text "Jetons: [ai_player_1.chips]" style "POKER_CHIP_TEXT" # CORRECTION: Style entre guillemets
+                text "Mise: [ai_player_1.current_bet]" style "POKER_CHIP_TEXT" # CORRECTION: Style entre guillemets
                 hbox:
                     spacing 5
-                    for card in robot_player.hand:
-                        if game_debug_mode: add card.get_image_name() size (60, 84)
-                        else: add "card_back" size (60, 84)
-                    # End for
-                # End hbox
-                if robot_player.has_folded: text "(FOLDED)" style POKER_TEXT color "#FF0000"
-                if robot_player.is_all_in: text "(ALL-IN)" style POKER_TEXT color "#00FF00"
-            # End vbox
-        # End if
-    # End fixed
-   if poker_game is not None and poker_game.get_current_player() is not None:                                           # ═══► Player action section (only if it's his turn and he's human)
-        $ current_acting_player = poker_game.get_current_player()
+                    for card in ai_player_1.hand:
+                        # CORRECTION: Indenter les displayables sous les conditions
+                        if game_debug_mode:
+                            add card.get_image_name() size (60, 84)
+                        else:
+                            add "card_back" size (60, 84)
+                # CORRECTION: Conditionnement du displayable text entier
+                if ai_player_1.has_folded:
+                    text "(FOLDED)" style "POKER_TEXT" color "#FF0000" # CORRECTION: Style entre guillemets
+                if ai_player_1.is_all_in:
+                    text "(ALL-IN)" style "POKER_TEXT" color "#00FF00" # CORRECTION: Style entre guillemets
+
+
+    if POKER_GAME is not None and POKER_GAME.get_current_player() is not None:
+        $ current_acting_player = POKER_GAME.get_current_player()
         if current_acting_player.is_human:
             frame:
                 xalign 0.5
-                yalign 0.98                                                                                             # ═══► Positioning at the bottom of the screen
-                background "#000000CC"                                                                                  # ═══► Semi-transparent dark background
+                yalign 0.98
+                background "#000000CC"
                 padding (20, 10)
-                xradius 15                                                                                              # ═══► More rounded corners
-                yradius 15
                 hbox:
-                    spacing 15                                                                                          # ═══► Button spacing
-                    # ► Bouton FOLD
+                    spacing 15
+
                     textbutton "FOLD" action Return({"action": "fold"}):
-                        style STYLE_CHOICE_BUTTON_LIME
-                        tooltip "Abandon current hand."
-                    # End textbutton
-                    # ► Bouton CHECK / CALL
-                    $ amount_to_match_for_call = poker_game.current_highest_bet - current_acting_player.current_bet     # ═══► Calculates the amount the player must match to "call"
-                    if current_acting_player.can_check(poker_game.current_highest_bet):
+                        style "STYLE_CHOICE_BUTTON_LIME" # CORRECTION: Style entre guillemets
+                        tooltip "Abandonner la main actuelle."
+
+                    $ amount_to_match_for_call = POKER_GAME.current_highest_bet - current_acting_player.current_bet
+                    if current_acting_player.can_check(POKER_GAME.current_highest_bet):
                         textbutton "CHECK" action Return({"action": "check"}):
-                            style STYLE_CHOICE_BUTTON_LIME
-                            tooltip "Pass the round without betting (if no one has bet)."
-                        # End textbutton
-                    elif current_acting_player.can_call(poker_game.current_highest_bet):
-                        $ display_call_amount = min(amount_to_match_for_call, current_acting_player.chips)              # ═══► Display actual amount
-                        textbutton "CALL ([display_call_amount])" action Return({"action": "call", "amount_needed": poker_game.current_highest_bet}):
-                            style STYLE_CHOICE_BUTTON_LIME
-                            # ► Disable if not enough chips for a full call, unless ALL-IN button is available.
+                            style "STYLE_CHOICE_BUTTON_LIME" # CORRECTION: Style entre guillemets
+                            tooltip "Passer le tour sans miser (si personne n'a misé)."
+                    elif current_acting_player.can_call(POKER_GAME.current_highest_bet):
+                        $ display_call_amount = min(amount_to_match_for_call, current_acting_player.chips)
+                        textbutton "CALL ([display_call_amount])" action Return({"action": "call", "amount_needed": POKER_GAME.current_highest_bet}):
+                            style "STYLE_CHOICE_BUTTON_LIME" # CORRECTION: Style entre guillemets
                             sensitive current_acting_player.chips >= amount_to_match_for_call or current_acting_player.is_all_in
-                            tooltip "Match the current bet."
-                        # End textbutton
+                            tooltip "Égaler la mise actuelle."
                     else:
-                        textbutton "CHECK/CALL" action NullAction() sensitive False:                                    # ═══► If neither check nor call is possible, deactivate the
-                            style STYLE_CHOICE_BUTTON_LIME
-                        # End textbutton
-                    # End if
-                    # ► Bouton BET / RAISE
-                    $ min_bet_val = poker_game.BIG_BLIND_VAL                                                            # ═══► Minimum bet for a new bet
-                    $ min_raise_val = poker_game.BIG_BLIND_VAL * 2                                                      # ═══► Minimum for a raise (2x BB, common convention)
-                    if poker_game.current_highest_bet == 0:                                                             # ═══► If no one has bet (can BET)
-                        $ suggested_bet_amount = min(current_acting_player.chips, min_bet_val * 2)                      # ═══► Suggests 2xBB
+                        textbutton "CHECK/CALL" action NullAction() sensitive False:
+                            style "STYLE_CHOICE_BUTTON_LIME" # CORRECTION: Style entre guillemets
+
+                    $ min_bet_val = POKER_GAME.big_blind_val # Utilise la grosse blinde comme base pour la mise
+                    $ min_raise_val = POKER_GAME.big_blind_val # Utilise la grosse blinde comme base pour la relance
+
+                    if POKER_GAME.current_highest_bet == 0:
+                        $ suggested_bet_amount = min(current_acting_player.chips, min_bet_val * 2)
                         textbutton "BET ([suggested_bet_amount])" action Return({"action": "bet", "amount_needed": suggested_bet_amount}):
-                            style STYLE_CHOICE_BUTTON_LIME
-                            sensitive current_acting_player.chips >= suggested_bet_amount                               # ═══► Activate if the player has enough tokens
-                            tooltip "Making an initial bet."
-                        # End textbutton
-                    elif current_acting_player.can_raise(poker_game.current_highest_bet, min_raise_val):                # ═══► Can RAISE
-                        $ amount_to_add_for_raise = (poker_game.current_highest_bet - current_acting_player.current_bet) + min_raise_val
-                        $ display_raise_to = poker_game.current_highest_bet + min_raise_val                             # ═══► Total amount after raise: current stake + raise amount
-                        textbutton "RAISE ([display_raise_to])" action Return({"action": "raise", "amount_needed": poker_game.current_highest_bet, "raise_by": min_raise_val}):
-                            style STYLE_CHOICE_BUTTON_LIME
-                            sensitive current_acting_player.chips >= amount_to_add_for_raise                            # ═══► Activate if the player can afford the raise
-                            tooltip "Increase current bet."
-                        # End textbutton
-                    else:                                                                                               # ═══► When neither bet nor raise is possible
+                            style "STYLE_CHOICE_BUTTON_LIME" # CORRECTION: Style entre guillemets
+                            sensitive current_acting_player.chips >= suggested_bet_amount
+                            tooltip "Faire une mise initiale."
+                    elif current_acting_player.can_raise(POKER_GAME.current_highest_bet, min_raise_val):
+                        $ amount_to_add_for_raise = (POKER_GAME.current_highest_bet - current_acting_player.current_bet) + min_raise_val
+                        $ display_raise_to = POKER_GAME.current_highest_bet + min_raise_val
+                        textbutton "RAISE ([display_raise_to])" action Return({"action": "raise", "amount_needed": POKER_GAME.current_highest_bet, "raise_by": min_raise_val}):
+                            style "STYLE_CHOICE_BUTTON_LIME" # CORRECTION: Style entre guillemets
+                            sensitive current_acting_player.chips >= amount_to_add_for_raise
+                            tooltip "Augmenter la mise actuelle."
+                    else:
                         textbutton "BET/RAISE" action NullAction() sensitive False:
-                            style STYLE_CHOICE_BUTTON_LIME
-                        # End textbutton
-                    # End if
-                    if current_acting_player.chips > 0 and not current_acting_player.is_all_in:                         # ═══► ALL-IN button (always available if the player has chips and is not already all-in)
+                            style "STYLE_CHOICE_BUTTON_LIME" # CORRECTION: Style entre guillemets
+
+                    if current_acting_player.chips > 0 and not current_acting_player.is_all_in:
                         textbutton "ALL-IN ([current_acting_player.chips])" action Return({"action": "all_in"}):
-                            style STYLE_CHOICE_BUTTON_LIME
-                            tooltip "Bet all your chips."
-                        # End textbutton
+                            style "STYLE_CHOICE_BUTTON_LIME" # CORRECTION: Style entre guillemets
+                            tooltip "Miser tous vos jetons."
                     else:
                         textbutton "ALL-IN" action NullAction() sensitive False:
-                            style STYLE_CHOICE_BUTTON_LIME
-                        # End textbutton
-                    # End if
-                # End hbox
-            # End frame
-        # End if
-    # End if
-    # ╭─────────────────────────────────────────────────────────────────────────
-    # │  Floating information screen (SC_POKER_INFORMATION)
-    # ╰─────────────────────────────────────────────────────────────────────────
-    screen SC_POKER_INFORMATION(sMessage1, sMessage2):
-        frame:
-            background "#404040AA"                                                                                      # ═══► Semi-transparent grey background
-            xalign 1.0
-            yalign 0.01
-            xsize 0.30
-            ysize 0.12
-            padding (10, 5)
-            xradius 10
-            yradius 10
+                            style "STYLE_CHOICE_BUTTON_LIME" # CORRECTION: Style entre guillemets
+
+    use SC_POKER_INFORMATION(sMessage1, sMessage2)
+
+screen SC_POKER_INFORMATION(sMessage1, sMessage2):
+    frame:
+        background "#404040AA"
+        xalign 1.0
+        yalign 0.01
+        xsize 0.30
+        ysize 0.12
+        padding (10, 5)
+        # CORRECTION: Supprimé xradius et yradius d'ici, car non supporté directement sur frame.
+        hbox: # Un hbox ou vbox ici, si on veut mettre du contenu.
             vbox:
-                text sMessage1 style POKER_TEXT size 22
-                text sMessage2 style POKER_TEXT size 20
-            # End vbox
-        # End frame
-    # End screen
-    # ╭─────────────────────────────────────────────────────────────────────────
-    # │  Using the information screen
-    # ╰─────────────────────────────────────────────────────────────────────────
-    use SC_POKER_INFORMATION(current_message_1, current_message_2)
-# End screen
+                text sMessage1 style "POKER_TEXT" size 22 # CORRECTION: Style entre guillemets
+                text sMessage2 style "POKER_TEXT" size 20 # CORRECTION: Style entre guillemets
 
-# The game starts here.
-
-# ╔═════════════════════════════════════════════════════════════════════════════
-# ║╔════════════════════════════════════════════════════════════════════════════
-# ║║  Ren'Py labels
-# ║╚════════════════════════════════════════════════════════════════════════════
-# ╚═════════════════════════════════════════════════════════════════════════════
 label start:
-    "Welcome to Texas Hold'em!"
-    # ╭─────────────────────────────────────────────────────────────────────────
-    # │  Initializing the poker game
-    # ╰─────────────────────────────────────────────────────────────────────────
-    # ► num_ai_players=1 for a game with two players (one human, one robot)
-    $ poker_game = poker.PokerGame(human_player_name=player_name, num_ai_players=1)
-    "Get ready for a new game with [len(poker_game.players) - 1] AI opponent!"
-    # ╭─────────────────────────────────────────────────────────────────────────
-    # │  Call the main game loop
-    # ╰─────────────────────────────────────────────────────────────────────────
-    call LB_TEXAS_HOLDEM()
-    "Thanks for playing Texas Hold'em!"
-    return
-# End label
-label LB_TEXAS_HOLDEM():
-    # Boucle qui représente la succession des mains de poker
-    while PokerLoop:
-        # Afficher la main actuelle (pour le joueur humain, les cartes des IA sont cachées)
-        $ current_message_1 = f"Main #{poker_game.num_hands_played + 1}"
-        $ current_message_2 = "Nouvelle main en préparation..."
-        show screen poker_game_screen
-        pause 1.0 # Petite pause visuelle
+    "Bienvenue au Texas Hold'em!"
 
-        # Vérifier si la partie doit se terminer (ex: un seul joueur restant avec des jetons)
-        $ active_players_in_game = [p for p in poker_game.players if p.chips > 0]
-        if len(active_players_in_game) <= 1:
-            $ final_winner = active_players_in_game[0] if active_players_in_game else None
+    $ POKER_GAME = poker.PokerGame(human_player_name=player_name, num_ai_players=1, card_image_base_path="images/cards/", small_blind_val=10, big_blind_val=20, initial_chips_val=200)
+    "Préparez-vous pour une nouvelle partie avec [len(POKER_GAME.players) - 1] adversaire IA !"
+
+    $ _rollback = False
+    call LB_TEXAS_HOLDEM()
+    $ _rollback = True
+
+    "Merci d'avoir joué au Texas Hold'em !"
+    return
+
+label LB_TEXAS_HOLDEM():
+    $ PokerHandsLoop = True
+    while PokerHandsLoop:
+        $ Current_Message_1 = f"Main #{POKER_GAME.num_hands_played + 1}"
+        $ Current_Message_2 = "Nouvelle main en préparation..."
+        show screen SC_POKER(Current_Message_1, Current_Message_2)
+        pause 1.0
+
+        $ players_remaining_in_game = POKER_GAME.get_players_remaining_in_game()
+        if len(players_remaining_in_game) <= 1:
+            $ final_winner = players_remaining_in_game[0] if players_remaining_in_game else None
             if final_winner:
                 "Félicitations, [final_winner.name], vous avez remporté la partie !"
             else:
                 "La partie est terminée, mais aucun vainqueur n'a pu être désigné."
-            # End screen
-            PokerLoop = False # Sortir de la boucle de jeu
-        # End if
+            $ PokerHandsLoop = False
+            jump LB_END_GAME # Sauter à la fin du jeu complet
 
-        # 1. Réinitialiser la main et assigner le bouton du dealer
-        $ poker_game.reset_hand()
-        $ current_message_2 = f"Dealer: {poker_game.players[poker_game.dealer_index].name}"
-        show screen poker_game_screen
+        $ POKER_GAME.reset_hand()
+        $ Current_Message_2 = f"Dealer: {POKER_GAME.players[POKER_GAME.dealer_index].name}"
+        show screen SC_POKER(Current_Message_1, Current_Message_2)
         pause 1.0
 
-        # 2. Assigner et collecter les blinds
-        $ poker_game.assign_blinds()
-        $ current_message_2 = f"Petite Blinde: {pl.PokerGame.SMALL_BLIND_VAL}, Grosse Blinde: {pl.PokerGame.BIG_BLIND_VAL}"
-        show screen poker_game_screen
+        $ POKER_GAME.assign_blinds()
+        $ Current_Message_2 = f"Petite Blinde: {POKER_GAME.small_blind_val}, Grosse Blinde: {POKER_GAME.big_blind_val}"
+        show screen SC_POKER(Current_Message_1, Current_Message_2)
         pause 1.5
 
-        # 3. Distribuer les cartes privées (hole cards)
-        $ poker_game.deal_hole_cards()
-        $ current_message_1 = "Cartes distribuées."
-        # Afficher les cartes du joueur humain dans le message d'info
-        $ human_player_hand_str = " ".join(str(c) for c in poker_game.players[0].hand)
-        $ current_message_2 = f"Vos cartes: [human_player_hand_str]"
-        show screen poker_game_screen
+        $ POKER_GAME.deal_hole_cards()
+        $ Current_Message_1 = "Cartes distribuées."
+        $ human_player_hand_str = " ".join(str(c) for c in POKER_GAME.players[0].hand)
+        $ Current_Message_2 = f"Vos cartes: [human_player_hand_str]"
+        show screen SC_POKER(Current_Message_1, Current_Message_2)
         pause 2.0
 
-        # 4. Tour de mise (Pre-flop)
-        $ poker_game.game_state = pl.PokerGame.GAME_STATE_PREFLOP
-        $ current_message_1 = "Tour de mise: Pre-flop"
-        $ current_message_2 = f"Pot: {poker_game.pot}. Mise la plus haute: {poker_game.current_highest_bet}"
-        show screen poker_game_screen
-        call betting_round_logic # Appel de la logique du tour de mise
+        $ POKER_GAME.game_state = poker.PokerGame.GAME_STATE_PREFLOP
+        $ Current_Message_1 = "Tour de mise: Pre-flop"
+        $ Current_Message_2 = f"Pot: {POKER_GAME.pot}. Mise la plus haute: {POKER_GAME.current_highest_bet}"
+        show screen SC_POKER(Current_Message_1, Current_Message_2)
+        call LB_BETTING_ROUND_LOGIC()
 
-        # Vérifier si la main est terminée après le tour de mise (si un seul joueur actif)
-        $ active_players_count = len(poker_game.get_active_players_in_hand())
-        if active_players_count <= 1:
-            jump hand_end # Aller à la fin de la main si un seul joueur restant
+        # Débogage : Vérifier les joueurs actifs après le tour de mise
+        $ current_players_in_hand_count = len(POKER_GAME.get_players_in_hand_for_showdown()) # Use new function
+        $ print(f"DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round ({POKER_GAME.game_state}): {current_players_in_hand_count}")
+        if current_players_in_hand_count <= 1:
+            $ print(f"DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.")
+            jump LB_HAND_END
 
-        # 5. Distribuer le Flop et nouveau tour de mise
-        $ current_message_1 = "Tour de mise: Flop"
-        $ current_message_2 = "Distribution du Flop..."
-        show screen poker_game_screen
+        $ Current_Message_1 = "Tour de mise: Flop"
+        $ Current_Message_2 = "Distribution du Flop..."
+        show screen SC_POKER(Current_Message_1, Current_Message_2)
         pause 1.0
-        $ poker_game.deal_community_cards(3) # Distribue 3 cartes pour le Flop
-        show screen poker_game_screen
+        $ POKER_GAME.deal_community_cards(3)
+        show screen SC_POKER(Current_Message_1, Current_Message_2)
         pause 1.5
-        $ poker_game.game_state = pl.PokerGame.GAME_STATE_FLOP
-        call betting_round_logic
+        $ POKER_GAME.game_state = poker.PokerGame.GAME_STATE_FLOP
+        call LB_BETTING_ROUND_LOGIC()
 
-        if active_players_count <= 1:
-            jump hand_end
+        $ current_players_in_hand_count = len(POKER_GAME.get_players_in_hand_for_showdown()) # Use new function
+        $ print(f"DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round ({POKER_GAME.game_state}): {current_players_in_hand_count}")
+        if current_players_in_hand_count <= 1:
+            $ print(f"DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.")
+            jump LB_HAND_END
 
-        # 6. Distribuer le Turn et nouveau tour de mise
-        $ current_message_1 = "Tour de mise: Turn"
-        $ current_message_2 = "Distribution du Turn..."
-        show screen poker_game_screen
+        $ Current_Message_1 = "Tour de mise: Turn"
+        $ Current_Message_2 = "Distribution du Turn..."
+        show screen SC_POKER(Current_Message_1, Current_Message_2)
         pause 1.0
-        $ poker_game.deal_community_cards(1) # Distribue 1 carte pour le Turn
-        show screen poker_game_screen
+        $ POKER_GAME.deal_community_cards(1)
+        show screen SC_POKER(Current_Message_1, Current_Message_2)
         pause 1.5
-        $ poker_game.game_state = pl.PokerGame.GAME_STATE_TURN
-        call betting_round_logic
+        $ POKER_GAME.game_state = poker.PokerGame.GAME_STATE_TURN
+        call LB_BETTING_ROUND_LOGIC()
 
-        if active_players_count <= 1:
-            jump hand_end
+        $ current_players_in_hand_count = len(POKER_GAME.get_players_in_hand_for_showdown()) # Use new function
+        $ print(f"DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round ({POKER_GAME.game_state}): {current_players_in_hand_count}")
+        if current_players_in_hand_count <= 1:
+            $ print(f"DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.")
+            jump LB_HAND_END
 
-        # 7. Distribuer la River et nouveau tour de mise
-        $ current_message_1 = "Tour de mise: River"
-        $ current_message_2 = "Distribution de la River..."
-        show screen poker_game_screen
+        $ Current_Message_1 = "Tour de mise: River"
+        $ Current_Message_2 = "Distribution de la River..."
+        show screen SC_POKER(Current_Message_1, Current_Message_2)
         pause 1.0
-        $ poker_game.deal_community_cards(1) # Distribue 1 carte pour la River
-        show screen poker_game_screen
+        $ POKER_GAME.deal_community_cards(1)
+        show screen SC_POKER(Current_Message_1, Current_Message_2)
         pause 1.5
-        $ poker_game.game_state = pl.PokerGame.GAME_STATE_RIVER
-        call betting_round_logic
+        $ POKER_GAME.game_state = poker.PokerGame.GAME_STATE_RIVER
+        call LB_BETTING_ROUND_LOGIC()
 
-        if active_players_count <= 1:
-            jump hand_end
+        $ current_players_in_hand_count = len(POKER_GAME.get_players_in_hand_for_showdown()) # Use new function
+        $ print(f"DEBUG LB_TEXAS_HOLDEM: Players in hand after betting round ({POKER_GAME.game_state}): {current_players_in_hand_count}")
+        if current_players_in_hand_count <= 1:
+            $ print(f"DEBUG LB_TEXAS_HOLDEM: Only one player in hand or less. Jumps to hand_end.")
+            jump LB_HAND_END
 
-        # 8. Showdown (dévoilement des mains et détermination du gagnant)
-        label showdown:
-            $ poker_game.game_state = pl.PokerGame.GAME_STATE_SHOWDOWN
-            $ current_message_1 = "Showdown !"
-            $ current_message_2 = "Dévoilement des mains des joueurs restants..."
-            show screen poker_game_screen
-            pause 2.0
 
-            # Déterminer le(s) gagnant(s)
-            $ winners, winning_desc = poker_game.determine_winner()
-            $ current_message_1 = "Résultats de la main :"
-            $ current_message_2 = winning_desc
-            show screen poker_game_screen
-            pause 3.0
+        label LB_SHOWDOWN():
+             $ POKER_GAME.game_state = poker.PokerGame.GAME_STATE_SHOWDOWN
+             $ Current_Message_1 = "Showdown !"
+             $ Current_Message_2 = "Dévoilement des mains des joueurs restants..."
+             show screen SC_POKER(Current_Message_1, Current_Message_2)
+             pause 2.0
 
-            # Distribuer le pot
-            $ poker_game.distribute_pot(winners)
-            show screen poker_game_screen
-            pause 2.0
+             $ winners, winning_desc = POKER_GAME.determine_winner()
+             $ Current_Message_1 = "Résultats de la main :"
+             $ Current_Message_2 = winning_desc
+             show screen SC_POKER(Current_Message_1, Current_Message_2)
+             pause 3.0
 
-        # Fin de la main (pour les cas de fold anticipé ou de showdown)
-        label hand_end:
-            $ poker_game.game_state = pl.PokerGame.GAME_STATE_END_HAND
-            $ current_message_1 = "Fin de la main."
-            $ current_message_2 = "Préparation de la prochaine main..."
-            show screen poker_game_screen
-            pause 2.0
+             $ POKER_GAME.distribute_pot(winners)
+             # NOUVEAU: Message de confirmation après distribution du pot
+             $ Current_Message_1 = "Pot distribué !"
+             $ Current_Message_2 = f"Le pot est maintenant de {POKER_GAME.pot} et vos jetons: {POKER_GAME.players[0].chips}."
+             show screen SC_POKER(Current_Message_1, Current_Message_2)
+             " ... PAUSE ..." # Ceci met le jeu en pause et attend un clic du joueur
 
-            # Vérifier si des joueurs sont éliminés
-            $ players_eliminated_this_hand = [p for p in poker_game.players if p.chips <= 0]
-            if players_eliminated_this_hand:
-                $ current_message_1 = "Joueurs éliminés :"
-                $ current_message_2 = ", ".join([p.name for p in players_eliminated_this_hand]) + " n'ont plus de jetons !"
-                show screen poker_game_screen
+        label LB_HAND_END():
+             $ print(f"DEBUG LB_TEXAS_HOLDEM: Entering hand_end. Pot before cleanup: {POKER_GAME.pot}")
+             # If the hand ends by a fold (before showdown), the pot must still be distributed
+             $ players_for_win = POKER_GAME.get_players_in_hand_for_showdown() # Use new function
+             if len(players_for_win) == 1:
+                 $ winner_by_fold = players_for_win[0]
+                 $ print(f"DEBUG LB_TEXAS_HOLDEM: {winner_by_fold.name} is the only player in hand. S/he should win the pot.")
+                 # Assurez-vous que le pot est collecté avant de déterminer le gagnant ici.
+                 # Cela devrait déjà être fait à la fin de betting_round_logic, mais double-vérification.
+                 $ POKER_GAME.collect_bets_to_pot() # Repeated to ensure if the jump bypassed the final collection
+                 $ POKER_GAME.distribute_pot([winner_by_fold])
+                 $ current_message_1 = f"End of hand. {winner_by_fold.name} wins by default!"
+                 $ current_message_2 = f"Chips of {winner_by_fold.name}: {winner_by_fold.chips}"
+                 show screen SC_POKER(Current_Message_1, Current_Message_2)
+                 " ... PAUSE ..." # Ceci met le jeu en pause et attend un clic du joueur
+             else:
+                 $ print(f"DEBUG LB_TEXAS_HOLDEM: End of hand without single winner by fold (number of players in hand: {len(players_for_win)}).")
+
+             $ POKER_GAME.game_state = poker.PokerGame.GAME_STATE_END_HAND
+             $ Current_Message_1 = "Fin de la main."
+             $ Current_Message_2 = "Préparation de la prochaine main..."
+             show screen SC_POKER(Current_Message_1, Current_Message_2)
+             pause 2.0
+
+             $ players_eliminated_this_hand = [p for p in POKER_GAME.players if p.chips <= 0]
+             if players_eliminated_this_hand:
+                $ Current_Message_1 = "Joueurs éliminés :"
+                $ Current_Message_2 = ", ".join([p.name for p in players_eliminated_this_hand]) + " n'ont plus de jetons !"
+                show screen SC_POKER(Current_Message_1, Current_Message_2)
                 pause 2.0
 
-    return # Fin de la boucle de jeu principale
+    label LB_END_GAME():
+        return
 
+label LB_BETTING_ROUND_LOGIC():
+    $ print(f"DEBUG LB_BETTING_ROUND_LOGIC(): Début du tour de mise. État: {POKER_GAME.game_state}. Pot: {POKER_GAME.pot}. Mise la plus haute: {POKER_GAME.current_highest_bet}")
+    $ POKER_GAME.start_betting_round()
+    $ print(f"DEBUG LB_BETTING_ROUND_LOGIC(): Après start_betting_round. Pot: {POKER_GAME.pot}. Mise la plus haute: {POKER_GAME.current_highest_bet}")
 
+    # La boucle while continuera tant que le tour de mise n'est pas terminé
+    while not POKER_GAME.is_betting_round_over():
+        $ current_player = POKER_GAME.get_next_player_to_act()
+
+        if current_player is None:
+            $ print("DEBUG LB_BETTING_ROUND_LOGIC(): current_player est None. Tour de mise terminé (ou aucun joueur ne doit agir).")
+            jump betting_round_loop_end
+
+        $ print(f"DEBUG LB_BETTING_ROUND_LOGIC(): Au tour de {current_player.name} (humain: {current_player.is_human}). Jetons: {current_player.chips}. Mise actuelle: {current_player.current_bet}")
+        $ Current_Message_1 = f"Au tour de [current_player.name]."
+        $ Current_Message_2 = f"Mise à égaler: {POKER_GAME.current_highest_bet}. Jetons: {current_player.chips}"
+        show screen SC_POKER(Current_Message_1, Current_Message_2)
+        if current_player.is_human:
+            "C'est votre tour."
+            $ player_action_result = ui.interact()
+            $ print(f"DEBUG LB_BETTING_ROUND_LOGIC(): Action du joueur humain: {player_action_result['action']}")
+            $ chosen_action = player_action_result["action"]
+            $ amount_needed_for_action = player_action_result.get("amount_needed", POKER_GAME.current_highest_bet)
+            $ raise_by_amount = player_action_result.get("raise_by", 0)
+
+            $ bet_amount_paid = current_player.perform_action(chosen_action, amount_needed=amount_needed_for_action, raise_amount=raise_by_amount)
+            # LIGNE SUPPRIMÉE: $ POKER_GAME.pot += bet_amount_paid
+            $ print(f"DEBUG LB_BETTING_ROUND_LOGIC(): Humain a misé {bet_amount_paid}. Pot total: {POKER_GAME.pot}. Mise la plus haute: {POKER_GAME.current_highest_bet}")
+
+            if chosen_action in ["bet", "raise"]:
+                $ POKER_GAME.current_highest_bet = current_player.current_bet
+                $ POKER_GAME.last_raiser_index = POKER_GAME.players.index(current_player)
+
+        else:
+            "C'est au tour de [current_player.name] (IA)."
+            $ ai_decision = current_player.decide_action(
+                POKER_GAME.current_highest_bet,
+                POKER_GAME.pot,
+                len(POKER_GAME.get_players_in_hand_for_showdown()), # Use players in hand for AI decision context
+                POKER_GAME.community_cards,
+                POKER_GAME.small_blind_val,
+                POKER_GAME.big_blind_val
+            )
+            $ chosen_action = ai_decision["action"]
+            $ amount_needed_for_action = ai_decision.get("amount_needed", POKER_GAME.current_highest_bet)
+            $ raise_by_amount = ai_decision.get("raise_by", 0)
+
+            $ print(f"DEBUG LB_BETTING_ROUND_LOGIC(): IA {current_player.name} action: {chosen_action}")
+            $ bet_amount_paid = current_player.perform_action(chosen_action, amount_needed=amount_needed_for_action, raise_amount=raise_by_amount)
+            # LIGNE SUPPRIMÉE: $ POKER_GAME.pot += bet_amount_paid
+            $ print(f"DEBUG LB_BETTING_ROUND_LOGIC(): IA a misé {bet_amount_paid}. Pot total: {POKER_GAME.pot}. Mise la plus haute: {POKER_GAME.current_highest_bet}")
+
+            if chosen_action in ["bet", "raise"]:
+                $ POKER_GAME.current_highest_bet = current_player.current_bet
+                $ POKER_GAME.last_raiser_index = POKER_GAME.players.index(current_player)
+
+            show screen SC_POKER(Current_Message_1, Current_Message_2)
+            pause 1.5
+
+        show screen SC_POKER(Current_Message_1, Current_Message_2)
+        pause 0.5
+
+    # Le code après la boucle while (collect_bets_to_pot, messages de fin de tour)
+
+    # Le label pour la sortie anticipée de la boucle
+    label betting_round_loop_end:
+
+    $ print(f"DEBUG LB_BETTING_ROUND_LOGIC(): Boucle du tour de mise terminée. Appel de collect_bets_to_pot().")
+    $ POKER_GAME.collect_bets_to_pot()
+    $ Current_Message_1 = "Tour de mise terminé."
+    $ Current_Message_2 = f"Pot total: {POKER_GAME.pot}"
+    show screen SC_POKER(Current_Message_1, Current_Message_2)
+    pause 1.0
 
     return
-# End label
