@@ -1,37 +1,115 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 229, in script call
-    call LB_TEXAS_HOLDEM()
-  File "game/script.rpy", line 291, in script call
-    call LB_BETTING_ROUND_LOGIC()
-  File "game/script.rpy", line 392, in script
-    while not POKER_GAME.is_betting_round_over():
-  File "game/script.rpy", line 392, in <module>
-    while not POKER_GAME.is_betting_round_over():
-AttributeError: 'HumanPlayer' object has no attribute 'has_acted_in_round'
+  File "game/script.rpy", line 740, in script
+    if result == 'allin':
+  File "game/script.rpy", line 740, in script
+    if result == 'allin':
+  File "game/script.rpy", line 777, in <module>
+    # Affiche le screen d’action et attend le choix du joueur
+  File "renpy/common/00gamemenu.rpy", line 130, in _invoke_game_menu
+    renpy.call_in_new_context('_game_menu')
+  File "game/screens.rpy", line 585, in execute
+    screen save():
+  File "game/screens.rpy", line 585, in execute
+    screen save():
+  File "game/screens.rpy", line 589, in execute
+    use file_slots(_("Save"))
+  File "game/screens.rpy", line 589, in <module>
+    use file_slots(_("Save"))
+TypeError: 'RevertableDict' object is not callable
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 229, in script call
-    call LB_TEXAS_HOLDEM()
-  File "game/script.rpy", line 291, in script call
-    call LB_BETTING_ROUND_LOGIC()
-  File "game/script.rpy", line 392, in script
-    while not POKER_GAME.is_betting_round_over():
-  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/ast.py", line 1792, in execute
-    if renpy.python.py_eval(self.condition):
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/bootstrap.py", line 359, in bootstrap
+    renpy.main.main()
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/main.py", line 652, in main
+    run(restart)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/main.py", line 148, in run
+    renpy.execution.run_context(True)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/execution.py", line 958, in run_context
+    context.run()
+  File "game/script.rpy", line 740, in script
+    if result == 'allin':
+  File "lib/python3.9/future/utils/__init__.py", line 444, in raise_
+  File "game/script.rpy", line 740, in script
+    if result == 'allin':
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/ast.py", line 827, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script.rpy", line 777, in <module>
+    # Affiche le screen d’action et attend le choix du joueur
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/exports/statementexports.py", line 194, in pause
+    rv = renpy.ui.interact(mouse='pause', type='pause', roll_forward=roll_forward, pause=delay, pause_modal=modal)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/core.py", line 2215, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/core.py", line 3286, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/layout.py", line 1297, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/behavior.py", line 554, in event
+    rv = run(action)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/behavior.py", line 401, in run
+    return action(*args, **kwargs)
+  File "renpy/common/00gamemenu.rpy", line 130, in _invoke_game_menu
+    renpy.call_in_new_context('_game_menu')
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/game.py", line 377, in call_in_new_context
+    return renpy.execution.run_context(False)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/execution.py", line 958, in run_context
+    context.run()
+  File "renpy/common/_layout/screen_load_save.rpym", line 35, in script
+    $ ui.interact()
+  File "lib/python3.9/future/utils/__init__.py", line 444, in raise_
+  File "renpy/common/_layout/screen_load_save.rpym", line 35, in script
+    $ ui.interact()
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/ast.py", line 827, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/_layout/screen_load_save.rpym", line 35, in <module>
+    $ ui.interact()
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/core.py", line 2215, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/core.py", line 2745, in interact_core
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  [Previous line repeated 1 more time]
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/screen.py", line 480, in visit_all
+    callback(self)
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/core.py", line 2745, in <lambda>
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/screen.py", line 491, in per_interact
+    self.update()
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/display/screen.py", line 697, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 585, in execute
+    screen save():
+  File "game/screens.rpy", line 585, in execute
+    screen save():
+  File "game/screens.rpy", line 589, in execute
+    use file_slots(_("Save"))
+  File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/parameter.py", line 503, in evaluate
+    value = renpy.python.py_eval(v, locals=scope)
   File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/python.py", line 1209, in py_eval
     return py_eval_bytecode(code, globals, locals)
   File "/Volumes/INTERNAL_NVM/Games/RenPy SDK/renpy/python.py", line 1202, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 392, in <module>
-    while not POKER_GAME.is_betting_round_over():
-  File "python/classPoker.py", line 593, in is_betting_round_over
-AttributeError: 'HumanPlayer' object has no attribute 'has_acted_in_round'
+  File "game/screens.rpy", line 589, in <module>
+    use file_slots(_("Save"))
+TypeError: 'RevertableDict' object is not callable
 
 macOS-15.5-arm64-arm-64bit arm64
 Ren'Py 8.3.4.24120703
 Poker 1.0
-Sat Jun 28 19:14:26 2025
+Mon Jul  7 20:43:45 2025

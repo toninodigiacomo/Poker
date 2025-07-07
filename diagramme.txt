@@ -1,0 +1,118 @@
+Flux principal :
+----------------
+START
+ |
+ +--> Initialisation de la partie
+       |
+       v
+      Nouvelle Manche <----------------------------------------------------------------+
+       |                                                                               |
+       v                                                                               |
+      Distribution des cartes et blinds                                                |
+       |                                                                               |
+       v                                                                               |
+      Début du Tour de Mise <----------------------------------------------------+     |
+       |                                                                         |     |
+       v                                                                         |     |
+      Un joueur a fait All-In                                                    |     |
+       |                                                                         |     |
+       +--> [NON]                                                                |     |
+       |     |                                                                   |     |
+       |     v                                                                   |     |
+       |    Tour de mise en cours <----------------------------------------+     |     |
+       |     |                                                             |     |     |
+       |     v                                                             |     |     |
+       |    Tour du Joueur?                                                |     |     |
+       |     |                                                             |     |     |
+       |     +--> [HUMAIN]                                                 |     |     |
+       |     |     |                                                       |     |     |
+       |     |     v                                                       |     |     |
+       |     |    Afficher menu joueur                                     |     |     |
+       |     |     |                                                       |     |     |
+       |     |     v                                                       |     |     |
+       |     |    Action Joueur                                            |     |     |
+       |     |     |                                                       |     |     |
+       |     |     v                                                       |     |     |
+       |     |    Résoudre Action Joueur ----------------------------+     |     |     |
+       |     |                                                       |     |     |     |
+       |     +--> [ROBOT]                                            |     |     |     |
+       |           |                                                 |     |     |     |
+       |           v                                                 |     |     |     |
+       |          Action IA                                          |     |     |     |
+       |           |                                                 |     |     |     |
+       |           v                                                 |     |     |     |
+       |          Résoudre Action IA                                 |     |     |     |
+       |           |                                                 |     |     |     |
+       |           v                                                 |     |     |     |
+       |          Vérifier Habits et Jetons joueur <-----------------+     |     |     |
+	   |           |                                                       |     |     |
+	   |           +--> [(Habits > 1) et (Jetons =< 0)]                    |     |     |
+	   |           |     |                                                 |     |     |
+	   |           |     v                                                 |     |     |
+	   |           |	Perte d'un Habits et recharge à 100 Jetons --+     |     |     |
+	   |           |                                                 |     |     |     |
+	   |           +--> [(Habits < 5) et (Jetons >= 110)]            |     |     |     |
+	   |           |     |                                           |     |     |     |
+	   |           |     v                                           |     |     |     |
+	   |           |	Achat d'un Habits et perte de 100 jetons ----+     |     |     |
+	   |           |                                                 |     |     |     |
+	   |           +--> [Autres]                                     |     |     |     |
+	   |           |     |                                           |     |     |     |
+	   |           |     v                                           |     |     |     |
+	   |           |	Vérifier fin du tour de mise <---------------+     |     |     |
+       |           |     |                                                 |     |     |
+	   |           |     +--> [NON]                                        |     |     |
+	   |           |     |	   |                                           |     |     |
+	   |           |     |	   v                                           |     |     |
+       |           |     |	  Changer de joueur ---------------------------+     |     |
+	   |           |     |                                                       |     |
+       |           |     +--> [OUI] ---------------------------------------+     |     |
+	   |           |      	                                               |     |     |
+ 	   |           +--> [(Habits = 1) et (Jetons =< 20)]                   |     |     |
+	   |                 |                                                 |     |     |
+	   |                 v                                                 |     |     |
+	   |            	All-In                                             |     |     |
+	   |                 |                                                 |     |     |
+	   |                 v                                                 |     |     |
+	   |            	Second joueur s'aligne sur la mise                 |     |     |
+	   |                 |                                                 |     |     |
+	   |                 v                                                 |     |     |
+       +--> [OUI] ----> Fin du tour de mise <------------------------------+     |     |
+					     |                                                       |     |
+					     v                                                       |     |
+                        Vérifier nombre de tours de mise                         |     |
+						 |                                                       |     |
+                         +--> [Moins de 3]                                       |     |
+						 |      |                                                |     |
+						 |      v                                                |     |
+						 |     Distribuer carte commune -------------------------+     |
+                         |                                                             |
+						 +--> [Sinon]                                                  |
+						        |                                                      |
+								v                                                      |
+                               Showdown                                                |
+							    |                                                      |
+								v                                                      |
+							   Déterminer le gagnant                                   |
+							    |                                                      |
+								v                                                      |
+							   Distribuer le pot                                       |
+							    |                                                      |
+								v                                                      |
+							   Remise à zéro du pot et des mises                       |
+							    |                                                      |
+								v                                                      |
+							   Fin de Manche                                           |
+							    |                                                      |
+							    v                                                      |
+							   Vérifier si un joueur a (Jetons =< 0) et (Habits =< 1)  |
+                                |                                                      |
+								+--> [NON] --------------------------------------------+
+								|
+								+--> [OUI]
+                                      |
+									  v
+									 Fin de Partie
+									  |
+									  v
+									 END

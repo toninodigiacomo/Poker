@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 237: expected statement.
-    poker.PokerGame.INITIAL_CHIPS = 100
-                                  ^
+File "game/script.rpy", line 743: invalid syntax
+    $ renpy.say(None, "C'est au tour de l'ordinateur de jouer.")
+     ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Sat Jun 28 07:15:08 2025
+Mon Jul  7 20:28:41 2025
