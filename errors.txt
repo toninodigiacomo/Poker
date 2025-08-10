@@ -2,9 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 743: invalid syntax
-    $ renpy.say(None, "C'est au tour de l'ordinateur de jouer.")
-     ^
+File "game/script.rpy", line 1131: is not terminated with a newline. (Check strings and parenthesis.)
+                textbutton __("HELP") action Show("SC_POKER_INFORMATION_WINDOW", int_X0=1000, int_Y0=600, text_title=__("GAME INFORMATION"), text_message=information, text_continue=__("CONTINUE..."):
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Mon Jul  7 20:28:41 2025
+Fri Jul 25 20:29:29 2025
